@@ -2,9 +2,14 @@
   "name": "material-you-react",
   "version": "1.0.0",
   "description": "Material You: Material You (M3) Design system and its components for simple integration with Next.Js or other react-based frameworks",
-  "main": "index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "rollup": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -25,8 +30,17 @@
   },
   "homepage": "https://github.com/TheUltraCommunity/material-you-react#readme",
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.0",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "rollup-plugin-typescript2": "^0.36.0",
     "@types/react": "^18.3.9",
     "react": "^18.3.1",
+    "rollup": "^4.22.4",
+    "rollup-plugin-dts": "^6.1.1",
     "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "tslib": "^2.7.0",
+    "@rollup/plugin-typescript": "^11.1.6"
   }
 }
