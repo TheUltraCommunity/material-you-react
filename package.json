@@ -1,0 +1,32 @@
+{
+  "name": "material-you-react",
+  "version": "1.0.0",
+  "description": "Material You: Material You (M3) Design system and its components for simple integration with Next.Js or other react-based frameworks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheUltraCommunity/material-you-react.git"
+  },
+  "keywords": [
+    "material-you",
+    "material",
+    "m3",
+    "material-design",
+    "react",
+    "design-system"
+  ],
+  "author": "Manas Malla",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/TheUltraCommunity/material-you-react/issues"
+  },
+  "homepage": "https://github.com/TheUltraCommunity/material-you-react#readme",
+  "devDependencies": {
+    "@types/react": "^18.3.9",
+    "react": "^18.3.1",
+    "typescript": "^5.6.2"
+  }
+}
