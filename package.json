@@ -45,6 +45,7 @@
     "tslib": "^2.7.0"
   },
   "dependencies": {
-    "rollup-plugin-peer-deps-external": "^2.2.4"
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2"
   }
 }
