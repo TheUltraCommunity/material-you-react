@@ -8,13 +8,18 @@ type ElevatedButtonProps = {
 
 const ElevatedButton = (props: ElevatedButtonProps) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
   const [isActive, setIsActive] = useState(false);
   return (
     <button
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onFocus={() => setIsFocused(true)}
+      onBlur={() => setIsFocused(false)}
+      onMouseDown={() => setIsActive(true)}
+      onMouseUp={() => setIsActive(false)}
       className={`${
-        props.disabled || isHovered ? "md-elevation-0" : "md-elevation-1"
+        props.disabled ? "md-elevation-0" : "md-elevation-1"
       } label-large`}
       style={{
         cursor: props.disabled ? "not-allowed" : "pointer",
