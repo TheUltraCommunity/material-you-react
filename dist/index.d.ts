@@ -1,9 +1,10 @@
 import React from 'react';
 
-type ButtonProps = {
-    txt: string;
-    backgroundColor?: string;
+type ElevatedButtonProps = {
+    children: React.ReactNode;
+    icon?: string;
+    disabled?: boolean;
 };
-declare const Button: (props: ButtonProps) => React.JSX.Element;
+declare const ElevatedButton: (props: ElevatedButtonProps) => React.JSX.Element;
 
-export { Button };
+export { ElevatedButton };
