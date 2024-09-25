@@ -3,9 +3,7 @@ import React from 'react';
 type BottomAppBarProps = {
     backgroundColor?: string;
     items: string[];
-    floatingActionButton: boolean;
-    floatingActionButtonBackgroundColor: string;
-    floatingActionButtonIcon?: string;
+    floatingActionButton?: React.ReactNode;
 };
 declare function BottomAppBar(props: BottomAppBarProps): React.JSX.Element;
 
