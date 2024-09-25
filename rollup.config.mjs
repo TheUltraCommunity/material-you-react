@@ -3,6 +3,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
 import packageJson from "./package.json" with { type: "json" };
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
 
 export default [
   {
@@ -22,6 +23,7 @@ export default [
     plugins: [
       resolve(),
       commonjs(),
+      peerDepsExternal(),
       typescript({ tsconfig: "./tsconfig.json" }),
     ],
   },
