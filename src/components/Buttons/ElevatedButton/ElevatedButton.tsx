@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 type ElevatedButtonProps = {
   children: React.ReactNode;
@@ -7,10 +7,14 @@ type ElevatedButtonProps = {
 };
 
 const ElevatedButton = (props: ElevatedButtonProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [isActive, setIsActive] = useState(false);
   return (
     <button
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       className={`${
-        props.disabled ? "md-elevation-0" : "md-elevation-1"
+        props.disabled || isHovered ? "md-elevation-0" : "md-elevation-1"
       } label-large`}
       style={{
         cursor: props.disabled ? "not-allowed" : "pointer",

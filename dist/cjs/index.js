@@ -2811,7 +2811,9 @@ var reactExports = requireReact();
 var React = /*@__PURE__*/getDefaultExportFromCjs(reactExports);
 
 const ElevatedButton = (props) => {
-    return (React.createElement("button", { className: `${props.disabled ? "md-elevation-0" : "md-elevation-1"} label-large`, style: {
+    const [isHovered, setIsHovered] = reactExports.useState(false);
+    reactExports.useState(false);
+    return (React.createElement("button", { onMouseEnter: () => setIsHovered(true), onMouseLeave: () => setIsHovered(false), className: `${props.disabled || isHovered ? "md-elevation-0" : "md-elevation-1"} label-large`, style: {
             cursor: props.disabled ? "not-allowed" : "pointer",
             display: "flex",
             height: "40px",
