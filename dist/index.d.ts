@@ -14,4 +14,11 @@ type ElevatedButtonProps = {
 };
 declare const ElevatedButton: (props: ElevatedButtonProps) => React.JSX.Element;
 
-export { BottomAppBar, ElevatedButton };
+type FilledButtonProps = {
+    children: React.ReactNode;
+    icon?: string;
+    disabled?: boolean;
+};
+declare const FilledButton: (props: FilledButtonProps) => React.JSX.Element;
+
+export { BottomAppBar, ElevatedButton, FilledButton };

@@ -9,13 +9,14 @@ type BottomAppBarProps = {
 export default function BottomAppBar(props: BottomAppBarProps) {
   return (
     <div
+      className="bottom-app-bar"
       style={{
         backgroundColor: `${
           props.backgroundColor ?? "rgb(var(--md-sys-color-surface-container))"
         }`,
         width: "100vw",
         height: "80px",
-        padding: "12px 16px 12px 16px",
+        padding: props.floatingActionButton ? "16px" : "12px 16px",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
