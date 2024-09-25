@@ -2810,8 +2810,9 @@ function requireReact () {
 var reactExports = requireReact();
 var React = /*@__PURE__*/getDefaultExportFromCjs(reactExports);
 
-const Button = () => {
-    return React.createElement("button", null, "Click me");
+const Button = (props) => {
+    var _a;
+    return React.createElement("button", { style: { backgroundColor: `${(_a = props.backgroundColor) !== null && _a !== void 0 ? _a : 'green'}` } }, props.txt);
 };
 
 exports.Button = Button;

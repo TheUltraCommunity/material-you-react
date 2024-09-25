@@ -1,3 +1,7 @@
 import React from "react";
-declare const Button: () => React.JSX.Element;
+type ButtonProps = {
+    txt: string;
+    backgroundColor?: string;
+};
+declare const Button: (props: ButtonProps) => React.JSX.Element;
 export default Button;
