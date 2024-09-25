@@ -18,7 +18,7 @@ export default function TopAppBarCenterLarge(props: TopAppBarCenterLargeProps) {
                 padding: '20px 16px 28px',
                 display: 'flex',
                 justifyContent: 'space-between',
-                alignItems: 'center',
+                alignItems: 'start',
                 gap: '24px',
                 position: 'fixed',
                 top: '0',

@@ -18,7 +18,7 @@ export default function TopAppBarCenterMedium(props: TopAppBarCenterMediumProps)
                 padding: '0px 16px',
                 display: 'flex',
                 justifyContent: 'space-between',
-                alignItems: 'center',
+                alignItems: 'start',
                 gap: '24px',
                 position: 'fixed',
                 top: '0',
