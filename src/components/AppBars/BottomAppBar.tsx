@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 type BottomAppBarProps = {
     backgroundColor?: string,
@@ -9,6 +9,10 @@ type BottomAppBarProps = {
 }
 
 export default function BottomAppBar(props: BottomAppBarProps) {
+    const [isHovered, setIsHovered] = useState<boolean>(false);
+    const [isFocused, setIsFocused] = useState<boolean>(true);
+    const [isActive, setIsActive] = useState<boolean>(true);
+
     return (
         <div
             style={{
@@ -35,13 +39,14 @@ export default function BottomAppBar(props: BottomAppBarProps) {
                 }}
             >
                 {
-                    props.items.map((element, index) => <span 
+                    props.items.map((element, index) => <span
                         key={index}
-                        className="material-symbols-outlined" 
+                        className="material-symbols-outlined"
                         style={
-                            { width: '24px',
-                              height: '24px',
-                              color: 'rbg(var(--md-sys-color-on-secondary-container))'
+                            {
+                                width: '24px',
+                                height: '24px',
+                                color: 'rbg(var(--md-sys-color-on-secondary-container))'
                             }}>{element || 'add'}</span>)
                 }
             </div>
@@ -61,6 +66,12 @@ export default function BottomAppBar(props: BottomAppBarProps) {
                         }}
                     >
                         <span
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => setIsHovered(false)}
+                            onFocus={() => setIsFocused(true)}
+                            onBlur={() => setIsFocused(false)}
+                            onMouseDown={() => setIsActive(true)}
+                            onMouseUp={() => setIsActive(false)}
                             className="material-symbols-outlined"
                             style={{
                                 width: '24px',
