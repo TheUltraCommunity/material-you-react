@@ -22,6 +22,7 @@
   floatingActionButtonBackgroundColor="red"
   floatingActionButtonIcon="add"
 />
+```
 
 
 ***********************
@@ -38,7 +39,6 @@
 
 ### Usage
 
-```jsx
 <[ComponentName]
   prop1="value"
   prop2={value}

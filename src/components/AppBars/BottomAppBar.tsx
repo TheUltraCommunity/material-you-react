@@ -12,7 +12,7 @@ export default function BottomAppBar(props: BottomAppBarProps) {
     return (
         <div
             style={{
-                backgroundColor: `${props.backgroundColor ?? 'var(--md-sys-color-surface-container)'}`,
+                backgroundColor: `${props.backgroundColor ?? 'rbg(var(--md-sys-color-surface-container))'}`,
                 width: '100vw',
                 height: '80px',
                 padding: '12px 16px 12px 16px',
@@ -41,7 +41,7 @@ export default function BottomAppBar(props: BottomAppBarProps) {
                         style={
                             { width: '24px',
                               height: '24px',
-                              color: 'var(--md-sys-color-on-secondary-container)'
+                              color: 'rbg(var(--md-sys-color-on-secondary-container))'
                             }}>{element || 'add'}</span>)
                 }
             </div>
@@ -49,15 +49,15 @@ export default function BottomAppBar(props: BottomAppBarProps) {
             {
                 props.floatingActionButton && (
                     <div
+                        className="md-elevation-2"
                         style={{
-                            backgroundColor: `${props.floatingActionButtonBackgroundColor ?? 'var(--md-sys-color-primary-container)'}`,
+                            backgroundColor: `${props.floatingActionButtonBackgroundColor ?? 'rbg(var(--md-sys-color-primary-container))'}`,
                             width: '56px',
                             height: '56px',
                             borderRadius: '16px',
                             display: 'flex',
                             justifyContent: 'center',
                             alignItems: 'center',
-                            boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)'
                         }}
                     >
                         <span
@@ -65,7 +65,7 @@ export default function BottomAppBar(props: BottomAppBarProps) {
                             style={{
                                 width: '24px',
                                 height: '24px',
-                                color: 'var(--md-sys-color-on-primary-container)'
+                                color: 'rbg(var(--md-sys-color-on-primary-container))'
                             }}
                         >
                             {props.floatingActionButtonIcon || 'add'}
