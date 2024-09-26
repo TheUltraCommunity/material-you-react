@@ -9,7 +9,7 @@ type TopAppBarCenterAlignedProps = {
 
 export default function TopAppBarCenterAligned(props: TopAppBarCenterAlignedProps) {
     return (
-        <div
+        <div   
             style={{
                 backgroundColor: `${props.containerBackgroundColor ?? "rgb(var(--md-sys-color-surface-container))"}`,
                 width: '100vw',
@@ -20,7 +20,7 @@ export default function TopAppBarCenterAligned(props: TopAppBarCenterAlignedProp
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 gap: '24px',
-                position: 'fixed',
+                position: 'sticky',
                 top: '0',
                 left: '0'
             }}

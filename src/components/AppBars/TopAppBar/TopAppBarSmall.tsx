@@ -20,7 +20,7 @@ export default function TopAppBarCenterSmall(props: TopAppBarCenterSmallProps) {
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 gap: '24px',
-                position: 'fixed',
+                position: 'sticky',
                 top: '0',
                 left: '0'
             }}

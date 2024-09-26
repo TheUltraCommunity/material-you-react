@@ -20,7 +20,7 @@ export default function TopAppBarCenterLarge(props: TopAppBarCenterLargeProps) {
                 justifyContent: 'space-between',
                 alignItems: 'start',
                 gap: '24px',
-                position: 'fixed',
+                position: 'sticky',
                 top: '0',
                 left: '0'
             }}
