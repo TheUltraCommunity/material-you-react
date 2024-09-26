@@ -1,19 +1,18 @@
 import React, { useState } from "react";
 
-type ElevatedButtonProps = {
-  children: React.ReactNode;
+type TextButtonProps = {
+  children: React.ReactNode[] | React.ReactNode;
   icon?: string;
   disabled?: boolean;
-  containerColor?: string;
-  contentColor?: string;
   width?: string;
+  contentColor?: string;
 };
 
-const ElevatedButton = (props: ElevatedButtonProps) => {
+const TextButton = (props: TextButtonProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
-  const [isFocusedWithKeyboard, setIsFocusedWithKeyboard] = useState(true);
   const [isActive, setIsActive] = useState(false);
+  const [isFocusedWithKeyboard, setIsFocusedWithKeyboard] = useState(true);
   return (
     <button
       onMouseEnter={() => setIsHovered(true)}
@@ -29,13 +28,8 @@ const ElevatedButton = (props: ElevatedButtonProps) => {
       }}
       onTouchStart={() => setIsFocusedWithKeyboard(false)}
       onMouseUp={() => setIsActive(false)}
-      className={`${
-        props.disabled
-          ? "md-elevation-0"
-          : isActive || isFocused || !isHovered
-          ? "md-elevation-1"
-          : "md-elevation-2"
-      } label-large`}
+      className={`md-elevation-0
+         label-large`}
       style={{
         width: props.width || "fit-content",
         outlineOffset: isFocused && isFocusedWithKeyboard ? "2px" : undefined,
@@ -47,23 +41,16 @@ const ElevatedButton = (props: ElevatedButtonProps) => {
         display: "flex",
         height: "40px",
         backgroundColor: props.disabled
-          ? "rgba(var(--md-sys-color-on-surface), 12%)"
-          : isFocused || isActive
-          ? `color-mix(in srgb, ${
-              props.containerColor ||
-              "rgb(var(--md-sys-color-surface-container-low))"
-            },rgb(var(--md-sys-color-primary)) 10%)`
+          ? "transparent"
+          : //
+          isFocused || isActive
+          ? `rgba(var(--md-sys-color-primary), 10%)`
           : isHovered
-          ? `color-mix(in srgb, ${
-              props.containerColor ||
-              "rgb(var(--md-sys-color-surface-container-low))"
-            },rgb(var(--md-sys-color-primary)) 8%)`
-          : `${
-              props.containerColor ||
-              "rgb(var(--md-sys-color-surface-container-low))"
-            }`,
+          ? `rgba(var(--md-sys-color-primary), 8%)`
+          : "transparent",
+        //   : `${props.containerColor || "rgb(var(--md-sys-color-primary))"}`,
         borderRadius: "20px",
-        padding: props.icon != null ? "0px 24px 0px 16px" : "0px 24px",
+        padding: props.icon != null ? "0px 16px 0px 12px" : "0px 12px",
         alignItems: "center",
         justifyContent: "center",
         color: props.disabled
@@ -87,4 +74,4 @@ const ElevatedButton = (props: ElevatedButtonProps) => {
   );
 };
 
-export default ElevatedButton;
+export default TextButton;
