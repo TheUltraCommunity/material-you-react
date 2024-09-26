@@ -282,7 +282,7 @@
    /* Title Small font size */
    --md-sys-typescale-title-small-size-value: 14px;
    --md-sys-typescale-title-small-size-unit: 2px;
-   --md-sys-typescale-title-small-size: 14px;
+   --md-sys-typescale-title-small-size: 22px;
    /* Title Small font weight */
    --md-sys-typescale-title-small-weight: var(--md-ref-typeface-weight-medium);
    /* Title Small font name */
@@ -303,7 +303,7 @@
    /* Title Medium font size */
    --md-sys-typescale-title-medium-size-value: 16px;
    --md-sys-typescale-title-medium-size-unit: 2px;
-   --md-sys-typescale-title-medium-size: 16px;
+   --md-sys-typescale-title-medium-size: 24px;
    /* Title Medium font weight */
    --md-sys-typescale-title-medium-weight: var(--md-ref-typeface-weight-medium);
    /* Title Medium font name */
@@ -324,7 +324,7 @@
    /* Title Large font size */
    --md-sys-typescale-title-large-size-value: 22px;
    --md-sys-typescale-title-large-size-unit: 2px;
-   --md-sys-typescale-title-large-size: 22px;
+   --md-sys-typescale-title-large-size: 28px;
    /* Title Large font weight */
    --md-sys-typescale-title-large-weight: var(--md-ref-typeface-weight-regular);
    /* Title Large font name */

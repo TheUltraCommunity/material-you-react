@@ -1,2 +1,3 @@
-export * from './components';
 import './globals.css'
+
+export * from './components';

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 type BottomAppBarProps = {
   backgroundColor?: string;
@@ -7,6 +7,9 @@ type BottomAppBarProps = {
 };
 
 export default function BottomAppBar(props: BottomAppBarProps) {
+  const [isHovered, setIsHovered] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+
   return (
     <div
       className="bottom-app-bar"
@@ -35,12 +38,23 @@ export default function BottomAppBar(props: BottomAppBarProps) {
       >
         {props.items.map((element, index) => (
           <span
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            onMouseDown={() => setIsActive(true)}
+            onMouseUp={() => setIsActive(false)}
             key={index}
-            className="material-symbols-rounded"
+            className={`
+              ${!isHovered ? "md-elevation-0" : "md-elevation-1"}
+              label-large material-symbols-rounded`}
             style={{
               width: "24px",
               height: "24px",
-              color: "rgb(var(--md-sys-color-on-secondary-container))",
+              cursor: "pointer",
+              color: `${
+                isActive
+                  ? "rgb(var(--md-sys-color-on-tertiary-container))"
+                  : "rgb(var(--md-sys-color-on-secondary-container))"
+              }`,
             }}
           >
             {element || "add"}
