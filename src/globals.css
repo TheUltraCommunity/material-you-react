@@ -725,8 +725,24 @@ html{
 /* Filled Text Field  */
 
 .filled-text-field-inner-container {
+  background-color: rgb(var(--md-sys-color-surface-container-highest));
   position: relative;
   border-bottom: 1px solid rgb(var(--md-sys-color-on-surface-variant));
+}
+
+.filled-text-field-inner-container.error {
+  position: relative;
+  border-bottom: 1px solid rgb(var(--md-sys-color-error));
+} 
+
+.filled-text-field-inner-container.error:hover {
+  position: relative;
+  border-bottom: 1px solid rgb(var(--md-sys-color-on-error-container));
+} 
+
+.filled-text-field-inner-container:hover {
+  position: relative;
+  border-bottom: 1px solid rgb(var(--md-sys-color-on-surface));
 }
 
 .filled-text-field-inner-container.focused::before,
@@ -736,6 +752,16 @@ html{
   width: 50%;
   position: absolute;
   background: rgb(var(--md-sys-color-primary));
+  transition: 0.2s ease all;
+}
+
+.filled-text-field-inner-container.focused.error::before,
+.filled-text-field-inner-container.focused.error::after {
+  content: "";
+  height: 3px;
+  width: 50%;
+  position: absolute;
+  background: rgb(var(--md-sys-color-error));
   transition: 0.2s ease all;
 }
 
@@ -754,6 +780,30 @@ html{
   width: 100%;
 }
 
+.filled-text-field-leading-icon{
+  color: rgb(var(--md-sys-color-on-surface-variant));
+}
+
+.filled-text-field-leading-icon.error{
+  color: rgb(var(--md-sys-color-error));
+}
+
+.filled-text-field-leading-icon.error:hover {
+  color: rgb(var(--md-sys-color-on-surface-variant));
+}
+
+.filled-text-field-trailing-icon{
+  color: rgb(var(--md-sys-color-on-surface-variant));
+}
+
+.filled-text-field-trailing-icon.error{
+  color: rgb(var(--md-sys-color-error));
+}
+
+.filled-text-field-trailing-icon.error:hover {
+  color: rgb(var(--md-sys-color-on-error-container));
+}
+
 .filled-text-field-input {
   caret-color: 'rgb(var(--md-sys-color-primary))';
   padding: 10px 10px 7px 5px;
@@ -761,6 +811,10 @@ html{
   width: 100%;
   border: none;
   background: transparent;
+}
+
+.filled-text-field-input.error:focus {
+  caret-color: 'rgb(var(--md-sys-color-error))';
 }
 
 .filled-text-field-input:focus {
@@ -783,9 +837,24 @@ html{
   -webkit-transition: 0.2s ease all;
 }
 
+.filled-text-field-label.error {
+  color: rgb(var(--md-sys-color-error));
+}
+
+.filled-text-field-label.error:hover {
+  color: rgb(var(--md-sys-color-on-error-container));
+}
+
 .filled-text-field-input:focus ~ .filled-text-field-label,
 .filled-text-field-input:not(:placeholder-shown) ~ .filled-text-field-label {
   top: -8px;
   font-size: var(--md-sys-typescale-body-small-size);
   color: rgb(var(--md-sys-color-primary));
+}
+
+.filled-text-field-input:focus ~ .filled-text-field-label.error,
+.filled-text-field-input:not(:placeholder-shown) ~ .filled-text-field-label.error {
+  top: -8px;
+  font-size: var(--md-sys-typescale-body-small-size);
+  color: rgb(var(--md-sys-color-error));
 }

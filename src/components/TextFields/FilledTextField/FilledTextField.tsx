@@ -8,7 +8,9 @@ type FilledTextFieldProps = {
     maxLength?: number;
     required: boolean;
     supportingText?: string;
-    trailingIcon?: string
+    trailingIcon?: string;
+    disabled?: boolean,
+    error?: boolean
 }
 
 export default function FilledTextField(props: FilledTextFieldProps) {
@@ -16,7 +18,7 @@ export default function FilledTextField(props: FilledTextFieldProps) {
     const [inputValue, setInputValue] = useState("");
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setInputValue(e.target.value);
+        setInputValue(e.target.value);
     };
     return (
 
@@ -28,18 +30,19 @@ export default function FilledTextField(props: FilledTextFieldProps) {
                 justifyContent: 'start',
                 alignItems: 'center',
                 gap: '4px',
+                opacity: props.disabled ? 0.4 : 1,
+                pointerEvents: props.disabled ? "none" : "auto",
+                cursor: 'pointer'
             }}
         >
             {/* Input Container ( ~ except supporting text ) */}
             <div
-                className={`filled-text-field-inner-container ${isFocused ? "focused" : ""}`}
+                className={`filled-text-field-inner-container ${isFocused ? "focused" : ""} ${props.error ? "error" : ""}`}
                 style={{
-                    backgroundColor: 'rgb(var(--md-sys-color-surface-container-highest))',
                     width: '100%',
                     minHeight: '56px',
                     height: 'auto',
                     padding: `${props.leadingIcon && props.trailingIcon ? "8px 12px" : props.leadingIcon ? "8px 16px 8px 12px" : "8px 16px"}`,
-                    borderBottom: '1px solid rgb(var(--md-sys-color-on-surface-variant))',
                     borderTopLeftRadius: '4px',
                     borderTopRightRadius: '4px',
                     display: 'flex',
@@ -54,10 +57,12 @@ export default function FilledTextField(props: FilledTextFieldProps) {
                 {/* Leading Icon */}
                 {props.leadingIcon && (
                     <div
+                        className={`filled-text-field-leading-icon ${props.error && "error"}`}
                         style={{
                             width: "24px",
                             height: "24px",
-                            color: 'rgb(var(--md-sys-color-on-surface-variant))'
+                            color: 'rgb(var(--md-sys-color-on-surface-variant))',
+                            cursor: 'none'
                         }}
                     >
                         <span className="material-symbols-rounded">
@@ -72,10 +77,11 @@ export default function FilledTextField(props: FilledTextFieldProps) {
                     <input
                         type={props.inputType}
                         required={props.required}
+                        disabled={props.disabled}
                         maxLength={props.maxLength}
                         onChange={handleInputChange}
                         placeholder=""
-                        className="filled-text-field-input"
+                        className={`filled-text-field-input ${props.error} && "error" `}
                         style={{
                             color: 'rgb(var(--md-sys-color-on-surface))',
                             font: 'var(--md-sys-typescale-body-large-font)',
@@ -83,13 +89,13 @@ export default function FilledTextField(props: FilledTextFieldProps) {
                             fontSize: 'var(--md-sys-typescale-body-large-size)',
                             fontWeight: 'var(--md-sys-typescale-body-large-weight)',
                             letterSpacing: 'var(--md-sys-typescale-body-large-tracking)',
-                            textWrap:  'wrap'
+                            caretColor:`${props.error} ? rgb(var(--md-sys-color-error)) : rgb(var(--md-sys-color-primary))`
                         }}
                     />
 
                     {/* label text */}
                     <label
-                        className="filled-text-field-label"
+                        className={`filled-text-field-label ${props.error ? "error" : ""}`}
                     >
                         {props.labelText}
                     </label>
@@ -98,11 +104,11 @@ export default function FilledTextField(props: FilledTextFieldProps) {
 
                 {/* Trailing Icon */}
                 {props.trailingIcon && (
-                    <div
+                    <div   
+                        className={`filled-text-field-trailing-icon ${props.error && "error"}`}
                         style={{
                             width: "24px",
                             height: "24px",
-                            color: 'rgb(var(--md-sys-color-on-surface-variant))',
                             cursor: 'pointer'
                         }}
                     >
@@ -122,6 +128,7 @@ export default function FilledTextField(props: FilledTextFieldProps) {
                 alignItems: 'start',
                 padding: '0px 16px',
                 gap: '16px',
+                color: `${props.error ? "rgb(var(--md-sys-color-error))" : "rgb(var(--md-sys-color-on-surface-variant))"}`,
                 font: 'var(--md-sys-typescale-body-small-font)',
                 fontWeight: 'var(--md-sys-typescale-body-small-weight)',
                 fontSize: 'var(--md-sys-typescale-body-small-size)',
