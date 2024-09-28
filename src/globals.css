@@ -722,7 +722,7 @@ html{
   background: rgb(var(--md-sys-color-background));
 }
 
-/* Filled Text Field  */
+/* 📍 Filled Text Field  */
 
 .filled-text-field-inner-container {
   background-color: rgb(var(--md-sys-color-surface-container-highest));
@@ -780,11 +780,14 @@ html{
   width: 100%;
 }
 
-.filled-text-field-leading-icon{
+/* Leading Icon + Trailing */
+.filled-text-field-leading-icon,
+.filled-text-field-trailing-icon{
   color: rgb(var(--md-sys-color-on-surface-variant));
 }
 
-.filled-text-field-leading-icon.error{
+.filled-text-field-leading-icon.error,
+.filled-text-field-trailing-icon.error{
   color: rgb(var(--md-sys-color-error));
 }
 
@@ -792,18 +795,11 @@ html{
   color: rgb(var(--md-sys-color-on-surface-variant));
 }
 
-.filled-text-field-trailing-icon{
-  color: rgb(var(--md-sys-color-on-surface-variant));
-}
-
-.filled-text-field-trailing-icon.error{
-  color: rgb(var(--md-sys-color-error));
-}
-
 .filled-text-field-trailing-icon.error:hover {
   color: rgb(var(--md-sys-color-on-error-container));
 }
 
+/* input */
 .filled-text-field-input {
   caret-color: 'rgb(var(--md-sys-color-primary))';
   padding: 10px 10px 7px 5px;
@@ -821,6 +817,7 @@ html{
   outline: none;
 }
 
+/* label */
 .filled-text-field-label {
   color: rgb(var(--md-sys-color-on-surface-variant));
   font: var(--md-sys-typescale-body-large-font);
@@ -857,4 +854,115 @@ html{
   top: -8px;
   font-size: var(--md-sys-typescale-body-small-size);
   color: rgb(var(--md-sys-color-error));
+}
+
+/*📍  Outlined Text Field  */
+
+/* inner container */
+.outlined-text-field-inner-container {
+  width: 100%;
+  border: 1px solid rgb(var(--md-sys-color-outline));
+  position: relative;
+  background-color: transparent;
+}
+
+.outlined-text-field-inner-container.focused,
+.outlined-text-field-inner-container.focused:hover {
+  border-color: rgb(var(--md-sys-color-primary));
+  border-width: 3px; 
+}
+
+.outlined-text-field-inner-container.error {
+  position: relative;
+  border: 1px solid rgb(var(--md-sys-color-error));
+} 
+
+.outlined-text-field-inner-container.error:hover {
+  position: relative;
+  border: 1px solid rgb(var(--md-sys-color-on-error-container));
+} 
+
+.outlined-text-field-inner-container.error.focused,
+.outlined-text-field-input:valid {
+  border-width: 3px;
+} 
+
+.outlined-text-field-inner-container:hover {
+  position: relative;
+  border: 1px solid rgb(var(--md-sys-color-on-surface));
+}
+
+/* Leading Icon + Trailing Icon */
+.outlined-text-field-leading-icon,
+.outlined-text-field-trailing-icon{
+  color: rgb(var(--md-sys-color-on-surface-variant));
+}
+
+.outlined-text-field-leading-icon.error,
+.outlined-text-field-trailing-icon.error{
+  color: rgb(var(--md-sys-color-error));
+}
+
+.outlined-text-field-inner-container:hover ~ .outlined-text-field-leading-icon.error,
+.outlined-text-field-inner-container:hover ~ .outlined-text-field-trailing-icon.error {
+  color: rgb(var(--md-sys-color-on-surface-variant));
+}
+
+/* Input  */
+.outlined-text-field-input {
+  caret-color: 'rgb(var(--md-sys-color-primary))';
+  padding: 10px 10px 7px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  background: transparent;
+} 
+
+.outlined-text-field-input:focus {
+  outline: none;
+}
+
+/* Label */
+.outlined-text-field-label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: rgb(var(--md-sys-color-on-surface-variant));
+  font: var(--md-sys-typescale-body-large-font);
+  line-height: var(--md-sys-typescale-body-large-line-height);
+  font-size: var(--md-sys-typescale-body-large-size);
+  font-weight: var(--md-sys-typescale-body-large-weight);
+  letter-spacing: var(--md-sys-typescale-body-large-tracking);
+  line-height: var(--md-sys-typescale-body-small-line-height);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.outlined-text-field-input:focus ~ .outlined-text-field-label,
+.outlined-text-field-input:not(:placeholder-shown) ~ .outlined-text-field-label {
+  top: -10px;
+  left: -10px;
+  font-size: var(--md-sys-typescale-body-small-size);
+  padding: 0px 4px;
+  transition: 0.2s ease all;
+  color: rgb(var(--md-sys-color-primary));
+}
+
+.outlined-text-field-input:focus ~ .outlined-text-field-label.error,
+.outlined-text-field-input:not(:placeholder-shown) ~ .outlined-text-field-label.error {
+  color: rgb(var(--md-sys-color-error));
+}
+
+
+.outlined-text-field-label:hover {
+  color: rgb(var(--md-sys-color-on-surface));
+}
+
+.outlined-text-field-label.error {
+  color: rgb(var(--md-sys-color-error));
+}
+
+.outlined-text-field-label.error:hover {
+  color: rgb(var(--md-sys-color-on-error-container));
 }
