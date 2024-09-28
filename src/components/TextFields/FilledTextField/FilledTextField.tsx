@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 type FilledTextFieldProps = {
+    type?: "textarea" | "";
+    rows?: number;
     containerWidth: string;
     leadingIcon?: string;
     labelText: string;
@@ -16,10 +18,19 @@ type FilledTextFieldProps = {
 export default function FilledTextField(props: FilledTextFieldProps) {
     const [isFocused, setIsFocused] = useState(false);
     const [inputValue, setInputValue] = useState("");
+    const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
         setInputValue(e.target.value);
     };
+
+    useEffect(() => {
+        if (props.type === "textarea" && textareaRef.current) {
+            const textarea = textareaRef.current;
+            textarea.style.height = "auto";
+            textarea.style.height = `${textarea.scrollHeight}px`;
+        }
+    }, [inputValue, props.type]);
     return (
 
         <div
@@ -74,37 +85,67 @@ export default function FilledTextField(props: FilledTextFieldProps) {
                 <div className="filled-text-field-input-box" style={{ position: 'relative' }}>
 
                     {/* input field */}
-                    <input
-                        type={props.inputType}
-                        required={props.required}
-                        disabled={props.disabled}
-                        maxLength={props.maxLength}
-                        onChange={handleInputChange}
-                        placeholder=""
-                        className={`filled-text-field-input ${props.error} && "error" `}
-                        style={{
-                            color: 'rgb(var(--md-sys-color-on-surface))',
-                            font: 'var(--md-sys-typescale-body-large-font)',
-                            lineHeight: 'var(--md-sys-typescale-body-large-line-height)',
-                            fontSize: 'var(--md-sys-typescale-body-large-size)',
-                            fontWeight: 'var(--md-sys-typescale-body-large-weight)',
-                            letterSpacing: 'var(--md-sys-typescale-body-large-tracking)',
-                            caretColor:`${props.error} ? rgb(var(--md-sys-color-error)) : rgb(var(--md-sys-color-primary))`
-                        }}
-                    />
+                    {props.type === "textarea" ? (
+                        <textarea
+                            ref={textareaRef}
+                            value={inputValue}
+                            required={props.required}
+                            disabled={props.disabled}
+                            maxLength={props.maxLength}
+                            onChange={handleInputChange}
+                            placeholder=""
+                            className={`filled-text-field-input ${props.error ? "error" : ""}`}
+                            style={{
+                                color: "rgb(var(--md-sys-color-on-surface))",
+                                font: "var(--md-sys-typescale-body-large-font)",
+                                lineHeight: "var(--md-sys-typescale-body-large-line-height)",
+                                fontSize: "var(--md-sys-typescale-body-large-size)",
+                                fontWeight: "var(--md-sys-typescale-body-large-weight)",
+                                letterSpacing: "var(--md-sys-typescale-body-large-tracking)",
+                                caretColor: props.error
+                                    ? "rgb(var(--md-sys-color-error))"
+                                    : "rgb(var(--md-sys-color-primary))",
+                                resize: "none",
+                                overflow: "hidden",
+                            }}
+                        />
+                    ) : (
+                        <input
+                            type={props.inputType}
+                            value={inputValue}
+                            required={props.required}
+                            disabled={props.disabled}
+                            maxLength={props.maxLength}
+                            onChange={handleInputChange}
+                            placeholder=""
+                            className={`filled-text-field-input ${props.error ? "error" : ""}`}
+                            style={{
+                                color: "rgb(var(--md-sys-color-on-surface))",
+                                font: "var(--md-sys-typescale-body-large-font)",
+                                lineHeight: "var(--md-sys-typescale-body-large-line-height)",
+                                fontSize: "var(--md-sys-typescale-body-large-size)",
+                                fontWeight: "var(--md-sys-typescale-body-large-weight)",
+                                letterSpacing: "var(--md-sys-typescale-body-large-tracking)",
+                                caretColor: props.error
+                                    ? "rgb(var(--md-sys-color-error))"
+                                    : "rgb(var(--md-sys-color-primary))",
+                            }}
+                        />
+                    )}
+
 
                     {/* label text */}
                     <label
                         className={`filled-text-field-label ${props.error ? "error" : ""}`}
                     >
-                        {props.labelText}
+                        {props.labelText}{props.required && "*"}
                     </label>
 
                 </div>
 
                 {/* Trailing Icon */}
                 {props.trailingIcon && (
-                    <div   
+                    <div
                         className={`filled-text-field-trailing-icon ${props.error && "error"}`}
                         style={{
                             width: "24px",
