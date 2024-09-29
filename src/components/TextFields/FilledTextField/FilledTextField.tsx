@@ -144,7 +144,7 @@ export default function FilledTextField(props: FilledTextFieldProps) {
                 </div>
 
                 {/* Trailing Icon */}
-                {props.trailingIcon && (
+                {props.trailingIcon && inputValue.length > 0 && isFocused && (
                     <div
                         className={`filled-text-field-trailing-icon ${props.error && "error"}`}
                         style={{

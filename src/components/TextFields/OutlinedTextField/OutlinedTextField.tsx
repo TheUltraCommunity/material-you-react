@@ -170,7 +170,7 @@ export default function OutlinedTextField(props: OutlinedTextFieldProps) {
                 </div>
 
                 {/* Trailing Icon */}
-                {props.trailingIcon && (
+                {props.trailingIcon && inputValue.length > 0 && isFocused && (
                     <div
                         className={`outlined-text-field-trailing-icon ${props.error && "error"}`}
                         style={{
