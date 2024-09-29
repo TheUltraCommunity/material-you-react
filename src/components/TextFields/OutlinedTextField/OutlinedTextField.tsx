@@ -31,12 +31,12 @@ export default function OutlinedTextField(props: OutlinedTextFieldProps) {
     // Recursively gets the background color of the parent, which uses this component.
     const getParentBackgroundColor = (element: HTMLElement | null) => {
 
-        if(!element) return null;
+        if (!element) return null;
 
         const computedStyle = window.getComputedStyle(element);
         const bgColor = computedStyle.backgroundColor;
 
-        if(bgColor !== 'transparent' && bgColor !== "rgba(0, 0, 0, 0)"){
+        if (bgColor !== 'transparent' && bgColor !== "rgba(0, 0, 0, 0)") {
             return bgColor;
         }
 
@@ -59,14 +59,14 @@ export default function OutlinedTextField(props: OutlinedTextFieldProps) {
             textarea.style.height = `${textarea.scrollHeight}px`;
         }
 
-        if(parentBGColor === ""){
+        if (parentBGColor === "") {
             if (childRef.current) {
                 let parentBackgroundColor = getParentBackgroundColor(childRef.current);
                 setParentBGColor(parentBackgroundColor);
             }
         }
 
-        if(givenInputType === ''){
+        if (givenInputType === '') {
             setGivenInputType(props.inputType);
         }
     }, [inputValue, props.type]);
@@ -195,13 +195,18 @@ export default function OutlinedTextField(props: OutlinedTextFieldProps) {
                             cursor: 'pointer',
                             userSelect: 'none'
                         }}
-                    >
-                        <span className="material-symbols-rounded">
-                            {props.trailingIcon || ''}
-                        </span>
+                    >   {
+                            props.inputType === 'password' ? 
+                            <span className="material-symbols-rounded">
+                                {givenInputType === 'text' ? 'visibility_off' : 'visibility'}
+                            </span> 
+                            : 
+                            <span className="material-symbols-rounded">
+                                {props.trailingIcon || ''}
+                            </span>
+                        }
                     </div>
                 )}
-
             </div>
 
             {/* Supporting text + Input Count */}

@@ -42,7 +42,7 @@ export default function FilledTextField(props: FilledTextFieldProps) {
             textarea.style.height = `${textarea.scrollHeight}px`;
         }
 
-        if(givenInputType === ''){
+        if (givenInputType === '') {
             setGivenInputType(props.inputType);
         }
     }, [inputValue, props.type]);
@@ -161,7 +161,7 @@ export default function FilledTextField(props: FilledTextFieldProps) {
                 {/* Trailing Icon */}
                 {props.trailingIcon && inputValue.length > 0 && (
                     <div
-                    onClick={(e) => handleTrailingIconClick(e)}
+                        onClick={(e) => handleTrailingIconClick(e)}
                         className={`filled-text-field-trailing-icon ${props.error && "error"}`}
                         style={{
                             width: "24px",
@@ -169,10 +169,16 @@ export default function FilledTextField(props: FilledTextFieldProps) {
                             cursor: 'pointer',
                             userSelect: 'none'
                         }}
-                    >
-                        <span className="material-symbols-rounded">
-                            {props.trailingIcon || ''}
-                        </span>
+                    > {
+                            props.inputType === 'password' ?
+                                <span className="material-symbols-rounded">
+                                    {givenInputType === 'text' ? 'visibility_off' : 'visibility'}
+                                </span>
+                                :
+                                <span className="material-symbols-rounded">
+                                    {props.trailingIcon || ''}
+                                </span>
+                        }
                     </div>
                 )}
 
