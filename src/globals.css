@@ -828,7 +828,8 @@ html{
   position: absolute;
   pointer-events: none;
   left: 5px;
-  top: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
@@ -844,14 +845,14 @@ html{
 
 .filled-text-field-input:focus ~ .filled-text-field-label,
 .filled-text-field-input:not(:placeholder-shown) ~ .filled-text-field-label {
-  top: -5px;
+  top: 6px;
   font-size: var(--md-sys-typescale-body-small-size);
   color: rgb(var(--md-sys-color-primary));
 }
 
 .filled-text-field-input:focus ~ .filled-text-field-label.error,
 .filled-text-field-input:not(:placeholder-shown) ~ .filled-text-field-label.error {
-  top: -5px;
+  top: 6px;
   font-size: var(--md-sys-typescale-body-small-size);
   color: rgb(var(--md-sys-color-error));
 }
