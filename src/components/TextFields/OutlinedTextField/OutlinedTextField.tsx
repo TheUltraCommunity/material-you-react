@@ -18,10 +18,28 @@ type OutlinedTextFieldProps = {
 export default function OutlinedTextField(props: OutlinedTextFieldProps) {
     const [isFocused, setIsFocused] = useState(false);
     const [inputValue, setInputValue] = useState("");
+    const [parentBGColor, setParentBGColor] = useState<string | null>("");
+
     const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+    const childRef = useRef<HTMLDivElement | null>(null);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
         setInputValue(e.target.value);
+    };
+
+    // Recursively gets the background color of the parent, which uses this component.
+    const getParentBackgroundColor = (element: HTMLElement | null) => {
+
+        if(!element) return null;
+
+        const computedStyle = window.getComputedStyle(element);
+        const bgColor = computedStyle.backgroundColor;
+
+        if(bgColor !== 'transparent' && bgColor !== "rgba(0, 0, 0, 0)"){
+            return bgColor;
+        }
+
+        return getParentBackgroundColor(element.parentElement);
     };
 
     useEffect(() => {
@@ -30,10 +48,17 @@ export default function OutlinedTextField(props: OutlinedTextFieldProps) {
             textarea.style.height = "auto";
             textarea.style.height = `${textarea.scrollHeight}px`;
         }
+
+        if(parentBGColor === ""){
+            if (childRef.current) {
+                let parentBackgroundColor = getParentBackgroundColor(childRef.current);
+                setParentBGColor(parentBackgroundColor);
+            }
+        }
     }, [inputValue, props.type]);
     return (
 
-        <div
+        <div ref={childRef}
             style={{
                 width: `${props.containerWidth}`,
                 display: 'flex',
@@ -135,6 +160,9 @@ export default function OutlinedTextField(props: OutlinedTextFieldProps) {
                     {/* label text */}
                     <label
                         className={`outlined-text-field-label ${props.error ? "error" : ""}`}
+                        style={{
+                            backgroundColor: `${isFocused && parentBGColor}`
+                        }}
                     >
                         {props.labelText}{props.required && "*"}
                     </label>
