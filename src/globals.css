@@ -802,7 +802,7 @@ html{
 /* input */
 .filled-text-field-input {
   caret-color: 'rgb(var(--md-sys-color-primary))';
-  padding: 10px 10px 7px 5px;
+  padding: 13px 10px 1px 5px;
   display: block;
   width: 100%;
   border: none;
@@ -844,14 +844,14 @@ html{
 
 .filled-text-field-input:focus ~ .filled-text-field-label,
 .filled-text-field-input:not(:placeholder-shown) ~ .filled-text-field-label {
-  top: -8px;
+  top: -5px;
   font-size: var(--md-sys-typescale-body-small-size);
   color: rgb(var(--md-sys-color-primary));
 }
 
 .filled-text-field-input:focus ~ .filled-text-field-label.error,
 .filled-text-field-input:not(:placeholder-shown) ~ .filled-text-field-label.error {
-  top: -8px;
+  top: -5px;
   font-size: var(--md-sys-typescale-body-small-size);
   color: rgb(var(--md-sys-color-error));
 }
