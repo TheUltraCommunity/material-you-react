@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { MouseEvent, useEffect, useRef, useState } from "react";
 
 type OutlinedTextFieldProps = {
     type?: "textarea" | "";
@@ -16,6 +16,7 @@ type OutlinedTextFieldProps = {
 }
 
 export default function OutlinedTextField(props: OutlinedTextFieldProps) {
+    const [givenInputType, setGivenInputType] = useState<string>('');
     const [isFocused, setIsFocused] = useState(false);
     const [inputValue, setInputValue] = useState("");
     const [parentBGColor, setParentBGColor] = useState<string | null>("");
@@ -42,6 +43,15 @@ export default function OutlinedTextField(props: OutlinedTextFieldProps) {
         return getParentBackgroundColor(element.parentElement);
     };
 
+    const handleTrailingIconClick = (e: MouseEvent<HTMLDivElement>) => {
+        console.log("trailing button is clicked");
+        if (props.inputType === 'password') {
+            setGivenInputType(givenInputType === 'text' ? 'password' : 'text');
+        } else {
+            setInputValue("");
+        }
+    }
+
     useEffect(() => {
         if (props.type === "textarea" && textareaRef.current) {
             const textarea = textareaRef.current;
@@ -54,6 +64,10 @@ export default function OutlinedTextField(props: OutlinedTextFieldProps) {
                 let parentBackgroundColor = getParentBackgroundColor(childRef.current);
                 setParentBGColor(parentBackgroundColor);
             }
+        }
+
+        if(givenInputType === ''){
+            setGivenInputType(props.inputType);
         }
     }, [inputValue, props.type]);
     return (
@@ -95,7 +109,8 @@ export default function OutlinedTextField(props: OutlinedTextFieldProps) {
                         style={{
                             width: "24px",
                             height: "24px",
-                            cursor: 'none'
+                            cursor: 'none',
+                            userSelect: 'none'
                         }}
                     >
                         <span className="material-symbols-rounded">
@@ -133,7 +148,7 @@ export default function OutlinedTextField(props: OutlinedTextFieldProps) {
                         />
                     ) : (
                         <input
-                            type={props.inputType}
+                            type={givenInputType}
                             value={inputValue}
                             required={props.required}
                             disabled={props.disabled}
@@ -170,13 +185,15 @@ export default function OutlinedTextField(props: OutlinedTextFieldProps) {
                 </div>
 
                 {/* Trailing Icon */}
-                {props.trailingIcon && inputValue.length > 0 && isFocused && (
+                {props.trailingIcon && inputValue.length > 0 && (
                     <div
+                        onClick={(e) => handleTrailingIconClick(e)}
                         className={`outlined-text-field-trailing-icon ${props.error && "error"}`}
                         style={{
                             width: "24px",
                             height: "24px",
-                            cursor: 'pointer'
+                            cursor: 'pointer',
+                            userSelect: 'none'
                         }}
                     >
                         <span className="material-symbols-rounded">

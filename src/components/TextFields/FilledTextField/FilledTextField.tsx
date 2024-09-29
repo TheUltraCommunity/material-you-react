@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { MouseEvent, useEffect, useRef, useState } from "react";
 
 type FilledTextFieldProps = {
     type?: "textarea" | "";
@@ -16,6 +16,7 @@ type FilledTextFieldProps = {
 }
 
 export default function FilledTextField(props: FilledTextFieldProps) {
+    const [givenInputType, setGivenInputType] = useState<string>('');
     const [isFocused, setIsFocused] = useState(false);
     const [inputValue, setInputValue] = useState("");
     const textareaRef = useRef<HTMLTextAreaElement | null>(null);
@@ -24,11 +25,25 @@ export default function FilledTextField(props: FilledTextFieldProps) {
         setInputValue(e.target.value);
     };
 
+    const handleTrailingIconClick = (e: MouseEvent<HTMLDivElement>) => {
+        console.log("trailing button is clicked");
+        if (props.inputType === 'password') {
+            setGivenInputType(givenInputType === 'text' ? 'password' : 'text');
+        } else {
+            setInputValue("");
+        }
+    }
+
+
     useEffect(() => {
         if (props.type === "textarea" && textareaRef.current) {
             const textarea = textareaRef.current;
             textarea.style.height = "auto";
             textarea.style.height = `${textarea.scrollHeight}px`;
+        }
+
+        if(givenInputType === ''){
+            setGivenInputType(props.inputType);
         }
     }, [inputValue, props.type]);
     return (
@@ -111,7 +126,7 @@ export default function FilledTextField(props: FilledTextFieldProps) {
                         />
                     ) : (
                         <input
-                            type={props.inputType}
+                            type={givenInputType}
                             value={inputValue}
                             required={props.required}
                             disabled={props.disabled}
@@ -144,13 +159,15 @@ export default function FilledTextField(props: FilledTextFieldProps) {
                 </div>
 
                 {/* Trailing Icon */}
-                {props.trailingIcon && inputValue.length > 0 && isFocused && (
+                {props.trailingIcon && inputValue.length > 0 && (
                     <div
+                    onClick={(e) => handleTrailingIconClick(e)}
                         className={`filled-text-field-trailing-icon ${props.error && "error"}`}
                         style={{
                             width: "24px",
                             height: "24px",
-                            cursor: 'pointer'
+                            cursor: 'pointer',
+                            userSelect: 'none'
                         }}
                     >
                         <span className="material-symbols-rounded">
