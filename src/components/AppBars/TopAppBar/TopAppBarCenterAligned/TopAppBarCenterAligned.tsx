@@ -77,8 +77,9 @@ export default function TopAppBarCenterAligned(
       >
         {props.headline}
       </p>
+
       {/* Trailing Icons */}
-      {(props.avatar || props.avatarImage) && (
+      {props.avatar || props.avatarImage ? (
         <div
           key={"avatar"}
           style={{
@@ -113,6 +114,19 @@ export default function TopAppBarCenterAligned(
             </span>
           )}
         </div>
+      ) : (
+        <div
+          style={{
+            width: "48px",
+            fontSize: "30px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "48px",
+            cursor: "pointer",
+            color: "rgb(var(--md-sys-color-on-surface-variant))",
+          }}
+        ></div>
       )}
     </div>
   );
