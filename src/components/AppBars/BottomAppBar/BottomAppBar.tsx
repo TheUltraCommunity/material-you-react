@@ -43,7 +43,7 @@ export default function BottomAppBar(props: BottomAppBarProps) {
             onMouseDown={() => setIsActive(true)}
             onMouseUp={() => setIsActive(false)}
             key={index}
-            className={`
+            className={`md-elevation
               ${!isHovered ? "md-elevation-0" : "md-elevation-1"}
               label-large material-symbols-rounded`}
             style={{

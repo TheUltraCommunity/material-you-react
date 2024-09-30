@@ -20,7 +20,9 @@ export default function TopAppBarCenterSmall(props: TopAppBarCenterSmallProps) {
   };
   return (
     <div
-      className={isScrolled ? "md-elevation-2" : "md-elevation-0"}
+      className={`${
+        isScrolled ? "md-elevation-2" : "md-elevation-0"
+      } md-elevation`}
       style={{
         backgroundColor: `${
           props.containerBackgroundColor ??
