@@ -176,7 +176,8 @@ export default function OutlinedTextField(props: OutlinedTextFieldProps) {
                     <label
                         className={`outlined-text-field-label ${props.error ? "error" : ""}`}
                         style={{
-                            backgroundColor: `${isFocused && parentBGColor}`
+                            backgroundColor: `${isFocused && parentBGColor}`,
+                            left: `${isFocused ? props.leadingIcon ? "-38px" : "-2px" : "" }`
                         }}
                     >
                         {props.labelText}{props.required && "*"}

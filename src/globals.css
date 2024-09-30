@@ -943,7 +943,7 @@ html{
 .outlined-text-field-input:focus ~ .outlined-text-field-label,
 .outlined-text-field-input:not(:placeholder-shown) ~ .outlined-text-field-label {
   top: -10px;
-  left: -10px;
+  transition: all 0.5s ease;
   font-size: var(--md-sys-typescale-body-small-size);
   padding: 0px 4px;
   transition: 0.2s ease all;
