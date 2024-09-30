@@ -34,7 +34,7 @@ const FilledButton = (props: FilledButtonProps) => {
       onDragStart={() => setIsDragged(true)}
       onDragEnd={() => setIsDragged(false)}
       draggable={props.draggable ?? true}
-      className={`
+      className={` md-elevation 
             ${
               isDragged
                 ? "md-elevation-3"

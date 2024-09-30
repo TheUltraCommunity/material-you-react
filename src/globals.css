@@ -1,5 +1,4 @@
-
-:root{
+:root {
   /* Fully rounded */
   --md-sys-shape-corner-full-family: 3px;
   /* Extra large top rounding */
@@ -139,417 +138,418 @@
   --md-sys-color-surface-container-highest: 230, 225, 233;
 
   /*Typography*/
-   /* Label Small */
-   --md-sys-typescale-label-small-text-transform: unset;
-   --md-sys-typescale-label-small-axis-value: unset;
-   --md-sys-typescale-label-small-font-style: unset;
-   --md-sys-typescale-label-small-text-decoration: unset;
-   /* Label Small line height */
-   --md-sys-typescale-label-small-line-height-value: 16px;
-   --md-sys-typescale-label-small-line-height-unit: 2px;
-   --md-sys-typescale-label-small-line-height: 16px;
-   /* Label Small font tracking */
-   --md-sys-typescale-label-small-tracking-value: 0.5px;
-   --md-sys-typescale-label-small-tracking-unit: 2px;
-   --md-sys-typescale-label-small-tracking: 0.5px;
-   /* Label Small font size */
-   --md-sys-typescale-label-small-size-value: 11px;
-   --md-sys-typescale-label-small-size-unit: 2px;
-   --md-sys-typescale-label-small-size: 11px;
-   /* Label Small font weight */
-   --md-sys-typescale-label-small-weight: var(--md-ref-typeface-weight-medium);
-   /* Label Small font name */
-   --md-sys-typescale-label-small-font: var(--md-ref-typeface-plain);
-   /* Label Medium */
-   --md-sys-typescale-label-medium-axis-value: unset;
-   --md-sys-typescale-label-medium-font-style: unset;
-   --md-sys-typescale-label-medium-text-decoration: unset;
-   /* Label Medium text transform */
-   --md-sys-typescale-label-medium-text-transform: 1;
-   /* Label Medium line height */
-   --md-sys-typescale-label-medium-line-height-value: 16px;
-   --md-sys-typescale-label-medium-line-height-unit: 2px;
-   --md-sys-typescale-label-medium-line-height: 16px;
-   /* Label Medium font tracking */
-   --md-sys-typescale-label-medium-tracking-value: 0.5px;
-   --md-sys-typescale-label-medium-tracking-unit: 2px;
-   --md-sys-typescale-label-medium-tracking: 0.5px;
-   /* Label Medium font size */
-   --md-sys-typescale-label-medium-size-value: 12px;
-   --md-sys-typescale-label-medium-size-unit: 2px;
-   --md-sys-typescale-label-medium-size: 12px;
-   /* Label Medium font weight */
-   --md-sys-typescale-label-medium-weight: var(--md-ref-typeface-weight-medium);
-   /* Label Medium font name */
-   --md-sys-typescale-label-medium-font: var(--md-ref-typeface-plain);
-   /* Label Large */
-   --md-sys-typescale-label-large-text-transform: unset;
-   --md-sys-typescale-label-large-axis-value: unset;
-   --md-sys-typescale-label-large-font-style: unset;
-   --md-sys-typescale-label-large-text-decoration: unset;
-   /* Label Large line height */
-   --md-sys-typescale-label-large-line-height-value: 20px;
-   --md-sys-typescale-label-large-line-height-unit: 2px;
-   --md-sys-typescale-label-large-line-height: 20px;
-   /* Label Large font tracking */
-   --md-sys-typescale-label-large-tracking-value: 0.10000000149011612px;
-   --md-sys-typescale-label-large-tracking-unit: 2px;
-   --md-sys-typescale-label-large-tracking: 0.10000000149011612px;
-   /* Label Large font size */
-   --md-sys-typescale-label-large-size-value: 14px;
-   --md-sys-typescale-label-large-size-unit: 2px;
-   --md-sys-typescale-label-large-size: 14px;
-   /* Label Large font weight */
-   --md-sys-typescale-label-large-weight: var(--md-ref-typeface-weight-medium);
-   /* Label Large font name */
-   --md-sys-typescale-label-large-font: var(--md-ref-typeface-plain);
-   /* Body Small */
-   --md-sys-typescale-body-small-text-transform: unset;
-   --md-sys-typescale-body-small-axis-value: unset;
-   --md-sys-typescale-body-small-font-style: unset;
-   --md-sys-typescale-body-small-text-decoration: unset;
-   /* Body Small line height */
-   --md-sys-typescale-body-small-line-height-value: 16px;
-   --md-sys-typescale-body-small-line-height-unit: 2px;
-   --md-sys-typescale-body-small-line-height: 16px;
-   /* Body Small font tracking */
-   --md-sys-typescale-body-small-tracking-value: 0.4000000059604645px;
-   --md-sys-typescale-body-small-tracking-unit: 2px;
-   --md-sys-typescale-body-small-tracking: 0.4000000059604645px;
-   /* Body Small font size */
-   --md-sys-typescale-body-small-size-value: 12px;
-   --md-sys-typescale-body-small-size-unit: 2px;
-   --md-sys-typescale-body-small-size: 12px;
-   /* Body Small font weight */
-   --md-sys-typescale-body-small-weight: var(--md-ref-typeface-weight-regular);
-   /* Body Small font name */
-   --md-sys-typescale-body-small-font: var(--md-ref-typeface-plain);
-   /* Body Medium */
-   --md-sys-typescale-body-medium-text-transform: unset;
-   --md-sys-typescale-body-medium-axis-value: unset;
-   --md-sys-typescale-body-medium-font-style: unset;
-   --md-sys-typescale-body-medium-text-decoration: unset;
-   /* Body Medium line height */
-   --md-sys-typescale-body-medium-line-height-value: 20px;
-   --md-sys-typescale-body-medium-line-height-unit: 2px;
-   --md-sys-typescale-body-medium-line-height: 20px;
-   /* Body Medium font tracking */
-   --md-sys-typescale-body-medium-tracking-value: 0.25px;
-   --md-sys-typescale-body-medium-tracking-unit: 2px;
-   --md-sys-typescale-body-medium-tracking: 0.25px;
-   /* Body Medium font size */
-   --md-sys-typescale-body-medium-size-value: 14px;
-   --md-sys-typescale-body-medium-size-unit: 2px;
-   --md-sys-typescale-body-medium-size: 14px;
-   /* Body Medium font weight */
-   --md-sys-typescale-body-medium-weight: var(--md-ref-typeface-weight-regular);
-   /* Body Medium font name */
-   --md-sys-typescale-body-medium-font: var(--md-ref-typeface-plain);
-   /* Body Large */
-   --md-sys-typescale-body-large-text-transform: unset;
-   --md-sys-typescale-body-large-axis-value: unset;
-   --md-sys-typescale-body-large-font-style: unset;
-   --md-sys-typescale-body-large-text-decoration: unset;
-   /* Body Large line height */
-   --md-sys-typescale-body-large-line-height-value: 24px;
-   --md-sys-typescale-body-large-line-height-unit: 2px;
-   --md-sys-typescale-body-large-line-height: 24px;
-   /* Body Large font tracking */
-   --md-sys-typescale-body-large-tracking-value: 0.5px;
-   --md-sys-typescale-body-large-tracking-unit: 2px;
-   --md-sys-typescale-body-large-tracking: 0.5px;
-   /* Body Large font size */
-   --md-sys-typescale-body-large-size-value: 16px;
-   --md-sys-typescale-body-large-size-unit: 2px;
-   --md-sys-typescale-body-large-size: 16px;
-   /* Body Large font weight */
-   --md-sys-typescale-body-large-weight: var(--md-ref-typeface-weight-regular);
-   /* Body Large font name */
-   --md-sys-typescale-body-large-font: var(--md-ref-typeface-plain);
-   /* Title Small */
-   --md-sys-typescale-title-small-text-transform: unset;
-   --md-sys-typescale-title-small-axis-value: unset;
-   --md-sys-typescale-title-small-font-style: unset;
-   --md-sys-typescale-title-small-text-decoration: unset;
-   /* Title Small line height */
-   --md-sys-typescale-title-small-line-height-value: 20px;
-   --md-sys-typescale-title-small-line-height-unit: 2px;
-   --md-sys-typescale-title-small-line-height: 20px;
-   /* Title Small font tracking */
-   --md-sys-typescale-title-small-tracking-value: 0.10000000149011612px;
-   --md-sys-typescale-title-small-tracking-unit: 2px;
-   --md-sys-typescale-title-small-tracking: 0.10000000149011612px;
-   /* Title Small font size */
-   --md-sys-typescale-title-small-size-value: 14px;
-   --md-sys-typescale-title-small-size-unit: 2px;
-   --md-sys-typescale-title-small-size: 22px;
-   /* Title Small font weight */
-   --md-sys-typescale-title-small-weight: var(--md-ref-typeface-weight-medium);
-   /* Title Small font name */
-   --md-sys-typescale-title-small-font: var(--md-ref-typeface-plain);
-   /* Title Medium */
-   --md-sys-typescale-title-medium-text-transform: unset;
-   --md-sys-typescale-title-medium-axis-value: unset;
-   --md-sys-typescale-title-medium-font-style: unset;
-   --md-sys-typescale-title-medium-text-decoration: unset;
-   /* Title Medium line height */
-   --md-sys-typescale-title-medium-line-height-value: 24px;
-   --md-sys-typescale-title-medium-line-height-unit: 2px;
-   --md-sys-typescale-title-medium-line-height: 24px;
-   /* Title Medium font tracking */
-   --md-sys-typescale-title-medium-tracking-value: 0.15000000596046448px;
-   --md-sys-typescale-title-medium-tracking-unit: 2px;
-   --md-sys-typescale-title-medium-tracking: 0.15000000596046448px;
-   /* Title Medium font size */
-   --md-sys-typescale-title-medium-size-value: 16px;
-   --md-sys-typescale-title-medium-size-unit: 2px;
-   --md-sys-typescale-title-medium-size: 24px;
-   /* Title Medium font weight */
-   --md-sys-typescale-title-medium-weight: var(--md-ref-typeface-weight-medium);
-   /* Title Medium font name */
-   --md-sys-typescale-title-medium-font: var(--md-ref-typeface-plain);
-   /* Title Large */
-   --md-sys-typescale-title-large-text-transform: unset;
-   --md-sys-typescale-title-large-axis-value: unset;
-   --md-sys-typescale-title-large-font-style: unset;
-   --md-sys-typescale-title-large-text-decoration: unset;
-   /* Title Large line height */
-   --md-sys-typescale-title-large-line-height-value: 28px;
-   --md-sys-typescale-title-large-line-height-unit: 2px;
-   --md-sys-typescale-title-large-line-height: 28px;
-   /* Title Large font tracking */
-   --md-sys-typescale-title-large-tracking-value: 0px;
-   --md-sys-typescale-title-large-tracking-unit: 2px;
-   --md-sys-typescale-title-large-tracking: 0px;
-   /* Title Large font size */
-   --md-sys-typescale-title-large-size-value: 22px;
-   --md-sys-typescale-title-large-size-unit: 2px;
-   --md-sys-typescale-title-large-size: 28px;
-   /* Title Large font weight */
-   --md-sys-typescale-title-large-weight: var(--md-ref-typeface-weight-regular);
-   /* Title Large font name */
-   --md-sys-typescale-title-large-font: var(--md-ref-typeface-brand);
-   /* Headline Small */
-   --md-sys-typescale-headline-small-text-transform: unset;
-   --md-sys-typescale-headline-small-axis-value: unset;
-   --md-sys-typescale-headline-small-font-style: unset;
-   --md-sys-typescale-headline-small-text-decoration: unset;
-   /* Headline Small line height */
-   --md-sys-typescale-headline-small-line-height-value: 32px;
-   --md-sys-typescale-headline-small-line-height-unit: 2px;
-   --md-sys-typescale-headline-small-line-height: 32px;
-   /* Headline Small font tracking */
-   --md-sys-typescale-headline-small-tracking-value: 0px;
-   --md-sys-typescale-headline-small-tracking-unit: 2px;
-   --md-sys-typescale-headline-small-tracking: 0px;
-   /* Headline Small font size */
-   --md-sys-typescale-headline-small-size-value: 24px;
-   --md-sys-typescale-headline-small-size-unit: 2px;
-   --md-sys-typescale-headline-small-size: 24px;
-   /* Headline Small font weight */
-   --md-sys-typescale-headline-small-weight: var(
-     --md-ref-typeface-weight-regular
-   );
-   /* Headline Small font name */
-   --md-sys-typescale-headline-small-font: var(--md-ref-typeface-brand);
-   /* Headline Medium */
-   --md-sys-typescale-headline-medium-text-transform: unset;
-   --md-sys-typescale-headline-medium-axis-value: unset;
-   --md-sys-typescale-headline-medium-font-style: unset;
-   --md-sys-typescale-headline-medium-text-decoration: unset;
-   /* Headline Medium line height */
-   --md-sys-typescale-headline-medium-line-height-value: 36px;
-   --md-sys-typescale-headline-medium-line-height-unit: 2px;
-   --md-sys-typescale-headline-medium-line-height: 36px;
-   /* Headline Medium font tracking */
-   --md-sys-typescale-headline-medium-tracking-value: 0px;
-   --md-sys-typescale-headline-medium-tracking-unit: 2px;
-   --md-sys-typescale-headline-medium-tracking: 0px;
-   /* Headline Medium font size */
-   --md-sys-typescale-headline-medium-size-value: 28px;
-   --md-sys-typescale-headline-medium-size-unit: 2px;
-   --md-sys-typescale-headline-medium-size: 28px;
-   /* Headline Medium font weight */
-   --md-sys-typescale-headline-medium-weight: var(
-     --md-ref-typeface-weight-regular
-   );
-   /* Headline Medium font name */
-   --md-sys-typescale-headline-medium-font: var(--md-ref-typeface-brand);
-   /* Headline Large */
-   --md-sys-typescale-headline-large-text-transform: unset;
-   --md-sys-typescale-headline-large-axis-value: unset;
-   --md-sys-typescale-headline-large-font-style: unset;
-   --md-sys-typescale-headline-large-text-decoration: unset;
-   /* Headline Large line height */
-   --md-sys-typescale-headline-large-line-height-value: 40px;
-   --md-sys-typescale-headline-large-line-height-unit: 2px;
-   --md-sys-typescale-headline-large-line-height: 40px;
-   /* Headline Large font tracking */
-   --md-sys-typescale-headline-large-tracking-value: 0px;
-   --md-sys-typescale-headline-large-tracking-unit: 2px;
-   --md-sys-typescale-headline-large-tracking: 0px;
-   /* Headline Large font size */
-   --md-sys-typescale-headline-large-size-value: 32px;
-   --md-sys-typescale-headline-large-size-unit: 2px;
-   --md-sys-typescale-headline-large-size: 32px;
-   /* Headline Large font name */
-   --md-sys-typescale-headline-large-font: var(--md-ref-typeface-brand);
-   /* Headline Large font weight */
-   --md-sys-typescale-headline-large-weight: var(
-     --md-ref-typeface-weight-regular
-   );
-   /* Display Small */
-   --md-sys-typescale-display-small-text-transform: unset;
-   --md-sys-typescale-display-small-axis-value: unset;
-   --md-sys-typescale-display-small-font-style: unset;
-   --md-sys-typescale-display-small-text-decoration: unset;
-   /* Display Small line height */
-   --md-sys-typescale-display-small-line-height-value: 44px;
-   --md-sys-typescale-display-small-line-height-unit: 2px;
-   --md-sys-typescale-display-small-line-height: 44px;
-   /* Display Small font tracking */
-   --md-sys-typescale-display-small-tracking-value: 0px;
-   --md-sys-typescale-display-small-tracking-unit: 2px;
-   --md-sys-typescale-display-small-tracking: 0px;
-   /* Display Small font size */
-   --md-sys-typescale-display-small-size-value: 36px;
-   --md-sys-typescale-display-small-size-unit: 2px;
-   --md-sys-typescale-display-small-size: 36px;
-   /* Display Small font weight */
-   --md-sys-typescale-display-small-weight: var(
-     --md-ref-typeface-weight-regular
-   );
-   /* Display Small font name */
-   --md-sys-typescale-display-small-font: var(--md-ref-typeface-brand);
-   /* Display Medium */
-   --md-sys-typescale-display-medium-text-transform: unset;
-   --md-sys-typescale-display-medium-axis-value: unset;
-   --md-sys-typescale-display-medium-font-style: unset;
-   --md-sys-typescale-display-medium-text-decoration: unset;
-   /* Display Medium line height */
-   --md-sys-typescale-display-medium-line-height-value: 52px;
-   --md-sys-typescale-display-medium-line-height-unit: 2px;
-   --md-sys-typescale-display-medium-line-height: 52px;
-   /* Display Medium font tracking */
-   --md-sys-typescale-display-medium-tracking-value: 0px;
-   --md-sys-typescale-display-medium-tracking-unit: 2px;
-   --md-sys-typescale-display-medium-tracking: 0px;
-   /* Display Medium font size */
-   --md-sys-typescale-display-medium-size-value: 45px;
-   --md-sys-typescale-display-medium-size-unit: 2px;
-   --md-sys-typescale-display-medium-size: 45px;
-   /* Display Medium font weight */
-   --md-sys-typescale-display-medium-weight: var(
-     --md-ref-typeface-weight-regular
-   );
-   /* Display Medium font name */
-   --md-sys-typescale-display-medium-font: var(--md-ref-typeface-brand);
-   /* Display Large */
-   --md-sys-typescale-display-large-text-transform: unset;
-   --md-sys-typescale-display-large-axis-value: unset;
-   --md-sys-typescale-display-large-font-style: unset;
-   --md-sys-typescale-display-large-text-decoration: unset;
-   /* Display Large line height */
-   --md-sys-typescale-display-large-line-height-value: 64px;
-   --md-sys-typescale-display-large-line-height-unit: 2px;
-   --md-sys-typescale-display-large-line-height: 64px;
-   /* Display Large font tracking */
-   --md-sys-typescale-display-large-tracking-value: -0.25px;
-   --md-sys-typescale-display-large-tracking-unit: 2px;
-   --md-sys-typescale-display-large-tracking: -0.25px;
-   /* Display Large font size */
-   --md-sys-typescale-display-large-size-value: 57px;
-   --md-sys-typescale-display-large-size-unit: 2px;
-   --md-sys-typescale-display-large-size: 57px;
-   /* Display Large font weight */
-   --md-sys-typescale-display-large-weight: var(
-     --md-ref-typeface-weight-regular
-   );
-   /* Display Large font name */
-   --md-sys-typescale-display-large-font: var(--md-ref-typeface-brand);
-   /* Plain typeface */
-   --md-ref-typeface-plain: Google Sans, Roboto;
-   /* Brand typeface */
-   --md-ref-typeface-brand: Google Sans, Roboto;
-   /* Bold weight */
-   --md-ref-typeface-weight-bold: 700;
-   /* Medium weight */
-   --md-ref-typeface-weight-medium: 500;
-   /* Regular weight */
-   --md-ref-typeface-weight-regular: 400;
-
+  /* Label Small */
+  --md-sys-typescale-label-small-text-transform: unset;
+  --md-sys-typescale-label-small-axis-value: unset;
+  --md-sys-typescale-label-small-font-style: unset;
+  --md-sys-typescale-label-small-text-decoration: unset;
+  /* Label Small line height */
+  --md-sys-typescale-label-small-line-height-value: 16px;
+  --md-sys-typescale-label-small-line-height-unit: 2px;
+  --md-sys-typescale-label-small-line-height: 16px;
+  /* Label Small font tracking */
+  --md-sys-typescale-label-small-tracking-value: 0.5px;
+  --md-sys-typescale-label-small-tracking-unit: 2px;
+  --md-sys-typescale-label-small-tracking: 0.5px;
+  /* Label Small font size */
+  --md-sys-typescale-label-small-size-value: 11px;
+  --md-sys-typescale-label-small-size-unit: 2px;
+  --md-sys-typescale-label-small-size: 11px;
+  /* Label Small font weight */
+  --md-sys-typescale-label-small-weight: var(--md-ref-typeface-weight-medium);
+  /* Label Small font name */
+  --md-sys-typescale-label-small-font: var(--md-ref-typeface-plain);
+  /* Label Medium */
+  --md-sys-typescale-label-medium-axis-value: unset;
+  --md-sys-typescale-label-medium-font-style: unset;
+  --md-sys-typescale-label-medium-text-decoration: unset;
+  /* Label Medium text transform */
+  --md-sys-typescale-label-medium-text-transform: 1;
+  /* Label Medium line height */
+  --md-sys-typescale-label-medium-line-height-value: 16px;
+  --md-sys-typescale-label-medium-line-height-unit: 2px;
+  --md-sys-typescale-label-medium-line-height: 16px;
+  /* Label Medium font tracking */
+  --md-sys-typescale-label-medium-tracking-value: 0.5px;
+  --md-sys-typescale-label-medium-tracking-unit: 2px;
+  --md-sys-typescale-label-medium-tracking: 0.5px;
+  /* Label Medium font size */
+  --md-sys-typescale-label-medium-size-value: 12px;
+  --md-sys-typescale-label-medium-size-unit: 2px;
+  --md-sys-typescale-label-medium-size: 12px;
+  /* Label Medium font weight */
+  --md-sys-typescale-label-medium-weight: var(--md-ref-typeface-weight-medium);
+  /* Label Medium font name */
+  --md-sys-typescale-label-medium-font: var(--md-ref-typeface-plain);
+  /* Label Large */
+  --md-sys-typescale-label-large-text-transform: unset;
+  --md-sys-typescale-label-large-axis-value: unset;
+  --md-sys-typescale-label-large-font-style: unset;
+  --md-sys-typescale-label-large-text-decoration: unset;
+  /* Label Large line height */
+  --md-sys-typescale-label-large-line-height-value: 20px;
+  --md-sys-typescale-label-large-line-height-unit: 2px;
+  --md-sys-typescale-label-large-line-height: 20px;
+  /* Label Large font tracking */
+  --md-sys-typescale-label-large-tracking-value: 0.10000000149011612px;
+  --md-sys-typescale-label-large-tracking-unit: 2px;
+  --md-sys-typescale-label-large-tracking: 0.10000000149011612px;
+  /* Label Large font size */
+  --md-sys-typescale-label-large-size-value: 14px;
+  --md-sys-typescale-label-large-size-unit: 2px;
+  --md-sys-typescale-label-large-size: 14px;
+  /* Label Large font weight */
+  --md-sys-typescale-label-large-weight: var(--md-ref-typeface-weight-medium);
+  /* Label Large font name */
+  --md-sys-typescale-label-large-font: var(--md-ref-typeface-plain);
+  /* Body Small */
+  --md-sys-typescale-body-small-text-transform: unset;
+  --md-sys-typescale-body-small-axis-value: unset;
+  --md-sys-typescale-body-small-font-style: unset;
+  --md-sys-typescale-body-small-text-decoration: unset;
+  /* Body Small line height */
+  --md-sys-typescale-body-small-line-height-value: 16px;
+  --md-sys-typescale-body-small-line-height-unit: 2px;
+  --md-sys-typescale-body-small-line-height: 16px;
+  /* Body Small font tracking */
+  --md-sys-typescale-body-small-tracking-value: 0.4000000059604645px;
+  --md-sys-typescale-body-small-tracking-unit: 2px;
+  --md-sys-typescale-body-small-tracking: 0.4000000059604645px;
+  /* Body Small font size */
+  --md-sys-typescale-body-small-size-value: 12px;
+  --md-sys-typescale-body-small-size-unit: 2px;
+  --md-sys-typescale-body-small-size: 12px;
+  /* Body Small font weight */
+  --md-sys-typescale-body-small-weight: var(--md-ref-typeface-weight-regular);
+  /* Body Small font name */
+  --md-sys-typescale-body-small-font: var(--md-ref-typeface-plain);
+  /* Body Medium */
+  --md-sys-typescale-body-medium-text-transform: unset;
+  --md-sys-typescale-body-medium-axis-value: unset;
+  --md-sys-typescale-body-medium-font-style: unset;
+  --md-sys-typescale-body-medium-text-decoration: unset;
+  /* Body Medium line height */
+  --md-sys-typescale-body-medium-line-height-value: 20px;
+  --md-sys-typescale-body-medium-line-height-unit: 2px;
+  --md-sys-typescale-body-medium-line-height: 20px;
+  /* Body Medium font tracking */
+  --md-sys-typescale-body-medium-tracking-value: 0.25px;
+  --md-sys-typescale-body-medium-tracking-unit: 2px;
+  --md-sys-typescale-body-medium-tracking: 0.25px;
+  /* Body Medium font size */
+  --md-sys-typescale-body-medium-size-value: 14px;
+  --md-sys-typescale-body-medium-size-unit: 2px;
+  --md-sys-typescale-body-medium-size: 14px;
+  /* Body Medium font weight */
+  --md-sys-typescale-body-medium-weight: var(--md-ref-typeface-weight-regular);
+  /* Body Medium font name */
+  --md-sys-typescale-body-medium-font: var(--md-ref-typeface-plain);
+  /* Body Large */
+  --md-sys-typescale-body-large-text-transform: unset;
+  --md-sys-typescale-body-large-axis-value: unset;
+  --md-sys-typescale-body-large-font-style: unset;
+  --md-sys-typescale-body-large-text-decoration: unset;
+  /* Body Large line height */
+  --md-sys-typescale-body-large-line-height-value: 24px;
+  --md-sys-typescale-body-large-line-height-unit: 2px;
+  --md-sys-typescale-body-large-line-height: 24px;
+  /* Body Large font tracking */
+  --md-sys-typescale-body-large-tracking-value: 0.5px;
+  --md-sys-typescale-body-large-tracking-unit: 2px;
+  --md-sys-typescale-body-large-tracking: 0.5px;
+  /* Body Large font size */
+  --md-sys-typescale-body-large-size-value: 16px;
+  --md-sys-typescale-body-large-size-unit: 2px;
+  --md-sys-typescale-body-large-size: 16px;
+  /* Body Large font weight */
+  --md-sys-typescale-body-large-weight: var(--md-ref-typeface-weight-regular);
+  /* Body Large font name */
+  --md-sys-typescale-body-large-font: var(--md-ref-typeface-plain);
+  /* Title Small */
+  --md-sys-typescale-title-small-text-transform: unset;
+  --md-sys-typescale-title-small-axis-value: unset;
+  --md-sys-typescale-title-small-font-style: unset;
+  --md-sys-typescale-title-small-text-decoration: unset;
+  /* Title Small line height */
+  --md-sys-typescale-title-small-line-height-value: 20px;
+  --md-sys-typescale-title-small-line-height-unit: 2px;
+  --md-sys-typescale-title-small-line-height: 20px;
+  /* Title Small font tracking */
+  --md-sys-typescale-title-small-tracking-value: 0.10000000149011612px;
+  --md-sys-typescale-title-small-tracking-unit: 2px;
+  --md-sys-typescale-title-small-tracking: 0.10000000149011612px;
+  /* Title Small font size */
+  --md-sys-typescale-title-small-size-value: 14px;
+  --md-sys-typescale-title-small-size-unit: 2px;
+  --md-sys-typescale-title-small-size: 22px;
+  /* Title Small font weight */
+  --md-sys-typescale-title-small-weight: var(--md-ref-typeface-weight-medium);
+  /* Title Small font name */
+  --md-sys-typescale-title-small-font: var(--md-ref-typeface-plain);
+  /* Title Medium */
+  --md-sys-typescale-title-medium-text-transform: unset;
+  --md-sys-typescale-title-medium-axis-value: unset;
+  --md-sys-typescale-title-medium-font-style: unset;
+  --md-sys-typescale-title-medium-text-decoration: unset;
+  /* Title Medium line height */
+  --md-sys-typescale-title-medium-line-height-value: 24px;
+  --md-sys-typescale-title-medium-line-height-unit: 2px;
+  --md-sys-typescale-title-medium-line-height: 24px;
+  /* Title Medium font tracking */
+  --md-sys-typescale-title-medium-tracking-value: 0.15000000596046448px;
+  --md-sys-typescale-title-medium-tracking-unit: 2px;
+  --md-sys-typescale-title-medium-tracking: 0.15000000596046448px;
+  /* Title Medium font size */
+  --md-sys-typescale-title-medium-size-value: 16px;
+  --md-sys-typescale-title-medium-size-unit: 2px;
+  --md-sys-typescale-title-medium-size: 24px;
+  /* Title Medium font weight */
+  --md-sys-typescale-title-medium-weight: var(--md-ref-typeface-weight-medium);
+  /* Title Medium font name */
+  --md-sys-typescale-title-medium-font: var(--md-ref-typeface-plain);
+  /* Title Large */
+  --md-sys-typescale-title-large-text-transform: unset;
+  --md-sys-typescale-title-large-axis-value: unset;
+  --md-sys-typescale-title-large-font-style: unset;
+  --md-sys-typescale-title-large-text-decoration: unset;
+  /* Title Large line height */
+  --md-sys-typescale-title-large-line-height-value: 28px;
+  --md-sys-typescale-title-large-line-height-unit: 2px;
+  --md-sys-typescale-title-large-line-height: 28px;
+  /* Title Large font tracking */
+  --md-sys-typescale-title-large-tracking-value: 0px;
+  --md-sys-typescale-title-large-tracking-unit: 2px;
+  --md-sys-typescale-title-large-tracking: 0px;
+  /* Title Large font size */
+  --md-sys-typescale-title-large-size-value: 22px;
+  --md-sys-typescale-title-large-size-unit: 2px;
+  --md-sys-typescale-title-large-size: 28px;
+  /* Title Large font weight */
+  --md-sys-typescale-title-large-weight: var(--md-ref-typeface-weight-regular);
+  /* Title Large font name */
+  --md-sys-typescale-title-large-font: var(--md-ref-typeface-brand);
+  /* Headline Small */
+  --md-sys-typescale-headline-small-text-transform: unset;
+  --md-sys-typescale-headline-small-axis-value: unset;
+  --md-sys-typescale-headline-small-font-style: unset;
+  --md-sys-typescale-headline-small-text-decoration: unset;
+  /* Headline Small line height */
+  --md-sys-typescale-headline-small-line-height-value: 32px;
+  --md-sys-typescale-headline-small-line-height-unit: 2px;
+  --md-sys-typescale-headline-small-line-height: 32px;
+  /* Headline Small font tracking */
+  --md-sys-typescale-headline-small-tracking-value: 0px;
+  --md-sys-typescale-headline-small-tracking-unit: 2px;
+  --md-sys-typescale-headline-small-tracking: 0px;
+  /* Headline Small font size */
+  --md-sys-typescale-headline-small-size-value: 24px;
+  --md-sys-typescale-headline-small-size-unit: 2px;
+  --md-sys-typescale-headline-small-size: 24px;
+  /* Headline Small font weight */
+  --md-sys-typescale-headline-small-weight: var(
+    --md-ref-typeface-weight-regular
+  );
+  /* Headline Small font name */
+  --md-sys-typescale-headline-small-font: var(--md-ref-typeface-brand);
+  /* Headline Medium */
+  --md-sys-typescale-headline-medium-text-transform: unset;
+  --md-sys-typescale-headline-medium-axis-value: unset;
+  --md-sys-typescale-headline-medium-font-style: unset;
+  --md-sys-typescale-headline-medium-text-decoration: unset;
+  /* Headline Medium line height */
+  --md-sys-typescale-headline-medium-line-height-value: 36px;
+  --md-sys-typescale-headline-medium-line-height-unit: 2px;
+  --md-sys-typescale-headline-medium-line-height: 36px;
+  /* Headline Medium font tracking */
+  --md-sys-typescale-headline-medium-tracking-value: 0px;
+  --md-sys-typescale-headline-medium-tracking-unit: 2px;
+  --md-sys-typescale-headline-medium-tracking: 0px;
+  /* Headline Medium font size */
+  --md-sys-typescale-headline-medium-size-value: 28px;
+  --md-sys-typescale-headline-medium-size-unit: 2px;
+  --md-sys-typescale-headline-medium-size: 28px;
+  /* Headline Medium font weight */
+  --md-sys-typescale-headline-medium-weight: var(
+    --md-ref-typeface-weight-regular
+  );
+  /* Headline Medium font name */
+  --md-sys-typescale-headline-medium-font: var(--md-ref-typeface-brand);
+  /* Headline Large */
+  --md-sys-typescale-headline-large-text-transform: unset;
+  --md-sys-typescale-headline-large-axis-value: unset;
+  --md-sys-typescale-headline-large-font-style: unset;
+  --md-sys-typescale-headline-large-text-decoration: unset;
+  /* Headline Large line height */
+  --md-sys-typescale-headline-large-line-height-value: 40px;
+  --md-sys-typescale-headline-large-line-height-unit: 2px;
+  --md-sys-typescale-headline-large-line-height: 40px;
+  /* Headline Large font tracking */
+  --md-sys-typescale-headline-large-tracking-value: 0px;
+  --md-sys-typescale-headline-large-tracking-unit: 2px;
+  --md-sys-typescale-headline-large-tracking: 0px;
+  /* Headline Large font size */
+  --md-sys-typescale-headline-large-size-value: 32px;
+  --md-sys-typescale-headline-large-size-unit: 2px;
+  --md-sys-typescale-headline-large-size: 32px;
+  /* Headline Large font name */
+  --md-sys-typescale-headline-large-font: var(--md-ref-typeface-brand);
+  /* Headline Large font weight */
+  --md-sys-typescale-headline-large-weight: var(
+    --md-ref-typeface-weight-regular
+  );
+  /* Display Small */
+  --md-sys-typescale-display-small-text-transform: unset;
+  --md-sys-typescale-display-small-axis-value: unset;
+  --md-sys-typescale-display-small-font-style: unset;
+  --md-sys-typescale-display-small-text-decoration: unset;
+  /* Display Small line height */
+  --md-sys-typescale-display-small-line-height-value: 44px;
+  --md-sys-typescale-display-small-line-height-unit: 2px;
+  --md-sys-typescale-display-small-line-height: 44px;
+  /* Display Small font tracking */
+  --md-sys-typescale-display-small-tracking-value: 0px;
+  --md-sys-typescale-display-small-tracking-unit: 2px;
+  --md-sys-typescale-display-small-tracking: 0px;
+  /* Display Small font size */
+  --md-sys-typescale-display-small-size-value: 36px;
+  --md-sys-typescale-display-small-size-unit: 2px;
+  --md-sys-typescale-display-small-size: 36px;
+  /* Display Small font weight */
+  --md-sys-typescale-display-small-weight: var(
+    --md-ref-typeface-weight-regular
+  );
+  /* Display Small font name */
+  --md-sys-typescale-display-small-font: var(--md-ref-typeface-brand);
+  /* Display Medium */
+  --md-sys-typescale-display-medium-text-transform: unset;
+  --md-sys-typescale-display-medium-axis-value: unset;
+  --md-sys-typescale-display-medium-font-style: unset;
+  --md-sys-typescale-display-medium-text-decoration: unset;
+  /* Display Medium line height */
+  --md-sys-typescale-display-medium-line-height-value: 52px;
+  --md-sys-typescale-display-medium-line-height-unit: 2px;
+  --md-sys-typescale-display-medium-line-height: 52px;
+  /* Display Medium font tracking */
+  --md-sys-typescale-display-medium-tracking-value: 0px;
+  --md-sys-typescale-display-medium-tracking-unit: 2px;
+  --md-sys-typescale-display-medium-tracking: 0px;
+  /* Display Medium font size */
+  --md-sys-typescale-display-medium-size-value: 45px;
+  --md-sys-typescale-display-medium-size-unit: 2px;
+  --md-sys-typescale-display-medium-size: 45px;
+  /* Display Medium font weight */
+  --md-sys-typescale-display-medium-weight: var(
+    --md-ref-typeface-weight-regular
+  );
+  /* Display Medium font name */
+  --md-sys-typescale-display-medium-font: var(--md-ref-typeface-brand);
+  /* Display Large */
+  --md-sys-typescale-display-large-text-transform: unset;
+  --md-sys-typescale-display-large-axis-value: unset;
+  --md-sys-typescale-display-large-font-style: unset;
+  --md-sys-typescale-display-large-text-decoration: unset;
+  /* Display Large line height */
+  --md-sys-typescale-display-large-line-height-value: 64px;
+  --md-sys-typescale-display-large-line-height-unit: 2px;
+  --md-sys-typescale-display-large-line-height: 64px;
+  /* Display Large font tracking */
+  --md-sys-typescale-display-large-tracking-value: -0.25px;
+  --md-sys-typescale-display-large-tracking-unit: 2px;
+  --md-sys-typescale-display-large-tracking: -0.25px;
+  /* Display Large font size */
+  --md-sys-typescale-display-large-size-value: 57px;
+  --md-sys-typescale-display-large-size-unit: 2px;
+  --md-sys-typescale-display-large-size: 57px;
+  /* Display Large font weight */
+  --md-sys-typescale-display-large-weight: var(
+    --md-ref-typeface-weight-regular
+  );
+  /* Display Large font name */
+  --md-sys-typescale-display-large-font: var(--md-ref-typeface-brand);
+  /* Plain typeface */
+  --md-ref-typeface-plain: Google Sans, Roboto;
+  /* Brand typeface */
+  --md-ref-typeface-brand: Google Sans, Roboto;
+  /* Bold weight */
+  --md-ref-typeface-weight-bold: 700;
+  /* Medium weight */
+  --md-ref-typeface-weight-medium: 500;
+  /* Regular weight */
+  --md-ref-typeface-weight-regular: 400;
 }
-
 
 @media (prefers-color-scheme: dark) {
-    :root {
-      --md-sys-color-primary: 207, 189, 254;
-      --md-sys-color-surface-tint: 207, 189, 254;
-      --md-sys-color-on-primary: 53, 39, 93;
-      --md-sys-color-primary-container: 76, 62, 117;
-      --md-sys-color-on-primary-container: 232, 221, 255;
-      --md-sys-color-secondary: 203, 194, 220;
-      --md-sys-color-on-secondary: 51, 45, 65;
-      --md-sys-color-secondary-container: 74, 68, 88;
-      --md-sys-color-on-secondary-container: 232, 222, 248;
-      --md-sys-color-tertiary: 239, 184, 200;
-      --md-sys-color-on-tertiary: 74, 37, 50;
-      --md-sys-color-tertiary-container: 99, 59, 73;
-      --md-sys-color-on-tertiary-container: 255, 217, 227;
-      --md-sys-color-error: 255, 180, 171;
-      --md-sys-color-on-error: 105, 0, 5;
-      --md-sys-color-error-container: 147, 0, 10;
-      --md-sys-color-on-error-container: 255, 218, 214;
-      --md-sys-color-background: 20, 18, 24;
-      --md-sys-color-on-background: 230, 225, 233;
-      --md-sys-color-surface: 20, 18, 24;
-      --md-sys-color-on-surface: 230, 225, 233;
-      --md-sys-color-surface-variant: 73, 69, 78;
-      --md-sys-color-on-surface-variant: 202, 196, 207;
-      --md-sys-color-outline: 148, 143, 153;
-      --md-sys-color-outline-variant: 73, 69, 78;
-      --md-sys-color-shadow: 0, 0, 0;
-      --md-sys-color-scrim: 0, 0, 0;
-      --md-sys-color-inverse-surface: 230, 225, 233;
-      --md-sys-color-inverse-on-surface: 50, 47, 53;
-      --md-sys-color-inverse-primary: 100, 85, 143;
-      --md-sys-color-primary-fixed: 232, 221, 255;
-      --md-sys-color-on-primary-fixed: 32, 16, 71;
-      --md-sys-color-primary-fixed-dim: 207, 189, 254;
-      --md-sys-color-on-primary-fixed-variant: 76, 62, 117;
-      --md-sys-color-secondary-fixed: 232, 222, 248;
-      --md-sys-color-on-secondary-fixed: 30, 25, 43;
-      --md-sys-color-secondary-fixed-dim: 203, 194, 220;
-      --md-sys-color-on-secondary-fixed-variant: 74, 68, 88;
-      --md-sys-color-tertiary-fixed: 255, 217, 227;
-      --md-sys-color-on-tertiary-fixed: 49, 16, 29;
-      --md-sys-color-tertiary-fixed-dim: 239, 184, 200;
-      --md-sys-color-on-tertiary-fixed-variant: 99, 59, 73;
-      --md-sys-color-surface-dim: 20, 18, 24;
-      --md-sys-color-surface-bright: 59, 56, 62;
-      --md-sys-color-surface-container-lowest: 15, 13, 19;
-      --md-sys-color-surface-container-low: 29, 27, 32;
-      --md-sys-color-surface-container: 33, 31, 36;
-      --md-sys-color-surface-container-high: 43, 41, 47;
-      --md-sys-color-surface-container-highest: 54, 52, 58;
-    }
+  :root {
+    --md-sys-color-primary: 207, 189, 254;
+    --md-sys-color-surface-tint: 207, 189, 254;
+    --md-sys-color-on-primary: 53, 39, 93;
+    --md-sys-color-primary-container: 76, 62, 117;
+    --md-sys-color-on-primary-container: 232, 221, 255;
+    --md-sys-color-secondary: 203, 194, 220;
+    --md-sys-color-on-secondary: 51, 45, 65;
+    --md-sys-color-secondary-container: 74, 68, 88;
+    --md-sys-color-on-secondary-container: 232, 222, 248;
+    --md-sys-color-tertiary: 239, 184, 200;
+    --md-sys-color-on-tertiary: 74, 37, 50;
+    --md-sys-color-tertiary-container: 99, 59, 73;
+    --md-sys-color-on-tertiary-container: 255, 217, 227;
+    --md-sys-color-error: 255, 180, 171;
+    --md-sys-color-on-error: 105, 0, 5;
+    --md-sys-color-error-container: 147, 0, 10;
+    --md-sys-color-on-error-container: 255, 218, 214;
+    --md-sys-color-background: 20, 18, 24;
+    --md-sys-color-on-background: 230, 225, 233;
+    --md-sys-color-surface: 20, 18, 24;
+    --md-sys-color-on-surface: 230, 225, 233;
+    --md-sys-color-surface-variant: 73, 69, 78;
+    --md-sys-color-on-surface-variant: 202, 196, 207;
+    --md-sys-color-outline: 148, 143, 153;
+    --md-sys-color-outline-variant: 73, 69, 78;
+    --md-sys-color-shadow: 0, 0, 0;
+    --md-sys-color-scrim: 0, 0, 0;
+    --md-sys-color-inverse-surface: 230, 225, 233;
+    --md-sys-color-inverse-on-surface: 50, 47, 53;
+    --md-sys-color-inverse-primary: 100, 85, 143;
+    --md-sys-color-primary-fixed: 232, 221, 255;
+    --md-sys-color-on-primary-fixed: 32, 16, 71;
+    --md-sys-color-primary-fixed-dim: 207, 189, 254;
+    --md-sys-color-on-primary-fixed-variant: 76, 62, 117;
+    --md-sys-color-secondary-fixed: 232, 222, 248;
+    --md-sys-color-on-secondary-fixed: 30, 25, 43;
+    --md-sys-color-secondary-fixed-dim: 203, 194, 220;
+    --md-sys-color-on-secondary-fixed-variant: 74, 68, 88;
+    --md-sys-color-tertiary-fixed: 255, 217, 227;
+    --md-sys-color-on-tertiary-fixed: 49, 16, 29;
+    --md-sys-color-tertiary-fixed-dim: 239, 184, 200;
+    --md-sys-color-on-tertiary-fixed-variant: 99, 59, 73;
+    --md-sys-color-surface-dim: 20, 18, 24;
+    --md-sys-color-surface-bright: 59, 56, 62;
+    --md-sys-color-surface-container-lowest: 15, 13, 19;
+    --md-sys-color-surface-container-low: 29, 27, 32;
+    --md-sys-color-surface-container: 33, 31, 36;
+    --md-sys-color-surface-container-high: 43, 41, 47;
+    --md-sys-color-surface-container-highest: 54, 52, 58;
+  }
 }
 
+.md-elevation {
+  transition-duration: 280ms;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.3, 0, 0, 1);
+}
 
 .material-symbols-rounded {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
 }
 
-.md-elevation-1{
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)
+.md-elevation-1 {
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3),
+    0px 1px 3px 1px rgba(0, 0, 0, 0.15);
 }
 
-.md-elevation-2{
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+.md-elevation-2 {
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3),
+    0px 2px 6px 2px rgba(0, 0, 0, 0.15);
 }
 
 /* Label Small */
@@ -718,7 +718,7 @@
   text-decoration: var(--md-sys-typescale-display-large-text-decoration);
 }
 
-html{
+html {
   background: rgb(var(--md-sys-color-background));
 }
 
@@ -733,12 +733,12 @@ html{
 .filled-text-field-inner-container.error {
   position: relative;
   border-bottom: 1px solid rgb(var(--md-sys-color-error));
-} 
+}
 
 .filled-text-field-inner-container.error:hover {
   position: relative;
   border-bottom: 1px solid rgb(var(--md-sys-color-on-error-container));
-} 
+}
 
 .filled-text-field-inner-container:hover {
   position: relative;
@@ -765,7 +765,6 @@ html{
   transition: 0.2s ease all;
 }
 
-
 .filled-text-field-inner-container::before {
   left: 0;
   top: 100%;
@@ -776,18 +775,18 @@ html{
   top: 100%;
 }
 
-.filled-text-field-input-box{
+.filled-text-field-input-box {
   width: 100%;
 }
 
 /* Leading Icon + Trailing */
 .filled-text-field-leading-icon,
-.filled-text-field-trailing-icon{
+.filled-text-field-trailing-icon {
   color: rgb(var(--md-sys-color-on-surface-variant));
 }
 
 .filled-text-field-leading-icon.error,
-.filled-text-field-trailing-icon.error{
+.filled-text-field-trailing-icon.error {
   color: rgb(var(--md-sys-color-error));
 }
 
@@ -801,7 +800,7 @@ html{
 
 /* input */
 .filled-text-field-input {
-  caret-color: 'rgb(var(--md-sys-color-primary))';
+  caret-color: "rgb(var(--md-sys-color-primary))";
   padding: 13px 10px 1px 5px;
   display: block;
   width: 100%;
@@ -810,7 +809,7 @@ html{
 }
 
 .filled-text-field-input.error:focus {
-  caret-color: 'rgb(var(--md-sys-color-error))';
+  caret-color: "rgb(var(--md-sys-color-error))";
 }
 
 .filled-text-field-input:focus {
@@ -851,7 +850,8 @@ html{
 }
 
 .filled-text-field-input:focus ~ .filled-text-field-label.error,
-.filled-text-field-input:not(:placeholder-shown) ~ .filled-text-field-label.error {
+.filled-text-field-input:not(:placeholder-shown)
+  ~ .filled-text-field-label.error {
   top: 6px;
   font-size: var(--md-sys-typescale-body-small-size);
   color: rgb(var(--md-sys-color-error));
@@ -870,23 +870,23 @@ html{
 .outlined-text-field-inner-container.focused,
 .outlined-text-field-inner-container.focused:hover {
   border-color: rgb(var(--md-sys-color-primary));
-  border-width: 3px; 
+  border-width: 3px;
 }
 
 .outlined-text-field-inner-container.error {
   position: relative;
   border: 1px solid rgb(var(--md-sys-color-error));
-} 
+}
 
 .outlined-text-field-inner-container.error:hover {
   position: relative;
   border: 1px solid rgb(var(--md-sys-color-on-error-container));
-} 
+}
 
 .outlined-text-field-inner-container.error.focused,
 .outlined-text-field-input:valid {
   border-width: 3px;
-} 
+}
 
 .outlined-text-field-inner-container:hover {
   position: relative;
@@ -895,29 +895,31 @@ html{
 
 /* Leading Icon + Trailing Icon */
 .outlined-text-field-leading-icon,
-.outlined-text-field-trailing-icon{
+.outlined-text-field-trailing-icon {
   color: rgb(var(--md-sys-color-on-surface-variant));
 }
 
 .outlined-text-field-leading-icon.error,
-.outlined-text-field-trailing-icon.error{
+.outlined-text-field-trailing-icon.error {
   color: rgb(var(--md-sys-color-error));
 }
 
-.outlined-text-field-inner-container:hover ~ .outlined-text-field-leading-icon.error,
-.outlined-text-field-inner-container:hover ~ .outlined-text-field-trailing-icon.error {
+.outlined-text-field-inner-container:hover
+  ~ .outlined-text-field-leading-icon.error,
+.outlined-text-field-inner-container:hover
+  ~ .outlined-text-field-trailing-icon.error {
   color: rgb(var(--md-sys-color-on-surface-variant));
 }
 
 /* Input  */
 .outlined-text-field-input {
-  caret-color: 'rgb(var(--md-sys-color-primary))';
+  caret-color: "rgb(var(--md-sys-color-primary))";
   padding: 10px 10px 7px 5px;
   display: block;
   width: 100%;
   border: none;
   background: transparent;
-} 
+}
 
 .outlined-text-field-input:focus {
   outline: none;
@@ -941,7 +943,8 @@ html{
 }
 
 .outlined-text-field-input:focus ~ .outlined-text-field-label,
-.outlined-text-field-input:not(:placeholder-shown) ~ .outlined-text-field-label {
+.outlined-text-field-input:not(:placeholder-shown)
+  ~ .outlined-text-field-label {
   top: -10px;
   transition: all 0.5s ease;
   font-size: var(--md-sys-typescale-body-small-size);
@@ -951,10 +954,10 @@ html{
 }
 
 .outlined-text-field-input:focus ~ .outlined-text-field-label.error,
-.outlined-text-field-input:not(:placeholder-shown) ~ .outlined-text-field-label.error {
+.outlined-text-field-input:not(:placeholder-shown)
+  ~ .outlined-text-field-label.error {
   color: rgb(var(--md-sys-color-error));
 }
-
 
 .outlined-text-field-label:hover {
   color: rgb(var(--md-sys-color-on-surface));
@@ -973,4 +976,111 @@ html{
 
 .divider {
   box-sizing: border-box;
+}
+/* Date Picker */
+.date-picker-container {
+  position: absolute;
+}
+
+.date-input {
+  display: flex;
+  align-items: center;
+}
+
+.date-input input {
+  width: 120px;
+  padding: 8px;
+  margin-right: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.date-picker {
+  position: absolute;
+  left: 0;
+  background-color: rgb(var(--md-sys-color-surface-container-high));
+  border-radius: 8px;
+  z-index: 10;
+  height: 400px;
+  width: 360px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.month-year-selector {
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  text-align: center;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.month-year-parent {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.month-year-selector select,
+.month-year-selector button {
+  padding: 4px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 8px;
+  margin-top: 8px;
+}
+
+.day-header {
+  text-align: center;
+  font-weight: bold;
+  padding-bottom: 16px;
+}
+
+.day-cell {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 36px;
+  width: 36px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.day-cell:hover {
+  cursor: pointer;
+  border: 1px solid #6200ea;
+  border-radius: 50%;
+}
+
+.day-cell.selected {
+  background-color: #6200ea;
+  color: white;
+  border-radius: 50%;
+  border: 1px solid transparent;
+}
+
+.empty-cell {
+  visibility: hidden;
+}
+
+.picker-footer {
+  display: flex;
+  align-items: center;
+  white-space: 4px;
+  justify-content: end;
+  padding-top: 16px;
+  gap: 16px;
+  color: #6200ea;
 }

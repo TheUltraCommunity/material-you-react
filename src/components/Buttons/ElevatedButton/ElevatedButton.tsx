@@ -29,7 +29,7 @@ const ElevatedButton = (props: ElevatedButtonProps) => {
       }}
       onTouchStart={() => setIsFocusedWithKeyboard(false)}
       onMouseUp={() => setIsActive(false)}
-      className={`${
+      className={` md-elevation ${
         props.disabled
           ? "md-elevation-0"
           : isActive || isFocused || !isHovered

@@ -5,6 +5,14 @@ type BottomAppBarProps = {
   items: string[];
   floatingActionButton?: React.ReactNode;
 };
+/**
+ * @params backgroundColor: string - sets Background color
+ * @params items: string[] - An array of icon names to display. Example: `['home', 'search']`.  
+ * @params floatingActionButton: Displays the FAB when `true`. Example: `true`.                        |
+ * @returns React.ReactNode-
+ * @description
+ * This component is a BottomAppBar component.
+*/
 
 export default function BottomAppBar(props: BottomAppBarProps) {
   const [isHovered, setIsHovered] = useState(false);
@@ -43,7 +51,7 @@ export default function BottomAppBar(props: BottomAppBarProps) {
             onMouseDown={() => setIsActive(true)}
             onMouseUp={() => setIsActive(false)}
             key={index}
-            className={`
+            className={`md-elevation
               ${!isHovered ? "md-elevation-0" : "md-elevation-1"}
               label-large material-symbols-rounded`}
             style={{
