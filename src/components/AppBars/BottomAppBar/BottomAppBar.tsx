@@ -5,6 +5,14 @@ type BottomAppBarProps = {
   items: string[];
   floatingActionButton?: React.ReactNode;
 };
+/**
+ * @params backgroundColor: string - sets Background color
+ * @params items: string[] - An array of icon names to display. Example: `['home', 'search']`.  
+ * @params floatingActionButton: Displays the FAB when `true`. Example: `true`.                        |
+ * @returns React.ReactNode-
+ * @description
+ * This component is a BottomAppBar component.
+*/
 
 export default function BottomAppBar(props: BottomAppBarProps) {
   const [isHovered, setIsHovered] = useState(false);
