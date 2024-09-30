@@ -971,6 +971,12 @@ html {
   color: rgb(var(--md-sys-color-on-error-container));
 }
 
+
+/* 📍 Divider */
+
+.divider {
+  box-sizing: border-box;
+}
 /* Date Picker */
 .date-picker-container {
   position: absolute;
