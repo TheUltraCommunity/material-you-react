@@ -967,3 +967,32 @@ html{
 .outlined-text-field-label.error:hover {
   color: rgb(var(--md-sys-color-on-error-container));
 }
+
+
+/* 📍 Divider */
+
+.divider.fullwidth {
+  width: 100%;
+}
+
+.divider.inset {
+  width: 100%;
+  margin-left: 16px;
+  margin-right: 0;
+}
+
+.divider.middleInset {
+  width: 100%;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.divider.rightMargin {
+  width: 100%;
+  margin-right: 8px;
+}
+
+.divider.bottomMargin {
+  width: 100%;
+  margin-bottom: 8px;
+}
