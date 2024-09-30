@@ -1084,3 +1084,9 @@ html {
   gap: 16px;
   color: #6200ea;
 }
+input[type="checkbox"]:checked:before{
+  font-family: 'Material Symbols Rounded';
+  content: '\E5CA';
+  font-size: 18px;
+  padding: auto;
+}
