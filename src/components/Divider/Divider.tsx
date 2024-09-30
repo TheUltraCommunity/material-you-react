@@ -1,7 +1,8 @@
 import React from "react";
 
 type DividerProps = {
-    variant : "fullWidth" | "inset" | "middleInset" | "rightMargin" | "bottomMargin";
+    type: "horizontal" | "vertical";
+    variant : "fullWidth" | "inset" | "middleInset" | "rightMargin";
 }
 
 /**
@@ -12,10 +13,18 @@ type DividerProps = {
 export default function Divider( props: DividerProps ) {
     return(
         <div
-            className={`divider ${props.variant}`}  
+            className={`divider ${props.type}`}  
             style={{
-                height: '1px',
-                backgroundColor: 'rgb(var(--md-sys-color-outline-variant))'
+                width: `${props.type === 'horizontal' ? 
+                    `calc(100% - ${props.variant === 'fullWidth' ? 
+                        '0px' : props.variant === 'inset' ? 
+                            "16px" : props.variant === 'rightMargin' ? 
+                                "8px" : "32px" })`
+                                     : "1px" }`,
+                height: `${props.type === 'horizontal' ? "1px" : "100%" }`,
+                marginLeft: props.variant === 'inset' || props.variant === 'middleInset' ? "16px" : '',
+                backgroundColor: 'rgb(var(--md-sys-color-outline-variant))',
+                marginBottom : props.type === 'horizontal' ? "8px" : ''
             }}
         ></div>
     );
