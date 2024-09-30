@@ -971,7 +971,7 @@ html{
 
 /* 📍 Divider */
 
-.divider.fullwidth {
+.divider.fullWidth {
   width: 100%;
 }
 
@@ -983,8 +983,7 @@ html{
 
 .divider.middleInset {
   width: 100%;
-  margin-left: 16px;
-  margin-right: 16px;
+  margin: 0px 16px;
 }
 
 .divider.rightMargin {
