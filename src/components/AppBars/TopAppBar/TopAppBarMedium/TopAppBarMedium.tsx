@@ -25,6 +25,7 @@ export default function TopAppBarCenterMedium(
     <div
       className="md-elevation-0 md-elevation"
       style={{
+        zIndex: 1,
         backgroundColor: `${
           props.containerBackgroundColor ?? isScrolled
             ? "rgb(var(--md-sys-color-surface-container))"

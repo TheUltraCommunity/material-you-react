@@ -1086,7 +1086,15 @@ html {
 }
 input[type="checkbox"]:checked:before{
   font-family: 'Material Symbols Rounded';
+  font-size: 18px;
   content: '\E5CA';
+  padding: auto;
+}
+
+
+input[type="checkbox"].null:checked:before {
+  font-family: 'Material Symbols Rounded';
+  content: '\f88a';
   font-size: 18px;
   padding: auto;
 }

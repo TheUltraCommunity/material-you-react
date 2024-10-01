@@ -24,6 +24,7 @@ export default function TopAppBarCenterSmall(props: TopAppBarCenterSmallProps) {
         isScrolled ? "md-elevation-2" : "md-elevation-0"
       } md-elevation`}
       style={{
+        zIndex: 1,
         backgroundColor: `${
           props.containerBackgroundColor ??
           (isScrolled
