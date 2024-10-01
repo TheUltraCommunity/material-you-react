@@ -20,6 +20,7 @@ export default function BottomAppBar(props: BottomAppBarProps) {
 
   return (
     <div
+      id="bottomAppBar"
       className="bottom-app-bar"
       style={{
         backgroundColor: `${
