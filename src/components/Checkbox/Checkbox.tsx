@@ -23,8 +23,8 @@ const Checkbox = (props: CheckboxProps) => {
         position: "relative",
         display: "flex",
         alignItems: "center",
-        width: "40px",
-        height: "40px",
+        width: "48px",
+        height: "48px",
         justifyContent: "center",
       }}
     >
@@ -74,7 +74,7 @@ const Checkbox = (props: CheckboxProps) => {
             width: "40px",
             height: "40px",
             pointerEvents: "none",
-            top: "0px",
+            top: "4px",
             // zIndex: 1,
             borderRadius: "20px",
             background: isHovered
