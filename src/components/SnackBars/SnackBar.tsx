@@ -30,7 +30,7 @@ export default function SnackBar(props: SnackBarProps) {
     const [isVisible, setIsVisible] = useState<boolean>(true);
     const [isHovered, setIsHovered] = useState<boolean>(false);
     const [isFocused, setIsFocused] = useState<boolean>(false);
-    const [bottomOffset, setBottomOffSet] = useState<number>(16);
+    const [bottomOffset, setBottomOffSet] = useState<number>(0);
 
 
     useEffect(() => {
@@ -87,9 +87,9 @@ export default function SnackBar(props: SnackBarProps) {
                 position: 'fixed',
                 bottom: `${bottomOffset}px`,
                 left: '50%',
-                transform: 'translateX(-50%)',
+                transform: `translateX(-50%) translateY(${isVisible ? '0%' : '100%'})`,
                 opacity: isVisible ? 1 : 0,
-                transition: "opacity 0.2s ease-out",
+                transition: 'opacity 0.2s ease-in-out, transform 0.3s ease-out, bottom 0.2s ease-in',
                 zIndex: 10
             }}
         >
