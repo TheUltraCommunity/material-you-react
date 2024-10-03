@@ -6,6 +6,7 @@ type TextButtonProps = {
   disabled?: boolean;
   width?: string;
   contentColor?: string;
+  onPressed: () => void;
 };
 
 const TextButton = (props: TextButtonProps) => {
@@ -30,6 +31,7 @@ const TextButton = (props: TextButtonProps) => {
       onMouseUp={() => setIsActive(false)}
       className={`md-elevation-0
          label-large`}
+      onClick={props.onPressed}
       style={{
         width: props.width || "fit-content",
         outlineOffset: isFocused && isFocusedWithKeyboard ? "2px" : undefined,
