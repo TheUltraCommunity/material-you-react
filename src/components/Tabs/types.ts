@@ -1,6 +1,6 @@
 type TabsDefaultProps = {
     label: string;
-    badge?: number;
+    badge?: string;
     active?: boolean;
 }
 

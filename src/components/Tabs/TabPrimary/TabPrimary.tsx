@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PrimaryProps } from "../types";
+import { Badge } from "../../Badges";
+import { useTabContext } from "../TabContext";
 
 export default function TabPrimary(props: PrimaryProps) {
     const [isHovered, setIsHovered] = useState<boolean>(false);
     const [isFocused, setIsFocused] = useState<boolean>(false);
     const [isPressed, setIsPressed] = useState<boolean>(false);
+    const [isActive, setIsActive] = useState<boolean>(false);
+    const { activeTabId, setActiveTabId } = useTabContext();
+
+    useEffect(() => {
+        setIsActive(activeTabId === props.label ? true : false);
+    }, [activeTabId]);
 
     const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
         const ripple = event.currentTarget;
@@ -25,6 +33,7 @@ export default function TabPrimary(props: PrimaryProps) {
             onClick={(e) => {
                 setIsPressed(true);
                 handleClick(e);
+                setActiveTabId(props.label);
             }}
             className={`ripple ${isPressed ? 'active' : ''}`}
             style={{
@@ -45,6 +54,7 @@ export default function TabPrimary(props: PrimaryProps) {
                     alignContent: 'center',
                     placeContent: 'end',
                     gap: '5px',
+                    position: 'relative'
                 }}
             >
                 <span
@@ -54,11 +64,11 @@ export default function TabPrimary(props: PrimaryProps) {
                         height: '24px',
                         margin: '0px auto',
                         color:
-                            isHovered && props.active
+                            isHovered && isActive
                                 ? 'rgb(var(--md-sys-color-primary))'
-                                : isHovered && !props.active
+                                : isHovered && !isActive
                                     ? 'rgb(var(--md-sys-color-on-surface))'
-                                    : props.active
+                                    : isActive
                                         ? 'rgb(var(--md-sys-color-primary))'
                                         : isPressed
                                             ? 'rgb(var(--md-sys-color-on-surface))'
@@ -66,6 +76,7 @@ export default function TabPrimary(props: PrimaryProps) {
                     }}
                 >
                     {props.icon}
+                    <Badge content={props.badge} />
                 </span>
 
                 <p
@@ -76,11 +87,11 @@ export default function TabPrimary(props: PrimaryProps) {
                         fontWeight: 'var(--md-sys-typescale-title-small-weight)',
                         letterSpacing: 'var(--md-sys-typescale-title-small-tracking)',
                         color:
-                            isHovered && props.active
+                            isHovered && isActive
                                 ? 'rgb(var(--md-sys-color-primary))'
-                                : isHovered && !props.active
+                                : isHovered && !isActive
                                     ? 'rgb(var(--md-sys-color-on-surface))'
-                                    : props.active
+                                    : isActive
                                         ? 'rgb(var(--md-sys-color-primary))'
                                         : isPressed
                                             ? 'rgb(var(--md-sys-color-on-surface))'
@@ -93,7 +104,7 @@ export default function TabPrimary(props: PrimaryProps) {
 
                 <div
                     style={{
-                        height: props.active ? '3px' : '0px',
+                        height: isActive ? '3px' : '0px',
                         background: 'rgb(var(--md-sys-color-primary))',
                         borderRadius: '3px 3px 0 0'
                     }}

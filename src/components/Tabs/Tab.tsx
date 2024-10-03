@@ -1,13 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Divider } from "../Divider";
+import { TabContext } from "./TabContext";
 
 type TabProps = {
     children: React.ReactNode
 }
 
 export default function Tab(props: TabProps) {
-    return (
+    const [activeTabId, setActiveTabId] = useState<string | null>(null);
 
+    const findInitialActiveTab = () => {
+        const activeTab = React.Children.toArray(props.children).find(
+            (child) => (child as any).props.active === true
+        );
+
+        if(activeTab){
+            setActiveTabId((activeTab as any).props.label)
+        }
+    };
+
+    useEffect(() => {
+        findInitialActiveTab();
+    }, []);
+
+    return (
         <div
             style={{
                 width: '100vw',
@@ -28,8 +44,10 @@ export default function Tab(props: TabProps) {
                     overflowX: 'hidden',
                 }}
             >
-                <div style={{ display: "flex", width: "100%" }}>
-                    {props.children}
+                <div style={{ display: "flex", width: "100vw", overflowX: 'auto' }}>
+                    <TabContext.Provider value={{ activeTabId, setActiveTabId }}>
+                        {props.children}
+                    </TabContext.Provider>
                 </div>           
             </div>
 
