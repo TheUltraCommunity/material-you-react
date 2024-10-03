@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 
 type BadgeProps = {
   content?: string;
+  disableAlign?: boolean | true;
 };
 const Badge = (props: BadgeProps) => {
   if (props.content && props.content.length > 4) {
@@ -10,7 +11,7 @@ const Badge = (props: BadgeProps) => {
   const badgeRef = React.createRef<HTMLDivElement>();
   useEffect(() => {
     if (badgeRef.current !== null) {
-      if (badgeRef.current.parentElement != null) {
+      if (badgeRef.current.parentElement != null && !props.disableAlign) {
         badgeRef.current.parentElement.style.position = "relative";
       }
     }
@@ -19,9 +20,11 @@ const Badge = (props: BadgeProps) => {
     <div
       ref={badgeRef}
       style={{
-        top: "-2px",
-        right: `${-(props.content.length * 7.5) + 14}px`,
-        position: "absolute",
+        top: !props.disableAlign ? "-2px" : "",
+        right: !props.disableAlign
+          ? `${-(props.content.length * 7.5) + 14}px`
+          : "",
+        position: !props.disableAlign ? "absolute" : "unset",
         height: "16px",
         width: "fit-content",
         maxWidth: "34px",
