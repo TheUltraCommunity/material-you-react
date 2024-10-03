@@ -11,7 +11,7 @@ export default function Tab(props: TabProps) {
         <div
             style={{
                 width: '100vw',
-                display : 'flex',
+                display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center'
@@ -22,17 +22,18 @@ export default function Tab(props: TabProps) {
                     backgroundColor: 'rgb(var(--md-sys-color-surface))',
                     width: '100vw',
                     maxHeight: '64px',
-                    // height: '64px',
                     display: 'flex',
                     justifyContent: 'space-around',
                     alignItems: 'center',
-                    overflowX: 'hidden'
+                    overflowX: 'hidden',
                 }}
             >
-                {props.children}
+                <div style={{ display: "flex", width: "100%" }}>
+                    {props.children}
+                </div>           
             </div>
 
-            <Divider type="horizontal" variant="fullWidth"/>
+            <Divider type="horizontal" variant="fullWidth" />
         </div>
     );
 };
