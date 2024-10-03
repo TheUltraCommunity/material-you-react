@@ -971,7 +971,6 @@ html {
   color: rgb(var(--md-sys-color-on-error-container));
 }
 
-
 /* 📍 Divider */
 
 .divider {
@@ -1084,21 +1083,19 @@ html {
   gap: 16px;
   color: #6200ea;
 }
-input[type="checkbox"]:checked:before{
-  font-family: 'Material Symbols Rounded';
+input[type="checkbox"]:checked:before {
+  font-family: "Material Symbols Rounded";
   font-size: 18px;
-  content: '\E5CA';
+  content: "\E5CA";
   padding: auto;
 }
-
 
 input[type="checkbox"].null:checked:before {
-  font-family: 'Material Symbols Rounded';
-  content: '\f88a';
+  font-family: "Material Symbols Rounded";
+  content: "\f88a";
   font-size: 18px;
   padding: auto;
 }
-
 
 /* Ripple Effect */
 .ripple,
@@ -1108,7 +1105,7 @@ input[type="checkbox"].null:checked:before {
 }
 
 .ripple:before {
-  content: '';
+  content: "";
   position: absolute;
   background-color: rgb(var(--md-sys-color-primary));
   border-radius: 50%;
@@ -1127,7 +1124,7 @@ input[type="checkbox"].null:checked:before {
 
 .ripple-tabs::before,
 .ripple-tabs::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1141,7 +1138,7 @@ input[type="checkbox"].null:checked:before {
   transition: transform 0.6s ease-out, opacity 0.1s ease-out;
 }
 
-.ripple-tabs.active::before, 
+.ripple-tabs.active::before,
 .ripple-tabs.active::after {
   opacity: 0.1;
   width: 100%;
