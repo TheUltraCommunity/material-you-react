@@ -22,6 +22,7 @@ export default function TopAppBarCenterLarge(props: TopAppBarCenterLargeProps) {
   return (
     <div
       style={{
+        zIndex: 1,
         backgroundColor: `${
           props.containerBackgroundColor ?? isScrolled
             ? "rgb(var(--md-sys-color-surface-container))"

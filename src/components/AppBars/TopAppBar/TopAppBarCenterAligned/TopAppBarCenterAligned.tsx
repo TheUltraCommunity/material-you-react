@@ -23,6 +23,7 @@ export default function TopAppBarCenterAligned(
     <div
       className={`md-elevation $isScrolled ? "md-elevation-2" : "md-elevation-0"}`}
       style={{
+        zIndex: 1,
         backgroundColor: `${
           props.containerBackgroundColor ??
           (isScrolled
