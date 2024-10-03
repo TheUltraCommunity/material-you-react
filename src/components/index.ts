@@ -5,3 +5,4 @@ export * from "./Divider";
 export * from "./DatePicker";
 export * from "./Checkbox";
 export * from "./SnackBars";
+export * from "./Scaffold";
