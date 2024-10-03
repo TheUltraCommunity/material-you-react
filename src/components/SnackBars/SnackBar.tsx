@@ -33,7 +33,6 @@ export default function SnackBar(props: SnackBarProps) {
   const [isVisible, setIsVisible] = useState<boolean>(true);
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [isFocused, setIsFocused] = useState<boolean>(false);
-  const [bottomOffset, setBottomOffSet] = useState<number>(16);
 
   useEffect(() => {
     const timer = setTimeout(() => {
