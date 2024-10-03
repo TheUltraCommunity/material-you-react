@@ -1,25 +1,30 @@
 import React, { useState } from "react";
 
 type BottomAppBarProps = {
+  innerRef?: React.RefObject<HTMLDivElement>;
   backgroundColor?: string;
   items: string[];
   floatingActionButton?: React.ReactNode;
 };
 /**
  * @params backgroundColor: string - sets Background color
- * @params items: string[] - An array of icon names to display. Example: `['home', 'search']`.  
+ * @params items: string[] - An array of icon names to display. Example: `['home', 'search']`.
  * @params floatingActionButton: Displays the FAB when `true`. Example: `true`.                        |
  * @returns React.ReactNode-
  * @description
  * This component is a BottomAppBar component.
-*/
+ */
 
-export default function BottomAppBar(props: BottomAppBarProps) {
+export default function BottomAppBar({
+  innerRef,
+  ...props
+}: BottomAppBarProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [isActive, setIsActive] = useState(false);
 
   return (
     <div
+      ref={innerRef}
       id="bottomAppBar"
       className="bottom-app-bar"
       style={{
