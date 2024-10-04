@@ -7,5 +7,5 @@ export * from "./Checkbox";
 export * from "./Tabs";
 export * from "./SnackBars";
 export * from "./Scaffold";
-export * from "./RadioButton";
+export * from "./Radio";
 export * from "./Badges";
