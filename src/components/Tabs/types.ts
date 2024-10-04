@@ -6,4 +6,4 @@ type TabsDefaultProps = {
 
 export type PrimaryProps = TabsDefaultProps & { icon : string };
 
-export type SecondaryProps = TabsDefaultProps;
+export type SecondaryProps = TabsDefaultProps  & { icon? : string };

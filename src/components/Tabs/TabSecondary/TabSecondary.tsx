@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { PrimaryProps } from "../types";
+import { SecondaryProps } from "../types";
 import { Badge } from "../../Badges";
 import { useTabContext } from "../TabContext";
 
-export default function TabPrimary(props: PrimaryProps) {
+export default function TabSecondary(props: SecondaryProps) {
     const [isHovered, setIsHovered] = useState<boolean>(false);
     const [isFocused, setIsFocused] = useState<boolean>(false);
     const [isPressed, setIsPressed] = useState<boolean>(false);
@@ -38,23 +38,23 @@ export default function TabPrimary(props: PrimaryProps) {
             className={`ripple ${isPressed ? 'active' : ''}`}
             style={{
                 flex: 1,
+                width: '100%',
+                height: '48px',
                 display: 'flex',
-                justifyContent: 'center',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
                 alignItems: 'center',
+                alignSelf: 'center',
                 cursor: 'pointer',
+                position: 'sticky'
             }}
         >
             <div
                 style={{
-                    width: 'fit-content',
-                    height: '64px',
+                    height: '100%',
                     display: 'flex',
-                    flexDirection: 'column',
                     justifyContent: 'center',
-                    alignContent: 'center',
-                    placeContent: 'end',
-                    gap: '5px',
-                    position: 'relative'
+                    alignItems: 'center',
                 }}
             >
                 <span
@@ -62,7 +62,7 @@ export default function TabPrimary(props: PrimaryProps) {
                     style={{
                         width: '24px',
                         height: '24px',
-                        margin: '0px auto',
+                        marginRight: '8px',
                         color:
                             isHovered && isActive
                                 ? 'rgb(var(--md-sys-color-primary))'
@@ -76,7 +76,6 @@ export default function TabPrimary(props: PrimaryProps) {
                     }}
                 >
                     {props.icon}
-                    <Badge content={props.badge} disableAlign={false} />
                 </span>
 
                 <p
@@ -96,20 +95,25 @@ export default function TabPrimary(props: PrimaryProps) {
                                         : isPressed
                                             ? 'rgb(var(--md-sys-color-on-surface))'
                                             : 'rgb(var(--md-sys-color-on-surface-variant))',
-                        textAlign: 'center'
+                        textAlign: 'center',
+                        marginRight: props.badge ? '4px' : '',
                     }}
                 >
                     {props.label}
                 </p>
 
-                <div
-                    style={{
-                        height: isActive ? '3px' : '0px',
-                        background: 'rgb(var(--md-sys-color-primary))',
-                        borderRadius: '3px 3px 0 0'
-                    }}
-                />
+                {
+                    props.badge && <Badge content={props.badge} disableAlign={true} />
+                }
             </div>
+            <div
+                style={{
+                    alignSelf: 'flex-end',
+                    width: '100%',
+                    height: isActive ? '2px' : '0px',
+                    background: 'rgb(var(--md-sys-color-primary))',
+                }}
+            />
         </div>
     );
 };
