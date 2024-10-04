@@ -8,6 +8,12 @@ type TabProps = {
     children: React.ReactNode
 }
 
+/**
+ * A Tab Component used for moving from one page to another.
+ *
+ * `TabPrimary` | `TabSecondary` are accepted as children.
+ */
+
 export default function Tab(props: TabProps) {
     const [activeTabId, setActiveTabId] = useState<string | null>(null);
 

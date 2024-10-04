@@ -3,6 +3,16 @@ import { PrimaryProps } from "../types";
 import { Badge } from "../../Badges";
 import { useTabContext } from "../TabContext";
 
+
+/**
+ * A Tab Component used for moving from one page to another.
+ *
+ * @param {string} `label` - A label that will be shown.
+ * @param {boolean} `active` - A Default selected Tab.
+ * @param {string} `badge` - A string that represents a no.of notifications.
+ * @param {string} `icon` - The material icon name to display next to the action. Optional.
+ */
+
 export default function TabPrimary(props: PrimaryProps) {
     const [isHovered, setIsHovered] = useState<boolean>(false);
     const [isFocused, setIsFocused] = useState<boolean>(false);
