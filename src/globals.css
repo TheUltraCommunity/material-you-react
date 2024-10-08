@@ -1192,3 +1192,29 @@ input[type="checkbox"].null:checked:before {
 ::-webkit-scrollbar-button {
   display: none;
 }
+
+.ripple-tabs::before,
+.ripple-tabs::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 99px;
+  height: 99px;
+  border-radius: 50%;
+  background-color: rgb(var(--md-sys-color-primary));
+  transform-origin: center;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+
+.ripple-tabs.active::before,
+.ripple-tabs.active::after {
+  opacity: 0.1;
+  transform: translate(-50%, -50%) scale(10);
+}
+
+.ripple-tabs.active::after {
+  opacity: 0;
+}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import { OneListProps } from "../types";
 import { MaterialImage, MaterialThumbnail } from "../../helpers";
@@ -17,20 +18,37 @@ import { MaterialImage, MaterialThumbnail } from "../../helpers";
  */
 
 const OneLineList = <T,>(props: OneListProps<T>) => {
+=======
+import React, { ReactElement, useEffect, useState } from "react";
+import ListProps from "../types";
+import { MaterialImage, MaterialThumbnail } from "../../helpers";
+
+
+export default function OneLineList(props: ListProps) {
+>>>>>>> c8f5e87 (Added `One-line-list` to Lists)
     const [isHovered, setIsHovered] = useState<boolean>(false);
     const [isFocused, setIsFocused] = useState<boolean>(false);
     const [isPressed, setIsPressed] = useState<boolean>(false);
     const [isDragged, setIsDragged] = useState<boolean>(false);
+<<<<<<< HEAD
     const [MaterailImageElement, setMaterailImageElement] = useState<React.ReactNode>(null);
     const [MaterailThumbnailElement, setMaterailThumbnailElement] = useState<React.ReactNode>(null);
     const [SlotStart, setSlotStart] = useState<React.ReactNode>(null);
     const [SlotEnd, setSlotEnd] = useState<React.ReactNode>(null);
+=======
+
+    let MaterailImageElement,
+        MaterailThumbnailElement,
+        SlotStart,
+        SlotEnd;
+>>>>>>> c8f5e87 (Added `One-line-list` to Lists)
 
     useEffect(() => {
         const childrenArray = React.Children.toArray(props.children);
 
         childrenArray.forEach((child) => {
             if (React.isValidElement(child)) {
+<<<<<<< HEAD
                 if (React.isValidElement(child) && child.type === MaterialImage) {
                     setMaterailImageElement(child);
                 } else if (React.isValidElement(child) && child.type === MaterialThumbnail) {
@@ -39,6 +57,16 @@ const OneLineList = <T,>(props: OneListProps<T>) => {
                     setSlotStart(child);
                 } else if (React.isValidElement(child) && child.props.slot === 'end') {
                     setSlotEnd(child);
+=======
+                if (child.type === MaterialImage) {
+                    MaterailImageElement = child;
+                } else if (child.type === MaterialThumbnail) {
+                    MaterailThumbnailElement = child;
+                } else if (child.props.slot === 'start') {
+                    SlotStart = child;
+                } else if (child.props.slot === 'end') {
+                    SlotEnd = child;
+>>>>>>> c8f5e87 (Added `One-line-list` to Lists)
                 }
             }
         });
@@ -52,9 +80,12 @@ const OneLineList = <T,>(props: OneListProps<T>) => {
             ripple.classList.remove('active');
             setIsPressed(false);
         },600);
+<<<<<<< HEAD
 
         const params = {} as T;
         props.onClickCallback(params);
+=======
+>>>>>>> c8f5e87 (Added `One-line-list` to Lists)
     };
 
 
@@ -71,7 +102,11 @@ const OneLineList = <T,>(props: OneListProps<T>) => {
             }}
             className={`ripple-tabs ${isPressed ? 'active' : ''}`}
             style={{
+<<<<<<< HEAD
                 width: '100%',
+=======
+                width: '100vw',
+>>>>>>> c8f5e87 (Added `One-line-list` to Lists)
                 height: '56px',
                 backgroundColor: isHovered ? 'rgba(var(--md-sys-color-on-surface), 8%)' : isFocused ? 'rgba(var(--md-sys-color-surface), 1%)' : 'rgb(var(--md-sys-color-surface))',
                 opacity: props.disable ? '0.1' : '',
