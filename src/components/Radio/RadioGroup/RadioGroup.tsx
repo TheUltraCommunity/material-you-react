@@ -17,6 +17,12 @@ const RadioGroup = ({ children, value, onChange }: RadioGroupProps) => {
   useEffect(() => {
     const currentBGColor = getRecursiveParentBackgroundColor(innerRef.current);
     setParentBGColor(getComplementaryColor(currentBGColor));
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (e) => {
+        const newBGColor = getRecursiveParentBackgroundColor(innerRef.current);
+        setParentBGColor(getComplementaryColor(newBGColor));
+      });
   }, [innerRef.current]);
   return (
     <div
