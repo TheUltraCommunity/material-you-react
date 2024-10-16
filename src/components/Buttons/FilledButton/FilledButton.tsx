@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
-type FilledButtonProps = {
+type FilledButtonProps<T = void> = {
   children: React.ReactNode;
+  onClickCallback: (params: T) => void;
   icon?: string;
   disabled?: boolean;
   containerColor?: string;
@@ -10,12 +11,18 @@ type FilledButtonProps = {
   draggable?: boolean;
 };
 
-const FilledButton = (props: FilledButtonProps) => {
+const FilledButton = <T,>(props: FilledButtonProps<T>) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [isFocusedWithKeyboard, setIsFocusedWithKeyboard] = useState(true);
   const [isDragged, setIsDragged] = useState(false);
+
+  const handleClick =() => {
+    const params = {} as T;
+    props.onClickCallback(params);
+  };
+
   return (
     <button
       onMouseEnter={() => setIsHovered(true)}
@@ -34,6 +41,7 @@ const FilledButton = (props: FilledButtonProps) => {
       onDragStart={() => setIsDragged(true)}
       onDragEnd={() => setIsDragged(false)}
       draggable={props.draggable ?? true}
+      onClick={handleClick}
       className={` md-elevation 
             ${
               isDragged

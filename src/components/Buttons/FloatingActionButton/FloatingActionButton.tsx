@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 
-type FloatingActionButtonProps = {
+type FloatingActionButtonProps<T = void> = {
   icon: string;
-  onClick: () => void;
+  onClickCallback: (params: T) => void;
 };
 
-const FloatingActionButton = (props: FloatingActionButtonProps) => {
+const FloatingActionButton = <T,>(props: FloatingActionButtonProps<T>) => {
   const ref = useRef<HTMLButtonElement>(null);
   const [parentClass, setParentClass] = useState("");
 
@@ -16,8 +16,14 @@ const FloatingActionButton = (props: FloatingActionButtonProps) => {
     }
   }, [ref.current]);
 
+  const handleClick = () => {
+    const params = {} as T;
+    props.onClickCallback(params);
+  };
+
   return (
     <button
+      onClick={handleClick}
       ref={ref}
       className={
         parentClass.includes("bottom-app-bar")

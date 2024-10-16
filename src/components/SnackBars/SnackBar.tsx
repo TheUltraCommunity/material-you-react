@@ -129,7 +129,7 @@ export default function SnackBar(props: SnackBarProps) {
             {props.action && (
               <TextButton
                 contentColor="rgb(var(--md-sys-color-inverse-primary))"
-                onPressed={handleActionCallback} // A callback function
+                onClickCallback={handleActionCallback} // A callback function
               >
                 <p>{props.action}</p>
               </TextButton>
