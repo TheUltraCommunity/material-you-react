@@ -3,6 +3,8 @@ import React, { MouseEvent, useEffect, useRef, useState } from "react";
 type OutlinedTextFieldProps = {
   type?: "textarea" | "";
   rows?: number;
+  value: string;
+  onValueChange: (value: string) => void;
   containerWidth?: string;
   leadingIcon?: string;
   labelText: string;
@@ -18,7 +20,6 @@ type OutlinedTextFieldProps = {
 export default function OutlinedTextField(props: OutlinedTextFieldProps) {
   const [givenInputType, setGivenInputType] = useState<string>("");
   const [isFocused, setIsFocused] = useState(false);
-  const [inputValue, setInputValue] = useState("");
   const [parentBGColor, setParentBGColor] = useState<string | null>("");
 
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
@@ -29,7 +30,7 @@ export default function OutlinedTextField(props: OutlinedTextFieldProps) {
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
   ) => {
-    setInputValue(e.target.value);
+    props.onValueChange(e.target.value);
   };
 
   // Recursively gets the background color of the parent, which uses this component.
@@ -51,7 +52,7 @@ export default function OutlinedTextField(props: OutlinedTextFieldProps) {
     if (props.inputType === "password") {
       setGivenInputType(givenInputType === "text" ? "password" : "text");
     } else {
-      setInputValue("");
+      props.onValueChange("");
     }
   };
 
@@ -72,7 +73,7 @@ export default function OutlinedTextField(props: OutlinedTextFieldProps) {
     if (givenInputType === "") {
       setGivenInputType(props.inputType ?? "text");
     }
-  }, [inputValue, props.type]);
+  }, [props.value, props.type]);
   return (
     <div
       ref={childRef}
@@ -141,7 +142,7 @@ export default function OutlinedTextField(props: OutlinedTextFieldProps) {
           {props.type === "textarea" ? (
             <textarea
               ref={textareaRef}
-              value={inputValue}
+              value={props.value}
               required={props.required}
               disabled={props.disabled}
               maxLength={props.maxLength}
@@ -167,7 +168,7 @@ export default function OutlinedTextField(props: OutlinedTextFieldProps) {
           ) : (
             <input
               type={givenInputType}
-              value={inputValue}
+              value={props.value}
               required={props.required}
               disabled={props.disabled}
               maxLength={props.maxLength}
@@ -209,7 +210,7 @@ export default function OutlinedTextField(props: OutlinedTextFieldProps) {
         </div>
 
         {/* Trailing Icon */}
-        {props.trailingIcon && inputValue.length > 0 && (
+        {props.trailingIcon && props.value.length > 0 && (
           <div
             onClick={(e) => handleTrailingIconClick(e)}
             className={`outlined-text-field-trailing-icon ${
@@ -263,7 +264,7 @@ export default function OutlinedTextField(props: OutlinedTextFieldProps) {
         {/* Input length */}
         {props.maxLength && (
           <p>
-            {inputValue.length}/{props.maxLength}
+            {props.value.length}/{props.maxLength}
           </p>
         )}
       </div>

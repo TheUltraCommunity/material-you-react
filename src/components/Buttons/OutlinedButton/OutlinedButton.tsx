@@ -1,18 +1,25 @@
 import React, { useState } from "react";
 
-type OutlinedButtonProps = {
+type OutlinedButtonProps<T = void> = {
   children: React.ReactNode[] | React.ReactNode;
+  onClickCallback: (params: T) => void;
   icon?: string;
   disabled?: boolean;
   contentColor?: string;
   width?: string;
 };
 
-const OutlinedButton = (props: OutlinedButtonProps) => {
+const OutlinedButton = <T,>(props: OutlinedButtonProps<T>) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [isFocusedWithKeyboard, setIsFocusedWithKeyboard] = useState(true);
+  
+  const handleClick =() => {
+    const params = {} as T;
+    props.onClickCallback(params);
+  };
+
   return (
     <button
       onMouseEnter={() => setIsHovered(true)}
@@ -28,6 +35,7 @@ const OutlinedButton = (props: OutlinedButtonProps) => {
       }}
       onTouchStart={() => setIsFocusedWithKeyboard(false)}
       onMouseUp={() => setIsActive(false)}
+      onClick={handleClick}
       className={`md-elevation-0
          label-large`}
       style={{
