@@ -186,7 +186,6 @@ export default function TwoLineList(props: TwoListProps) {
                             flexShrink: 1,
                             minWidth: 0,
                             height: '100%',
-                            display: 'flex',
                             justifyContent: 'start',
                             alignItems: 'start',
                             color: props.disable ? 'rgba(var(--md-sys-color-on-surface), 0.38)' : 'rgb(var(--md-sys-color-on-surface-variant))',
@@ -195,9 +194,11 @@ export default function TwoLineList(props: TwoListProps) {
                             fontSize: 'var(--md-sys-typescale-body-medium-size)',
                             letterSpacing: 'var(--md-sys-typescale-body-medium-tracking)',
                             fontWeight: 'var(--md-sys-typescale-body-medium-weight)',
-                            whiteSpace: 'nowrap',
                             overflow: 'hidden', 
-                            textOverflow: 'ellipsis',
+                            display: "-webkit-box",
+                            WebkitBoxOrient: "vertical",
+                            WebkitLineClamp:  1,
+                            maxLines: 1,
                         }}
                     >
                         {props.supportingText}
