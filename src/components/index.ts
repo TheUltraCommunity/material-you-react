@@ -8,3 +8,4 @@ export * from "./SnackBars";
 export * from "./Scaffold";
 export * from "./Radio";
 export * from "./Badges";
+export * from "./Switch";
