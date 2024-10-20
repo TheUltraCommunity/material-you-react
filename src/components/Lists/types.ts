@@ -1,4 +1,5 @@
-type ListProps = {
+type ListProps<T = void> = {
+    onClickCallback: (params: T) => void;
     headline?: string;
     trailingSupportingText?: string;
     leadingIcon?: string;
@@ -6,8 +7,8 @@ type ListProps = {
     leadingAvatarLabel?: string;
     children?: React.ReactNode;
     divider?: React.ReactNode;
-    disable?: boolean
+    disable?: boolean;
 };
 
-export type OneListProps = ListProps;
-export type TwoListProps = ListProps & { supportingText: string; };
+export type OneListProps<T = void> = ListProps<T>;
+export type TwoListProps<T = void> = ListProps<T> & { supportingText: string; };

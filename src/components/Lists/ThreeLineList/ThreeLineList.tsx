@@ -14,9 +14,10 @@ import { MaterialImage, MaterialThumbnail } from "../../helpers";
  * @params {React.ReactNode} optional `children` - The content of the list item, such as text or components.
  * @params {React.ReactNode} optional `divider` - A component used to visually separate list items.
  * @params {boolean} optional `disable` - If `true`, disables interaction with the list item.
+ * @params {function} `onClickCallback` - An action does after a click.
  */
 
-export default function ThreeLineList(props: TwoListProps) {
+const ThreeLineList = <T,>(props: TwoListProps<T>) => {
     const [isHovered, setIsHovered] = useState<boolean>(false);
     const [isFocused, setIsFocused] = useState<boolean>(false);
     const [isPressed, setIsPressed] = useState<boolean>(false);
@@ -52,8 +53,10 @@ export default function ThreeLineList(props: TwoListProps) {
             ripple.classList.remove('active');
             setIsPressed(false);
         }, 600);
-    };
 
+        const params = {} as T;
+        props.onClickCallback(params);
+    };
 
     return (
         <div
@@ -65,6 +68,7 @@ export default function ThreeLineList(props: TwoListProps) {
             onClick={(e) => {
                 setIsPressed(true);
                 handleClick(e);
+                // handleClickComp
             }}
             className={`ripple-tabs ${isPressed ? 'active' : ''}`}
             style={{
@@ -90,7 +94,7 @@ export default function ThreeLineList(props: TwoListProps) {
                     alignItems: 'center',
                     gap: '16px',
                     paddingRight: '16px',
-                    flex : 1,
+                    flex: 1,
                     minWidth: 0
                 }}
             >
@@ -160,7 +164,7 @@ export default function ThreeLineList(props: TwoListProps) {
                         flex: 1,
                         minWidth: 0,
                     }}
-                
+
                 >
                     {/* Headline */}
                     <p
@@ -194,10 +198,10 @@ export default function ThreeLineList(props: TwoListProps) {
                             fontSize: 'var(--md-sys-typescale-body-medium-size)',
                             letterSpacing: 'var(--md-sys-typescale-body-medium-tracking)',
                             fontWeight: 'var(--md-sys-typescale-body-medium-weight)',
-                            overflow: 'hidden', 
+                            overflow: 'hidden',
                             display: "-webkit-box",
                             WebkitBoxOrient: "vertical",
-                            WebkitLineClamp:  2,
+                            WebkitLineClamp: 2,
                             maxLines: 2,
                         }}
                     >
@@ -256,3 +260,6 @@ export default function ThreeLineList(props: TwoListProps) {
         </div>
     );
 };
+
+
+export default ThreeLineList;

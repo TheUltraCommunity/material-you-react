@@ -14,9 +14,10 @@ import { MaterialImage, MaterialThumbnail } from "../../helpers";
  * @params {React.ReactNode} optional `children` - The content of the list item, such as text or components.
  * @params {React.ReactNode} optional `divider` - A component used to visually separate list items.
  * @params {boolean} optional `disable` - If `true`, disables interaction with the list item.
+ * @params {function} `onClickCallback` - An action does after a click.
  */
 
-export default function TwoLineList(props: TwoListProps) {
+const TwoLineList = <T,>(props: TwoListProps<T>) => {
     const [isHovered, setIsHovered] = useState<boolean>(false);
     const [isFocused, setIsFocused] = useState<boolean>(false);
     const [isPressed, setIsPressed] = useState<boolean>(false);
@@ -52,6 +53,9 @@ export default function TwoLineList(props: TwoListProps) {
             ripple.classList.remove('active');
             setIsPressed(false);
         }, 600);
+
+        const params = {} as T;
+        props.onClickCallback(params);
     };
 
 
