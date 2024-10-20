@@ -1,32 +1,31 @@
-import React, { ReactElement, useEffect, useState } from "react";
-import ListProps from "../types";
+import React, { useEffect, useState } from "react";
+import { OneListProps } from "../types";
 import { MaterialImage, MaterialThumbnail } from "../../helpers";
 
 
-export default function OneLineList(props: ListProps) {
+export default function OneLineList(props: OneListProps) {
     const [isHovered, setIsHovered] = useState<boolean>(false);
     const [isFocused, setIsFocused] = useState<boolean>(false);
     const [isPressed, setIsPressed] = useState<boolean>(false);
     const [isDragged, setIsDragged] = useState<boolean>(false);
-
-    let MaterailImageElement,
-        MaterailThumbnailElement,
-        SlotStart,
-        SlotEnd;
+    const [MaterailImageElement, setMaterailImageElement] = useState<React.ReactNode>(null);
+    const [MaterailThumbnailElement, setMaterailThumbnailElement] = useState<React.ReactNode>(null);
+    const [SlotStart, setSlotStart] = useState<React.ReactNode>(null);
+    const [SlotEnd, setSlotEnd] = useState<React.ReactNode>(null);
 
     useEffect(() => {
         const childrenArray = React.Children.toArray(props.children);
 
         childrenArray.forEach((child) => {
             if (React.isValidElement(child)) {
-                if (child.type === MaterialImage) {
-                    MaterailImageElement = child;
-                } else if (child.type === MaterialThumbnail) {
-                    MaterailThumbnailElement = child;
-                } else if (child.props.slot === 'start') {
-                    SlotStart = child;
-                } else if (child.props.slot === 'end') {
-                    SlotEnd = child;
+                if (React.isValidElement(child) && child.type === MaterialImage) {
+                    setMaterailImageElement(child);
+                } else if (React.isValidElement(child) && child.type === MaterialThumbnail) {
+                    setMaterailThumbnailElement(child);
+                } else if (React.isValidElement(child) && child.props.slot === 'start') {
+                    setSlotStart(child);
+                } else if (React.isValidElement(child) && child.props.slot === 'end') {
+                    setSlotEnd(child);
                 }
             }
         });
@@ -56,7 +55,7 @@ export default function OneLineList(props: ListProps) {
             }}
             className={`ripple-tabs ${isPressed ? 'active' : ''}`}
             style={{
-                width: '100vw',
+                width: '100%',
                 height: '56px',
                 backgroundColor: isHovered ? 'rgba(var(--md-sys-color-on-surface), 8%)' : isFocused ? 'rgba(var(--md-sys-color-surface), 1%)' : 'rgb(var(--md-sys-color-surface))',
                 opacity: props.disable ? '0.1' : '',

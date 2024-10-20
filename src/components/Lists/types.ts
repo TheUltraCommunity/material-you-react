@@ -1,6 +1,5 @@
 type ListProps = {
     headline?: string;
-    supportingText?: string;
     trailingSupportingText?: string;
     leadingIcon?: string;
     trailingIcon?: string;
@@ -10,4 +9,5 @@ type ListProps = {
     disable?: boolean
 };
 
-export default ListProps;
+export type OneListProps = ListProps;
+export type TwoListProps = ListProps & { supportingText: string; };
