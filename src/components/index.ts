@@ -10,3 +10,4 @@ export * from "./Radio";
 export * from "./Badges";
 export * from "./Lists";
 export * from "./helpers";
+export * from "./Switch";
