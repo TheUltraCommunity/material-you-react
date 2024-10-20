@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
-type ElevatedButtonProps = {
+type ElevatedButtonProps<T = void> = {
   children: React.ReactNode;
+  onClickCallback: (params: T) => void;
   icon?: string;
   disabled?: boolean;
   containerColor?: string;
@@ -9,11 +10,17 @@ type ElevatedButtonProps = {
   width?: string;
 };
 
-const ElevatedButton = (props: ElevatedButtonProps) => {
+const ElevatedButton = <T,>(props: ElevatedButtonProps<T>) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const [isFocusedWithKeyboard, setIsFocusedWithKeyboard] = useState(true);
   const [isActive, setIsActive] = useState(false);
+
+  const handleClick =() => {
+    const params = {} as T;
+    props.onClickCallback(params);
+  };
+
   return (
     <button
       onMouseEnter={() => setIsHovered(true)}
@@ -29,6 +36,7 @@ const ElevatedButton = (props: ElevatedButtonProps) => {
       }}
       onTouchStart={() => setIsFocusedWithKeyboard(false)}
       onMouseUp={() => setIsActive(false)}
+      onClick={handleClick}
       className={` md-elevation ${
         props.disabled
           ? "md-elevation-0"

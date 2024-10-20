@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import FilledButton from "../FilledButton/FilledButton";
 
-type FilledTonalButtonProps = {
+type FilledTonalButtonProps<T = void> = {
   children: React.ReactNode;
+  onClickCallback: (params: T) => void;
   icon?: string;
   disabled?: boolean;
   containerColor?: string;
@@ -10,9 +11,10 @@ type FilledTonalButtonProps = {
   width?: string;
 };
 
-const FilledTonalButton = (props: FilledTonalButtonProps) => {
+const FilledTonalButton = <T,>(props: FilledTonalButtonProps<T>) => {
   return (
-    <FilledButton
+    <FilledButton<T>
+      onClickCallback={props.onClickCallback}
       children={props.children}
       icon={props.icon}
       disabled={props.disabled}

@@ -1,6 +1,8 @@
 import React, { MouseEvent, useEffect, useRef, useState } from "react";
 
 type FilledTextFieldProps = {
+  value: string;
+  onValueChange: (value: string) => void;
   type?: "textarea" | "";
   rows?: number;
   containerWidth?: string;
@@ -18,7 +20,6 @@ type FilledTextFieldProps = {
 export default function FilledTextField(props: FilledTextFieldProps) {
   const [givenInputType, setGivenInputType] = useState<string>("");
   const [isFocused, setIsFocused] = useState(false);
-  const [inputValue, setInputValue] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
   const handleInputChange = (
@@ -26,7 +27,7 @@ export default function FilledTextField(props: FilledTextFieldProps) {
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
   ) => {
-    setInputValue(e.target.value);
+    props.onValueChange(e.target.value);
   };
 
   const handleTrailingIconClick = (e: MouseEvent<HTMLDivElement>) => {
@@ -34,7 +35,7 @@ export default function FilledTextField(props: FilledTextFieldProps) {
     if (props.inputType === "password") {
       setGivenInputType(givenInputType === "text" ? "password" : "text");
     } else {
-      setInputValue("");
+      props.onValueChange("");
     }
   };
 
@@ -48,7 +49,7 @@ export default function FilledTextField(props: FilledTextFieldProps) {
     if (givenInputType === "") {
       setGivenInputType(props.inputType ?? "text");
     }
-  }, [inputValue, props.type]);
+  }, [props.value, props.type]);
   return (
     <div
       style={{
@@ -117,7 +118,7 @@ export default function FilledTextField(props: FilledTextFieldProps) {
           {props.type === "textarea" ? (
             <textarea
               ref={textareaRef}
-              value={inputValue}
+              value={props.value}
               required={props.required}
               disabled={props.disabled}
               maxLength={props.maxLength}
@@ -143,7 +144,7 @@ export default function FilledTextField(props: FilledTextFieldProps) {
           ) : (
             <input
               type={givenInputType}
-              value={inputValue}
+              value={props.value}
               required={props.required}
               disabled={props.disabled}
               maxLength={props.maxLength}
@@ -176,7 +177,7 @@ export default function FilledTextField(props: FilledTextFieldProps) {
         </div>
 
         {/* Trailing Icon */}
-        {props.trailingIcon && inputValue.length > 0 && (
+        {props.trailingIcon && props.value.length > 0 && (
           <div
             onClick={(e) => handleTrailingIconClick(e)}
             className={`filled-text-field-trailing-icon ${
@@ -230,7 +231,7 @@ export default function FilledTextField(props: FilledTextFieldProps) {
         {/* Input length */}
         {props.maxLength && (
           <p>
-            {inputValue.length}/{props.maxLength}
+            {props.value.length}/{props.maxLength}
           </p>
         )}
       </div>

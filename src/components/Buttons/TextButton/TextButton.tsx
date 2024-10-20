@@ -1,19 +1,25 @@
 import React, { useState } from "react";
 
-type TextButtonProps = {
+type TextButtonProps<T = void> = {
   children: React.ReactNode[] | React.ReactNode;
+  onClickCallback: (params: T) => void;
   icon?: string;
   disabled?: boolean;
   width?: string;
   contentColor?: string;
-  onPressed: () => void;
 };
 
-const TextButton = (props: TextButtonProps) => {
+const TextButton = <T,>(props: TextButtonProps<T>) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [isFocusedWithKeyboard, setIsFocusedWithKeyboard] = useState(true);
+
+  const handleClick =() => {
+    const params = {} as T;
+    props.onClickCallback(params);
+  };
+
   return (
     <button
       onMouseEnter={() => setIsHovered(true)}
@@ -31,7 +37,7 @@ const TextButton = (props: TextButtonProps) => {
       onMouseUp={() => setIsActive(false)}
       className={`md-elevation-0
          label-large`}
-      onClick={props.onPressed}
+      onClick={handleClick}
       style={{
         width: props.width || "fit-content",
         outlineOffset: isFocused && isFocusedWithKeyboard ? "2px" : undefined,

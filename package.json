@@ -1,6 +1,6 @@
 {
   "name": "material-you-react",
-  "version": "0.0.1-beta.1",
+  "version": "0.0.1-beta.3.1",
   "description": "Material You: Material You (M3) Design system and its components for simple integration with Next.Js or other react-based frameworks",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
