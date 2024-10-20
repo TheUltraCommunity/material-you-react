@@ -2,6 +2,18 @@ import React, { useEffect, useState } from "react";
 import { OneListProps } from "../types";
 import { MaterialImage, MaterialThumbnail } from "../../helpers";
 
+/**
+ * One-Line-List 
+ * Lists are continuous, vertical indexes of text and images
+ * @params {string} optional `headline` - The main headline text for the list item.
+ * @params {string} optional `trailingSupportingText` - Additional text displayed after the main content.
+ * @params {string} optional `leadingIcon` - The icon displayed at the beginning of the list item.
+ * @params {string} optional `trailingIcon` - The icon displayed at the end of the list item.
+ * @params {string} optional `leadingAvatarLabel` - A label for the leading avatar, if used.
+ * @params {React.ReactNode} optional `children` - The content of the list item, such as text or components.
+ * @params {React.ReactNode} optional `divider` - A component used to visually separate list items.
+ * @params {boolean} optional `disable` - If `true`, disables interaction with the list item.
+ */
 
 export default function OneLineList(props: OneListProps) {
     const [isHovered, setIsHovered] = useState<boolean>(false);
