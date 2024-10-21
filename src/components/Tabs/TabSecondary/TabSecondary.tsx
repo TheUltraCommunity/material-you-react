@@ -10,9 +10,10 @@ import { useTabContext } from "../TabContext";
  * @param {boolean} `active` - A Default selected Tab.
  * @param {string} `badge` - A string that represents a no.of notifications.
  * @param {string} `icon` - The material icon name to display next to the action. Optional.
+ * @params {() => void} `onClickCallback`   : A callback function hits when user Clicks.
  */
 
-export default function TabSecondary(props: SecondaryProps) {
+const TabSecondary = <T,>(props: SecondaryProps<T>) => {
     const [isHovered, setIsHovered] = useState<boolean>(false);
     const [isFocused, setIsFocused] = useState<boolean>(false);
     const [isPressed, setIsPressed] = useState<boolean>(false);
@@ -31,6 +32,9 @@ export default function TabSecondary(props: SecondaryProps) {
             ripple.classList.remove('active');
             setIsPressed(false);
         }, 500);
+
+        const params = {} as T;
+        props.onClickCallback(params);
     };
 
     return (
