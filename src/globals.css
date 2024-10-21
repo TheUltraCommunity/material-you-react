@@ -1152,3 +1152,12 @@ input[type="checkbox"].null:checked:before {
   opacity: 0;
   transition: opacity 0.4s ease-out;
 }
+/* For Webkit browsers (e.g., Chrome, Safari) */
+.scroll-container::-webkit-scrollbar {
+  display: none; /* Hide the scrollbar */
+}
+/* For Firefox */
+.scroll-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

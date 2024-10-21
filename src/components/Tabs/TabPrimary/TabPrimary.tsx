@@ -18,7 +18,7 @@ export default function TabPrimary(props: PrimaryProps) {
     const [isFocused, setIsFocused] = useState<boolean>(false);
     const [isPressed, setIsPressed] = useState<boolean>(false);
     const [isActive, setIsActive] = useState<boolean>(false);
-    const { activeTabId, setActiveTabId } = useTabContext();
+    const { activeTabId, setActiveTabId, requiredWidth } = useTabContext();
 
     useEffect(() => {
         setIsActive(activeTabId === props.label ? true : false);
@@ -47,11 +47,12 @@ export default function TabPrimary(props: PrimaryProps) {
             }}
             className={`ripple ${isPressed ? 'active' : ''}`}
             style={{
-                flex: 1,
+                width: requiredWidth,
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 cursor: 'pointer',
+                padding: '0px 16px'
             }}
         >
             <div

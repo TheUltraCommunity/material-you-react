@@ -1,6 +1,6 @@
 // TODO: Scrolling logic need to be implemented.
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Divider } from "../Divider";
 import { TabContext } from "./TabContext";
 
@@ -16,6 +16,9 @@ type TabProps = {
 
 export default function Tab(props: TabProps) {
     const [activeTabId, setActiveTabId] = useState<string | null>(null);
+    const [requiredWidth, setRequiredWidth] = useState<string>('90px');
+    const [containerWidth, setContainerWidth] = useState<string>('fit-content');
+    const tabContainerRef = useRef<HTMLDivElement>(null);
 
     const findInitialActiveTab = () => {
         const activeTab = React.Children.toArray(props.children).find(
@@ -28,6 +31,12 @@ export default function Tab(props: TabProps) {
     };
 
     useEffect(() => {
+        const totalNumberofChildren = React.Children.toArray(props.children).length;
+        const presentWindowWidth = window.innerWidth;
+        const calculatedRequiredWidth = totalNumberofChildren > 3 ? 90 : 120;
+        const calculatedContainerWidth = presentWindowWidth > (totalNumberofChildren * calculatedRequiredWidth) ? '100%' : 'fit-content';
+        setContainerWidth(calculatedContainerWidth)
+        setRequiredWidth(calculatedRequiredWidth + 'px');
         findInitialActiveTab();
     }, []);
 
@@ -42,6 +51,7 @@ export default function Tab(props: TabProps) {
             }}
         >
             <div
+                ref={tabContainerRef}
                 style={{
                     backgroundColor: 'rgb(var(--md-sys-color-surface))',
                     width: '100vw',
@@ -49,11 +59,21 @@ export default function Tab(props: TabProps) {
                     display: 'flex',
                     justifyContent: 'space-around',
                     alignItems: 'center',
-                    overflowX: 'hidden',
+                    overflowX: 'auto',
+                    
                 }}
+                className="scroll-container"
             >
-                <div style={{ display: "flex", width: "100vw", overflowX: 'auto' }}>
-                    <TabContext.Provider value={{ activeTabId, setActiveTabId }}>
+                <div 
+                    style={{ 
+                        display: "flex", 
+                        width: containerWidth,
+                        justifyContent: 'space-around',
+                        alignItems: 'flex-start',
+                        flexShrink: 0,  
+                    }}
+                >
+                    <TabContext.Provider value={{ activeTabId, setActiveTabId, requiredWidth }}>
                         {props.children}
                     </TabContext.Provider>
                 </div>           
