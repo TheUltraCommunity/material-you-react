@@ -128,3 +128,5 @@ const TabPrimary = <T,>(props: PrimaryProps<T>) => {
         </div>
     );
 };
+
+export default TabPrimary;

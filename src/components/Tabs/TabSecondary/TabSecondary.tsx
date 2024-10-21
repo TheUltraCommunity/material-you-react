@@ -18,7 +18,7 @@ const TabSecondary = <T,>(props: SecondaryProps<T>) => {
     const [isFocused, setIsFocused] = useState<boolean>(false);
     const [isPressed, setIsPressed] = useState<boolean>(false);
     const [isActive, setIsActive] = useState<boolean>(false);
-    const { activeTabId, setActiveTabId } = useTabContext();
+    const { activeTabId, setActiveTabId, requiredWidth } = useTabContext();
 
     useEffect(() => {
         setIsActive(activeTabId === props.label ? true : false);
@@ -51,7 +51,7 @@ const TabSecondary = <T,>(props: SecondaryProps<T>) => {
             className={`ripple ${isPressed ? 'active' : ''}`}
             style={{
                 flex: 1,
-                width: '100%',
+                width: requiredWidth,
                 height: '48px',
                 display: 'flex',
                 flexDirection: 'column',
@@ -59,7 +59,7 @@ const TabSecondary = <T,>(props: SecondaryProps<T>) => {
                 alignItems: 'center',
                 alignSelf: 'center',
                 cursor: 'pointer',
-                position: 'sticky'
+                position: 'sticky',
             }}
         >
             <div
@@ -68,6 +68,7 @@ const TabSecondary = <T,>(props: SecondaryProps<T>) => {
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
+                    margin: '0px 16px'
                 }}
             >
                 <span
@@ -130,3 +131,5 @@ const TabSecondary = <T,>(props: SecondaryProps<T>) => {
         </div>
     );
 };
+
+export default TabSecondary;
