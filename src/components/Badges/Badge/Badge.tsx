@@ -22,7 +22,7 @@ const Badge = (props: BadgeProps) => {
       style={{
         top: !props.disableAlign ? "-2px" : "",
         right: !props.disableAlign
-          ? `${-(props.content.length * 7.5) + 14}px`
+          ? `-${(props.content.length * 7.5)}px`
           : "",
         position: !props.disableAlign ? "absolute" : "unset",
         height: "16px",
