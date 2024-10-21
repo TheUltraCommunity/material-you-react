@@ -1123,3 +1123,13 @@ input[type="checkbox"].null:checked:before {
   transform: scale(20);
   opacity: 0.1;
 }
+
+/* For Webkit browsers (e.g., Chrome, Safari) */
+.scroll-container::-webkit-scrollbar {
+  display: none; /* Hide the scrollbar */
+}
+/* For Firefox */
+.scroll-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
