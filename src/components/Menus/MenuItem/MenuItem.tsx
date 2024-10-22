@@ -1,15 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
 
-type MenuItemProps = {
+type MenuItemProps<T = void> = {
     leadingIcon?: string;
     trailingIcon?: string;
     trailingText?: string;
     label: string;
     disable?: boolean;
-    children?: React.ReactNode
+    children?: React.ReactNode;
+    onClickCallback?: (params: T) => void;
 };
 
-export default function MenuItem(props: MenuItemProps) {
+const MenuItem = <T,>(props: MenuItemProps<T>) => {
     const [isHovered, setIsHovered] = useState<boolean>(false);
     const [isFocused, setIsFocused] = useState<boolean>(false);
     const [isPressed, setIsPressed] = useState(false);
@@ -31,11 +32,19 @@ export default function MenuItem(props: MenuItemProps) {
         // Restricting to only display whose Children.type = `Menu`
         const childrenArray = React.Children.toArray(props.children);
         const subChild = childrenArray.forEach((child) => {
-            if(React.isValidElement(child)){
+            if (React.isValidElement(child)) {
                 setSubChildren(child);
             }
         })
     }, []);
+
+    const handleClick = () => {
+        const params = {} as T;
+        if (props.onClickCallback) {
+            props.onClickCallback(params);
+        }
+    };
+
     return (
         <div
             ref={menuItemRef}
@@ -51,6 +60,7 @@ export default function MenuItem(props: MenuItemProps) {
             onBlur={() => setIsFocused(false)}
             onMouseDown={() => setIsPressed(true)}
             onMouseUp={() => setIsPressed(false)}
+            onClick={handleClick}
             style={{
                 width: '100%',
                 padding: '8px 12px',
@@ -140,47 +150,47 @@ export default function MenuItem(props: MenuItemProps) {
                             opacity: props.disable ? '0.38' : '',
                         }}
                     >
-                        {subChildren ? 'arrow_drop_down' :  props.trailingIcon || ''}
+                        {subChildren ? 'arrow_drop_down' : props.trailingIcon || ''}
                     </span>
                 }
 
                 {/* Trailing Text */}
-                {/* {
-                props.trailingText && 
+                {
+                    props.trailingText &&
                     <span
                         style={{
                             font: 'var(--md-sys-typescale-label-large-font)',
                             fontWeight: 'var(--md-sys-typescale-label-large-weight)',
                             fontSize: 'var(--md-sys-typescale-label-large-size)',
                             lineHeight: 'var(--md-sys-typescale-label-large-line-height)',
-                            letterSpacing: 'var(--md-sys-typescale-label-large-tracking)',                            
-                            float: 'right',
-                            backgroundColor: 'rgb(var(--md-sys-color-on-surface-variant))',
+                            letterSpacing: 'var(--md-sys-typescale-label-large-tracking)',
+                            color: 'rgb(var(--md-sys-color-on-surface-variant))',
                         }}
                     >
                         {props.trailingText || ''}
                     </span>
-                } */}
+                }
             </div>
 
             {/*  Sub-Children */}
             {
                 showChild &&
-                <div
-                    style={{
-                        position: 'absolute',
-                        top: 0,
-                        right: childPosition === 'Right' ? '100%' : '',
-                        left: childPosition === 'Left' ? '100%' : '',
-                    }}
-                >
-                    {
-                        subChildren && subChildren
-                    }
-                </div> 
-            }
+            <div
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    right: childPosition === 'Right' ? '100%' : '',
+                    left: childPosition === 'Left' ? '100%' : '',
+                }}
+            >
+                {
+                    subChildren && subChildren
+                }
+            </div>
+        }
 
         </div>
     );
 };
 
+export default MenuItem;
