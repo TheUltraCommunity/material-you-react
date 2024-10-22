@@ -11,3 +11,4 @@ export * from "./Badges";
 export * from "./Lists";
 export * from "./helpers";
 export * from "./Switch";
+export * from "./Menus";
