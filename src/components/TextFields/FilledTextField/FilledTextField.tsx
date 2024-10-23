@@ -190,6 +190,11 @@ export default function FilledTextField(props: FilledTextFieldProps) {
               disabled={props.disabled}
               maxLength={props.maxLength}
               onChange={handleInputChange}
+              onKeyDown={(e) => {
+                if(props.type === 'dropdown'){
+                  e.preventDefault();
+                }
+              }}
               placeholder=""
               className={`filled-text-field-input ${props.error ? "error" : ""
                 }`}
