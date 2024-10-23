@@ -19,6 +19,25 @@ type FilledTextFieldProps = {
   error?: boolean;
 };
 
+/**
+* Props for OutlinedTextField Component
+* @param (string) [required] `value` - Current value of the input field
+* @param (function) [required] `onValueChange` - Handler function for value changes
+* @param ("textarea" | "" | "dropdown") [optional] `type` - Type of input field
+* @param (string[]) [optional] `options` - Available options for dropdown type
+* @param (number) [optional] `rows` - Number of rows for textarea
+* @param (string) [optional] `containerWidth` - Width of the input container
+* @param (string) [optional] `leadingIcon` - Icon displayed at start of input
+* @param (string) [required] `labelText` - Label text for the input field
+* @param (string) [optional] `inputType` - HTML input type attribute
+* @param (number) [optional] `maxLength` - Maximum allowed input length
+* @param (boolean) [optional] `required` - Whether field is required
+* @param (string) [optional] `supportingText` - Helper text below input
+* @param (string) [optional] `trailingIcon` - Icon displayed at end of input
+* @param (boolean) [optional] `disabled` - Whether field is disabled
+* @param (boolean) [optional] `error` - Whether field is in error state
+*/
+
 export default function FilledTextField(props: FilledTextFieldProps) {
   const [givenInputType, setGivenInputType] = useState<string>("");
   const [isFocused, setIsFocused] = useState(false);
