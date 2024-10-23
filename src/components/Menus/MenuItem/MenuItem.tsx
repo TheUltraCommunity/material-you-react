@@ -10,6 +10,17 @@ type MenuItemProps<T = void> = {
     onClickCallback?: (params: T) => void;
 };
 
+/**
+* Props for MenuItem Component
+* @param (string) [optional] `leadingIcon` - Icon displayed at start of item
+* @param (string) [optional] `trailingIcon` - Icon displayed at end of item  
+* @param (string) [optional] `trailingText` - Text displayed at end of item
+* @param (string) [required] `label` - Primary text content of menu item
+* @param (boolean) [optional] `disable` - Whether item is disabled
+* @param (React.ReactNode) [optional] `children` - Inner content to render
+* @param (function) [optional] `onClickCallback` - Callback fired on item click, accepts generic param
+*/
+
 const MenuItem = <T,>(props: MenuItemProps<T>) => {
     const [isHovered, setIsHovered] = useState<boolean>(false);
     const [isFocused, setIsFocused] = useState<boolean>(false);
@@ -175,19 +186,19 @@ const MenuItem = <T,>(props: MenuItemProps<T>) => {
             {/*  Sub-Children */}
             {
                 showChild &&
-            <div
-                style={{
-                    position: 'absolute',
-                    top: 0,
-                    right: childPosition === 'Right' ? '100%' : '',
-                    left: childPosition === 'Left' ? '100%' : '',
-                }}
-            >
-                {
-                    subChildren && subChildren
-                }
-            </div>
-        }
+                <div
+                    style={{
+                        position: 'absolute',
+                        top: 0,
+                        right: childPosition === 'Right' ? '100%' : '',
+                        left: childPosition === 'Left' ? '100%' : '',
+                    }}
+                >
+                    {
+                        subChildren && subChildren
+                    }
+                </div>
+            }
 
         </div>
     );
