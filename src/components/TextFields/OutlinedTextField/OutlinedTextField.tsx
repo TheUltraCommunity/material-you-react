@@ -59,7 +59,6 @@ export default function OutlinedTextField(props: OutlinedTextFieldProps) {
     props.onValueChange(e.target.value);
   };
 
-
   const handleMenuItemClick = (value: string) => {
     props.onValueChange(value);
     setIsMenuOpen(false);
@@ -116,13 +115,6 @@ export default function OutlinedTextField(props: OutlinedTextFieldProps) {
       textarea.style.height = `${textarea.scrollHeight}px`;
     }
 
-    if (parentBGColor === "") {
-      if (textFieldRef.current) {
-        let parentBackgroundColor = getParentBackgroundColor(textFieldRef.current);
-        setParentBGColor(parentBackgroundColor);
-      }
-    }
-
     if (givenInputType === "") {
       setGivenInputType(props.inputType ?? "text");
     }
@@ -136,6 +128,16 @@ export default function OutlinedTextField(props: OutlinedTextFieldProps) {
       };
     }
   }, [props.value, props.type]);
+
+  useEffect(() => {
+    if (parentBGColor === "") {
+      if (textFieldRef.current) {
+        let parentBackgroundColor = getParentBackgroundColor(textFieldRef.current);
+        setParentBGColor(parentBackgroundColor);
+      }
+    }
+  }, []);
+  
   return (
     <div
       ref={textFieldRef}
