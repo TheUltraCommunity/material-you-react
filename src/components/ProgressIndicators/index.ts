@@ -1,1 +1,1 @@
-export { default as ProgressIndicators } from "./ProgressIndicators"
+export { default as LinearProgress} from "./Linear";

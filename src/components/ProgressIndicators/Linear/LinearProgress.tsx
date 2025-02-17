@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-interface ProgressIndicatorsProps {
+interface LinearProgressProps {
     percentage?: number;
 }
 
@@ -9,7 +9,7 @@ interface ProgressIndicatorsProps {
  * @params percentage: number (optional)
 */
 
-export default function ProgressIndicators(props: ProgressIndicatorsProps) {
+export default function LinearProgress(props: LinearProgressProps) {
     const [progress, setProgress] = useState<number>(0);
 
     useEffect(() => {
