@@ -11,4 +11,4 @@ export * from "./Radio";
 export * from "./Badges";
 export * from "./Switch";
 export * from "./Menus";
-export * from "./ProgressIndicators/Linear";
+export * from "./ProgressIndicators";

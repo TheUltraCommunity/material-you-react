@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 
 interface LinearProgressProps {
     percentage?: number;
+    indeterminate?: boolean;
 }
 
 /**
- * @description A Divider Component - shows the status of a process in real time
- * @params percentage: number (optional)
+ * @description A Linear Progress Indicator Component - shows the status of a process in real time
+ * @params percentage: number (optional) - Percentage determines how much does progress done.
+ * @params indeterminate: boolean (optional) - Indeterminate for an unspecified amount of progress.
 */
 
 export default function LinearProgress(props: LinearProgressProps) {
