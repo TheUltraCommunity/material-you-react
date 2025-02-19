@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Slider() {
+    const [value, setValue] = useState<number>(50);
+
     return (
         // Parent Container
         <div
@@ -13,12 +15,12 @@ export default function Slider() {
             }}
         >
 
-            {/* Active Track */}
+            {/* Active Track 🟩 */}
             <div
                 style={{
-                    flex: 1,
+                    width: `${value}%`,
                     height: "16px",
-                    background: "rgb(var(--md-sys-color-primary))",
+                    background: "#65558F",
                     borderTopLeftRadius: "48px",
                     borderBottomLeftRadius: "48px",
                     marginRight: "6px",
@@ -28,11 +30,13 @@ export default function Slider() {
                 {/* Start Indicator */}
                 <div
                     style={{
-                        width: "2px",
-                        height: "2px",
-                        background: "rgb(var(--md-sys-color-primary))",
+                        width: "6px",
+                        height: "6px",
+                        background: "#65558F",
                         position: "absolute",
+                        borderRadius: "100%",
                         left: 4,
+                        top: 4,
                     }}
                 >
                 </div>
@@ -43,18 +47,18 @@ export default function Slider() {
                 style={{
                     width: "4px",
                     height: "44px",
-                    background: "rgb(var(--md-sys-color-primary))",
+                    background: "#65558F",
                     borderRadius: "20px"
                 }}
             >
             </div>
 
-            {/* Inactive Track */}
+            {/* Inactive Track 🔴 */}
             <div
                 style={{
                     flex: 1,
                     height: "16px",
-                    background: "rgb(var(--md-sys-color-on-primary))",
+                    background: "rgb(var(--md-sys-color-on-surface-variant))",
                     borderTopRightRadius: "48px",
                     borderBottomRightRadius: "48px",
                     marginLeft: "6px",
@@ -64,11 +68,13 @@ export default function Slider() {
                 {/* End Indicator */}
                 <div
                     style={{
-                        width: "2px",
-                        height: "2px",
-                        background: "rgb(var(--md-sys-color-primary))",
+                        width: "6px",
+                        height: "6px",
+                        background: "#65558F",
                         position: "absolute",
+                        borderRadius: "100%",
                         right: 4,
+                        top: 4,
                     }}
                 >
                 </div>
