@@ -1,15 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 
 export default function Slider() {
-    const [value, setValue] = useState<number>(40); // Value Percentage
+    const [value, setValue] = useState<number>(40);
     const containerRef = useRef<HTMLDivElement>(null);
     const [isDragging, setIsDragging] = useState<boolean>(false);
 
 
     useEffect(() => {
-        console.log("value precentage : ", value);
+        // console.log("value precentage : ", value);
     }, [value]);
-
 
     const handleMouseDown = (e: any) => {
         setIsDragging(true);
@@ -55,11 +54,12 @@ export default function Slider() {
                     height: "16px",
                     background: "#65558F",
                     borderTopLeftRadius: "16px",
-                    borderTopRightRadius: "2px",
+                    borderTopRightRadius: "4px",
                     borderBottomLeftRadius: "16px",
-                    borderBottomRightRadius: "2px",
+                    borderBottomRightRadius: "4px",
                     position: "relative",
-                    marginRight: "6px"
+                    marginRight: "6px",
+                    boxShadow: "var(--md-sys-elevation-level0)"
                 }}
             >
                 {/* Start Indicator */}
@@ -70,7 +70,7 @@ export default function Slider() {
                         background: "#65558F",
                         position: "absolute",
                         borderRadius: "100%",
-                        left: 6,
+                        left: 4,
                         top: "50%",
                         transform: "translateY(-50%)",
                         opacity: value == 0 ? 0 : 1
@@ -82,27 +82,44 @@ export default function Slider() {
             {/* Handle */}
             <div
                 style={{
-                    width: "4px",
+                    width: isDragging ? "2px" : "4px",
                     height: "44px",
-                    background: "transparent",
+                    background: "rgb(var(--md-sys-color-primary))",
                     borderRadius: "2px",
                     cursor: "ew-resize",
-                    position: "relative"    
+                    position: "relative",
+                    boxShadow: "var(--md-sys-elevation-level0)"
                 }}
                 onMouseDown={handleMouseDown}
             >
-                <div
-                    style={{
-                        width: "4px",
-                        height: "44px",
-                        background: "#65558F",
-                        borderRadius: "20px",
-                        position: "absolute",
-                        left: "50%",
-                        transform: "translateX(-50%)"
-                    }}
-                >
-                </div>
+                {/* Value Representer */}
+                {
+                    isDragging && <div
+                        style={{
+                            minWidth: "48px",
+                            minHeight: "44px",
+                            background: "rgb(var(--md-sys-color-inverse-surface))",
+                            padding: "12px 16px",
+                            borderRadius: "100px",
+                            gap: "8px",
+                            position: "absolute",
+                            top: "-50px",
+                            left: "50%",
+                            transform: "translateX(-50%)",
+                            font: "var(--md-sys-typescale-label-medium-font)",
+                            fontSize: "var(--md-sys-typescale-label-large-size)",
+                            fontWeight: "var(--md-sys-typescale-label-medium-weight)",
+                            lineHeight: "var(--md-sys-typescale-label-large-line-height)",
+                            letterSpacing: "var(--md-sys-typescale-label-large-tracking)",
+                            color: "rgb(var(--md-sys-color-inverse-on-surface))",
+                            textAlign: "center",
+                            zIndex: 10,
+                            userSelect: "none"
+                        }}
+                    >
+                        {value}
+                    </div>
+                }
             </div>
 
             {/* Inactive Track 🔴 */}
@@ -110,13 +127,14 @@ export default function Slider() {
                 style={{
                     flex: 1,
                     height: "16px",
-                    background: "rgb(var(--md-sys-color-on-surface-variant))",
+                    background: "rgb(var(--md-sys-color-secondary-container))",
                     borderTopRightRadius: "16px",
-                    borderTopLeftRadius: "2px",
+                    borderTopLeftRadius: "4px",
                     borderBottomRightRadius: "16px",
-                    borderBottomLeftRadius: "2px",
+                    borderBottomLeftRadius: "4px",
                     position: "relative",
-                    marginLeft: "6px"
+                    marginLeft: "6px",
+                    boxShadow: "var(--md-sys-elevation-level0)"
                 }}
             >
                 {/* End Indicator */}
@@ -127,7 +145,7 @@ export default function Slider() {
                         background: "#65558F",
                         position: "absolute",
                         borderRadius: "100%",
-                        right: 6,
+                        right: 4,
                         top: "50%",
                         transform: "translateY(-50%)",
                         opacity: value == 100 ? 0 : 1
