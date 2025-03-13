@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
-interface SliderProps{
+interface SliderProps {
     onChange: (value: number) => void;
 }
 
@@ -11,30 +11,44 @@ export default function Slider(props: SliderProps) {
 
 
     useEffect(() => {
-        if(props.onChange) props.onChange(value);
+        if (props.onChange) props.onChange(value);
     }, [value]);
 
     const handleMouseDown = (e: any) => {
         setIsDragging(true);
     }
 
+    // Call: when users stops holding handler
     const handleMouseUp = (e: any) => {
         setIsDragging(false);
     }
 
+    // Call: when handle drags back and forth
     const handleMouseMove = (e: any) => {
         if (isDragging) {
-            const container = containerRef.current;
-            if (container) {
-                const containerRect = container.getBoundingClientRect();
-                const x = e.clientX - containerRect.left;
-                const pxInPercentage = (x * 100) / containerRect.width;
-                const clampedValue = Math.round(Math.max(0, Math.min(100, pxInPercentage)));
-                setValue(clampedValue);
-                if(clampedValue === 0 || clampedValue === 100) handleMouseUp(e); // temporary fix ⚠️
-            }
+            updateSliderValueOnPosition(e, 0);
         }
     };
+
+    // Updates Handler value based on current drag | jump event
+    const updateSliderValueOnPosition = (e: any, extraCover: number) => {
+        const container = containerRef.current;
+        if (container) {
+            const containerRect = container.getBoundingClientRect();
+            const x = e.clientX - containerRect.left;
+            const pxInPercentage = (x * 100) / (containerRect.width + extraCover);
+            const clampedValue = Math.round(Math.max(0, Math.min(100, pxInPercentage)));
+            setValue(clampedValue);
+            if (clampedValue === 0 || clampedValue === 100) handleMouseUp(e); // temporary fix ⚠️
+        }
+    }
+
+    // Call: When user directly clicks randomly on active or inactive track
+    // without using handler
+    // update `value` based on positon of click
+    const handleMouseJump = (e: any) => {
+        updateSliderValueOnPosition(e, 8); // 8 = 6 ( margin + handler width)
+    }
 
     return (
         // Parent Container
@@ -63,9 +77,11 @@ export default function Slider(props: SliderProps) {
                     borderBottomLeftRadius: "16px",
                     borderBottomRightRadius: "4px",
                     position: "relative",
-                    marginRight: "6px",
-                    boxShadow: "var(--md-sys-elevation-level0)"
+                    // marginRight: "6px",
+                    boxShadow: "var(--md-sys-elevation-level0)",
+                    cursor: isDragging ? "ew-resize" : "pointer",
                 }}
+                onClick={handleMouseJump}
             >
                 {/* Start Indicator */}
                 <div
@@ -94,7 +110,8 @@ export default function Slider(props: SliderProps) {
                     cursor: "ew-resize",
                     position: "relative",
                     boxShadow: "var(--md-sys-elevation-level0)",
-                    zIndex: 10
+                    zIndex: 10,
+                    margin: "0px 6px"
                 }}
                 onMouseDown={handleMouseDown}
             >
@@ -139,9 +156,11 @@ export default function Slider(props: SliderProps) {
                     borderBottomRightRadius: "16px",
                     borderBottomLeftRadius: "4px",
                     position: "relative",
-                    marginLeft: "6px",
-                    boxShadow: "var(--md-sys-elevation-level0)"
+                    // marginLeft: "6px",
+                    boxShadow: "var(--md-sys-elevation-level0)",
+                    cursor: isDragging ? "ew-resize" : "pointer",
                 }}
+                onClick={handleMouseJump}
             >
                 {/* End Indicator */}
                 <div
@@ -154,7 +173,7 @@ export default function Slider(props: SliderProps) {
                         right: 4,
                         top: "50%",
                         transform: "translateY(-50%)",
-                        opacity: value == 100 ? 0 : 1,                        
+                        opacity: value == 100 ? 0 : 1,
                     }}
                 >
                 </div>
