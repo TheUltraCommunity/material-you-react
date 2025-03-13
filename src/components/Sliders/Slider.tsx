@@ -60,6 +60,8 @@ export default function Slider(props: SliderProps) {
     const handleKeyDown = (e: any) => {
         if (e.key === "ArrowLeft" && value - 1 >= 0) setValue((prev) => prev - 1);
         else if (e.key === "ArrowRight" && value + 1 <= 100) setValue((prev) => prev + 1);
+        else if (e.key === "Home") setValue((prev) => 0);
+        else if (e.key === "End") setValue((prev) => 100);
     }
 
     // Updates Handler value based on current drag | jump event
@@ -128,7 +130,7 @@ export default function Slider(props: SliderProps) {
 
             {/* Handle */}
             <div
-                tabIndex={0}
+                tabIndex={0} // Moves focus to the slider handle
                 style={{
                     width: isDragging || isFocused ? "2px" : "4px",
                     height: "44px",
