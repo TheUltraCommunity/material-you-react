@@ -77,9 +77,9 @@ export default function Slider(props: SliderProps) {
                     borderBottomLeftRadius: "16px",
                     borderBottomRightRadius: "4px",
                     position: "relative",
-                    // marginRight: "6px",
                     boxShadow: "var(--md-sys-elevation-level0)",
                     cursor: isDragging ? "ew-resize" : "pointer",
+                    transition: isDragging ? "none" : "width 0.3s ease-out"
                 }}
                 onClick={handleMouseJump}
             >
@@ -111,38 +111,39 @@ export default function Slider(props: SliderProps) {
                     position: "relative",
                     boxShadow: "var(--md-sys-elevation-level0)",
                     zIndex: 10,
-                    margin: "0px 6px"
+                    margin: "0px 6px",
+                    transition: isDragging ? "none" : "width 0.3s ease-out"
                 }}
                 onMouseDown={handleMouseDown}
             >
                 {/* Value Representer */}
-                {
-                    isDragging && <div
-                        style={{
-                            minWidth: "48px",
-                            minHeight: "44px",
-                            background: "rgb(var(--md-sys-color-inverse-surface))",
-                            padding: "12px 16px",
-                            borderRadius: "100px",
-                            gap: "8px",
-                            position: "absolute",
-                            top: "-50px",
-                            left: "50%",
-                            transform: "translateX(-50%)",
-                            font: "var(--md-sys-typescale-label-medium-font)",
-                            fontSize: "var(--md-sys-typescale-label-large-size)",
-                            fontWeight: "var(--md-sys-typescale-label-medium-weight)",
-                            lineHeight: "var(--md-sys-typescale-label-large-line-height)",
-                            letterSpacing: "var(--md-sys-typescale-label-large-tracking)",
-                            color: "rgb(var(--md-sys-color-inverse-on-surface))",
-                            textAlign: "center",
-                            zIndex: 10,
-                            userSelect: "none",
-                        }}
-                    >
-                        {value}
-                    </div>
-                }
+                <div
+                    style={{
+                        minWidth: "48px",
+                        minHeight: "44px",
+                        background: "rgb(var(--md-sys-color-inverse-surface))",
+                        padding: "12px 16px",
+                        borderRadius: "100px",
+                        gap: "8px",
+                        position: "absolute",
+                        top: "-50px",
+                        left: "50%",
+                        transform: `translateX(-50%) translateY(${isDragging ? "0px" : "10px"})`,
+                        font: "var(--md-sys-typescale-label-medium-font)",
+                        fontSize: "var(--md-sys-typescale-label-large-size)",
+                        fontWeight: "var(--md-sys-typescale-label-medium-weight)",
+                        lineHeight: "var(--md-sys-typescale-label-large-line-height)",
+                        letterSpacing: "var(--md-sys-typescale-label-large-tracking)",
+                        color: "rgb(var(--md-sys-color-inverse-on-surface))",
+                        textAlign: "center",
+                        zIndex: 10,
+                        userSelect: "none",
+                        opacity: isDragging ? 1 : 0,
+                        transition: "opacity 0.2s ease-in-out, transform 0.2s ease-in-out",
+                    }}
+                >
+                    {value}
+                </div>
             </div>
 
             {/* Inactive Track 🔴 */}
@@ -159,6 +160,7 @@ export default function Slider(props: SliderProps) {
                     // marginLeft: "6px",
                     boxShadow: "var(--md-sys-elevation-level0)",
                     cursor: isDragging ? "ew-resize" : "pointer",
+                    transition: isDragging ? "none" : "width 0.3s ease-out"
                 }}
                 onClick={handleMouseJump}
             >
