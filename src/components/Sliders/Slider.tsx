@@ -1,13 +1,17 @@
 import React, { useState, useRef, useEffect } from "react";
 
-export default function Slider() {
-    const [value, setValue] = useState<number>(40);
+interface SliderProps{
+    onChange: (value: number) => void;
+}
+
+export default function Slider(props: SliderProps) {
+    const [value, setValue] = useState<number>(50);
     const containerRef = useRef<HTMLDivElement>(null);
     const [isDragging, setIsDragging] = useState<boolean>(false);
 
 
     useEffect(() => {
-        // console.log("value precentage : ", value);
+        if(props.onChange) props.onChange(value);
     }, [value]);
 
     const handleMouseDown = (e: any) => {
@@ -27,6 +31,7 @@ export default function Slider() {
                 const pxInPercentage = (x * 100) / containerRect.width;
                 const clampedValue = Math.round(Math.max(0, Math.min(100, pxInPercentage)));
                 setValue(clampedValue);
+                if(clampedValue === 0 || clampedValue === 100) handleMouseUp(e); // temporary fix ⚠️
             }
         }
     };
@@ -88,7 +93,8 @@ export default function Slider() {
                     borderRadius: "2px",
                     cursor: "ew-resize",
                     position: "relative",
-                    boxShadow: "var(--md-sys-elevation-level0)"
+                    boxShadow: "var(--md-sys-elevation-level0)",
+                    zIndex: 10
                 }}
                 onMouseDown={handleMouseDown}
             >
@@ -114,7 +120,7 @@ export default function Slider() {
                             color: "rgb(var(--md-sys-color-inverse-on-surface))",
                             textAlign: "center",
                             zIndex: 10,
-                            userSelect: "none"
+                            userSelect: "none",
                         }}
                     >
                         {value}
@@ -148,7 +154,7 @@ export default function Slider() {
                         right: 4,
                         top: "50%",
                         transform: "translateY(-50%)",
-                        opacity: value == 100 ? 0 : 1
+                        opacity: value == 100 ? 0 : 1,                        
                     }}
                 >
                 </div>
