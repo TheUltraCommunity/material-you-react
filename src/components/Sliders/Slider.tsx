@@ -8,12 +8,14 @@ export default function Slider(props: SliderProps) {
     const [value, setValue] = useState<number>(50);
     const containerRef = useRef<HTMLDivElement>(null);
     const [isDragging, setIsDragging] = useState<boolean>(false);
+    const [isFocused, setIsFocused] = useState<boolean>(false);
 
 
     useEffect(() => {
         if (props.onChange) props.onChange(value);
     }, [value]);
 
+    // Calls: User holds the handler
     const handleMouseDown = (e: any) => {
         setIsDragging(true);
     }
@@ -21,6 +23,7 @@ export default function Slider(props: SliderProps) {
     // Call: when users stops holding handler
     const handleMouseUp = (e: any) => {
         setIsDragging(false);
+        handleOnBlur(e);
     }
 
     // Call: when handle drags back and forth
@@ -29,6 +32,35 @@ export default function Slider(props: SliderProps) {
             updateSliderValueOnPosition(e, 0);
         }
     };
+
+    // Call: When user directly clicks randomly on active or inactive track
+    // without using handler
+    // update `value` based on positon of click
+    const handleMouseJump = (e: any) => {
+        handleOnFocus(e);
+        updateSliderValueOnPosition(e, 8); // 8 = 6 ( margin + handler width)
+        setTimeout(() => {
+            handleOnBlur(e);
+        }, 500);
+    }
+
+    // Call: When user focus via `TAB`
+    const handleOnFocus = (e: any) => {
+        console.log("slider is being focused");
+        setIsFocused(true);
+    }
+
+    // Call: When user lose focus
+    const handleOnBlur = (e: any) => {
+        console.log("slider lost!! focused");
+        setIsFocused(false);    
+    }
+
+    // Based Key Press [ left | right ] buttons decrease & increase values respectively
+    const handleKeyDown = (e: any) => {
+        if (e.key === "ArrowLeft" && value - 1 >= 0) setValue((prev) => prev - 1);
+        else if (e.key === "ArrowRight" && value + 1 <= 100) setValue((prev) => prev + 1);
+    }
 
     // Updates Handler value based on current drag | jump event
     const updateSliderValueOnPosition = (e: any, extraCover: number) => {
@@ -43,12 +75,6 @@ export default function Slider(props: SliderProps) {
         }
     }
 
-    // Call: When user directly clicks randomly on active or inactive track
-    // without using handler
-    // update `value` based on positon of click
-    const handleMouseJump = (e: any) => {
-        updateSliderValueOnPosition(e, 8); // 8 = 6 ( margin + handler width)
-    }
 
     return (
         // Parent Container
@@ -102,8 +128,9 @@ export default function Slider(props: SliderProps) {
 
             {/* Handle */}
             <div
+                tabIndex={0}
                 style={{
-                    width: isDragging ? "2px" : "4px",
+                    width: isDragging || isFocused ? "2px" : "4px",
                     height: "44px",
                     background: "rgb(var(--md-sys-color-primary))",
                     borderRadius: "2px",
@@ -114,6 +141,9 @@ export default function Slider(props: SliderProps) {
                     margin: "0px 6px",
                     transition: isDragging ? "none" : "width 0.3s ease-out"
                 }}
+                onFocus={handleOnFocus}
+                onBlur={handleOnBlur}
+                onKeyDown={handleKeyDown}
                 onMouseDown={handleMouseDown}
             >
                 {/* Value Representer */}
@@ -128,7 +158,7 @@ export default function Slider(props: SliderProps) {
                         position: "absolute",
                         top: "-50px",
                         left: "50%",
-                        transform: `translateX(-50%) translateY(${isDragging ? "0px" : "10px"})`,
+                        transform: `translateX(-50%) translateY(${isDragging || isFocused ? "0px" : "10px"})`,
                         font: "var(--md-sys-typescale-label-medium-font)",
                         fontSize: "var(--md-sys-typescale-label-large-size)",
                         fontWeight: "var(--md-sys-typescale-label-medium-weight)",
@@ -138,7 +168,7 @@ export default function Slider(props: SliderProps) {
                         textAlign: "center",
                         zIndex: 10,
                         userSelect: "none",
-                        opacity: isDragging ? 1 : 0,
+                        opacity: isDragging || isFocused ? 1 : 0,
                         transition: "opacity 0.2s ease-in-out, transform 0.2s ease-in-out",
                     }}
                 >
