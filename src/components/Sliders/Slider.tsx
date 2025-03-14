@@ -1,7 +1,17 @@
+// TODO: 
+// labeling ✅
+// leading icon ✅
+// add - + icons buttons on left and right of slider
+// recheck colors when focused | pressed
+// check if colors are properly displaying in light | dark mode
+// declare props for above
+
 import React, { useState, useRef, useEffect } from "react";
 
 interface SliderProps {
     onChange: (value: number) => void;
+    leadingIcon?: string;
+    label?: string;
 }
 
 export default function Slider(props: SliderProps) {
@@ -53,7 +63,7 @@ export default function Slider(props: SliderProps) {
     // Call: When user lose focus
     const handleOnBlur = (e: any) => {
         console.log("slider lost!! focused");
-        setIsFocused(false);    
+        setIsFocused(false);
     }
 
     // Based Key Press [ left | right ] buttons decrease & increase values respectively
@@ -82,136 +92,183 @@ export default function Slider(props: SliderProps) {
         // Parent Container
         <div
             style={{
-                width: "400px",
-                height: "fit-content",
                 display: "flex",
-                justifyContent: "center",
+                justifyContent: "start",
                 alignItems: "center",
-                cursor: isDragging ? "ew-resize" : "default",
+                gap: "12px"
             }}
-            ref={containerRef}
-            onMouseUp={handleMouseUp}
-            onMouseMove={handleMouseMove}
         >
 
-            {/* Active Track 🟩 */}
-            <div
-                style={{
-                    width: `${value}%`,
-                    height: "16px",
-                    background: "#65558F",
-                    borderTopLeftRadius: "16px",
-                    borderTopRightRadius: "4px",
-                    borderBottomLeftRadius: "16px",
-                    borderBottomRightRadius: "4px",
-                    position: "relative",
-                    boxShadow: "var(--md-sys-elevation-level0)",
-                    cursor: isDragging ? "ew-resize" : "pointer",
-                    transition: isDragging ? "none" : "width 0.3s ease-out"
-                }}
-                onClick={handleMouseJump}
-            >
-                {/* Start Indicator */}
-                <div
+            {/* Leading Icon */}
+            {
+                props.leadingIcon &&
+                <span
+                    className="material-symbols-rounded"
                     style={{
-                        width: "4px",
-                        height: "4px",
-                        background: "#65558F",
-                        position: "absolute",
-                        borderRadius: "100%",
-                        left: 4,
-                        top: "50%",
-                        transform: "translateY(-50%)",
-                        opacity: value == 0 ? 0 : 1
+                        transform: "translateY(-10px)",
+                        color: "#CCB6FF",
                     }}
                 >
-                </div>
-            </div>
+                    {props.leadingIcon}
+                </span>
+            }
 
-            {/* Handle */}
+            {/* Label + Slider */}
             <div
-                tabIndex={0} // Moves focus to the slider handle
                 style={{
-                    width: isDragging || isFocused ? "2px" : "4px",
-                    height: "44px",
-                    background: "rgb(var(--md-sys-color-primary))",
-                    borderRadius: "2px",
-                    cursor: "ew-resize",
-                    position: "relative",
-                    boxShadow: "var(--md-sys-elevation-level0)",
-                    zIndex: 10,
-                    margin: "0px 6px",
-                    transition: isDragging ? "none" : "width 0.3s ease-out"
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "start"
                 }}
-                onFocus={handleOnFocus}
-                onBlur={handleOnBlur}
-                onKeyDown={handleKeyDown}
-                onMouseDown={handleMouseDown}
             >
-                {/* Value Representer */}
-                <div
-                    style={{
-                        minWidth: "48px",
-                        minHeight: "44px",
-                        background: "rgb(var(--md-sys-color-inverse-surface))",
-                        padding: "12px 16px",
-                        borderRadius: "100px",
-                        gap: "8px",
-                        position: "absolute",
-                        top: "-50px",
-                        left: "50%",
-                        transform: `translateX(-50%) translateY(${isDragging || isFocused ? "0px" : "10px"})`,
-                        font: "var(--md-sys-typescale-label-medium-font)",
-                        fontSize: "var(--md-sys-typescale-label-large-size)",
-                        fontWeight: "var(--md-sys-typescale-label-medium-weight)",
-                        lineHeight: "var(--md-sys-typescale-label-large-line-height)",
-                        letterSpacing: "var(--md-sys-typescale-label-large-tracking)",
-                        color: "rgb(var(--md-sys-color-inverse-on-surface))",
-                        textAlign: "center",
-                        zIndex: 10,
-                        userSelect: "none",
-                        opacity: isDragging || isFocused ? 1 : 0,
-                        transition: "opacity 0.2s ease-in-out, transform 0.2s ease-in-out",
-                    }}
-                >
-                    {value}
-                </div>
-            </div>
+                {/* Label Text */}
+                {
+                    props.label &&
+                    <p
+                        style={{
+                            fontWeight: "500",
+                            color: "#CCB6FF",
+                        }}
+                    >
+                        {props.label}
+                    </p>
+                }
 
-            {/* Inactive Track 🔴 */}
-            <div
-                style={{
-                    flex: 1,
-                    height: "16px",
-                    background: "rgb(var(--md-sys-color-secondary-container))",
-                    borderTopRightRadius: "16px",
-                    borderTopLeftRadius: "4px",
-                    borderBottomRightRadius: "16px",
-                    borderBottomLeftRadius: "4px",
-                    position: "relative",
-                    // marginLeft: "6px",
-                    boxShadow: "var(--md-sys-elevation-level0)",
-                    cursor: isDragging ? "ew-resize" : "pointer",
-                    transition: isDragging ? "none" : "width 0.3s ease-out"
-                }}
-                onClick={handleMouseJump}
-            >
-                {/* End Indicator */}
+                {/* Slider */}
                 <div
                     style={{
-                        width: "4px",
-                        height: "4px",
-                        background: "#65558F",
-                        position: "absolute",
-                        borderRadius: "100%",
-                        right: 4,
-                        top: "50%",
-                        transform: "translateY(-50%)",
-                        opacity: value == 100 ? 0 : 1,
+                        width: "400px",
+                        height: "fit-content",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        cursor: isDragging ? "ew-resize" : "default",
                     }}
+                    ref={containerRef}
+                    onMouseUp={handleMouseUp}
+                    onMouseMove={handleMouseMove}
                 >
+
+                    {/* Active Track 🟩 */}
+                    <div
+                        style={{
+                            width: `${value}%`,
+                            height: "16px",
+                            background: "#65558F",
+                            borderTopLeftRadius: "16px",
+                            borderTopRightRadius: "4px",
+                            borderBottomLeftRadius: "16px",
+                            borderBottomRightRadius: "4px",
+                            position: "relative",
+                            boxShadow: "var(--md-sys-elevation-level0)",
+                            cursor: isDragging ? "ew-resize" : "pointer",
+                            transition: isDragging ? "none" : "width 0.3s ease-out"
+                        }}
+                        onClick={handleMouseJump}
+                    >
+                        {/* Start Indicator */}
+                        <div
+                            style={{
+                                width: "4px",
+                                height: "4px",
+                                background: "#65558F",
+                                position: "absolute",
+                                borderRadius: "100%",
+                                left: 4,
+                                top: "50%",
+                                transform: "translateY(-50%)",
+                                opacity: value == 0 ? 0 : 1
+                            }}
+                        >
+                        </div>
+                    </div>
+
+                    {/* Handle */}
+                    <div
+                        tabIndex={0} // Moves focus to the slider handle
+                        style={{
+                            width: isDragging || isFocused ? "2px" : "4px",
+                            height: "44px",
+                            background: "rgb(var(--md-sys-color-primary))",
+                            borderRadius: "2px",
+                            cursor: "ew-resize",
+                            position: "relative",
+                            boxShadow: "var(--md-sys-elevation-level0)",
+                            zIndex: 10,
+                            margin: "0px 6px",
+                            transition: isDragging ? "none" : "width 0.3s ease-out"
+                        }}
+                        onFocus={handleOnFocus}
+                        onBlur={handleOnBlur}
+                        onKeyDown={handleKeyDown}
+                        onMouseDown={handleMouseDown}
+                    >
+                        {/* Value Representer */}
+                        <div
+                            style={{
+                                minWidth: "48px",
+                                minHeight: "44px",
+                                background: "rgb(var(--md-sys-color-inverse-surface))",
+                                padding: "12px 16px",
+                                borderRadius: "100px",
+                                gap: "8px",
+                                position: "absolute",
+                                top: "-50px",
+                                left: "50%",
+                                transform: `translateX(-50%) translateY(${isDragging || isFocused ? "0px" : "10px"})`,
+                                font: "var(--md-sys-typescale-label-medium-font)",
+                                fontSize: "var(--md-sys-typescale-label-large-size)",
+                                fontWeight: "var(--md-sys-typescale-label-medium-weight)",
+                                lineHeight: "var(--md-sys-typescale-label-large-line-height)",
+                                letterSpacing: "var(--md-sys-typescale-label-large-tracking)",
+                                color: "rgb(var(--md-sys-color-inverse-on-surface))",
+                                textAlign: "center",
+                                zIndex: 10,
+                                userSelect: "none",
+                                opacity: isDragging || isFocused ? 1 : 0,
+                                transition: "opacity 0.2s ease-in-out, transform 0.2s ease-in-out",
+                            }}
+                        >
+                            {value}
+                        </div>
+                    </div>
+
+                    {/* Inactive Track 🔴 */}
+                    <div
+                        style={{
+                            flex: 1,
+                            height: "16px",
+                            background: "rgb(var(--md-sys-color-secondary-container))",
+                            borderTopRightRadius: "16px",
+                            borderTopLeftRadius: "4px",
+                            borderBottomRightRadius: "16px",
+                            borderBottomLeftRadius: "4px",
+                            position: "relative",
+                            boxShadow: "var(--md-sys-elevation-level0)",
+                            cursor: isDragging ? "ew-resize" : "pointer",
+                            transition: isDragging ? "none" : "width 0.3s ease-out"
+                        }}
+                        onClick={handleMouseJump}
+                    >
+                        {/* End Indicator */}
+                        <div
+                            style={{
+                                width: "4px",
+                                height: "4px",
+                                background: "#65558F",
+                                position: "absolute",
+                                borderRadius: "100%",
+                                right: 4,
+                                top: "50%",
+                                transform: "translateY(-50%)",
+                                opacity: value == 100 ? 0 : 1,
+                            }}
+                        >
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
     );
 };
