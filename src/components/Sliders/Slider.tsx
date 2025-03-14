@@ -2,9 +2,10 @@
 // labeling ✅
 // leading icon ✅
 // add - + icons buttons on left and right of slider
-// recheck colors when focused | pressed
-// check if colors are properly displaying in light | dark mode
+// recheck colors when focused | pressed ✅
+// check if colors are properly displaying in light | dark mode ✅
 // declare props for above
+// disable prop ✅
 
 import React, { useState, useRef, useEffect } from "react";
 
@@ -12,6 +13,7 @@ interface SliderProps {
     onChange: (value: number) => void;
     leadingIcon?: string;
     label?: string;
+    disable?: boolean
 }
 
 export default function Slider(props: SliderProps) {
@@ -92,10 +94,14 @@ export default function Slider(props: SliderProps) {
         // Parent Container
         <div
             style={{
+                width: "100%",
                 display: "flex",
                 justifyContent: "start",
                 alignItems: "center",
-                gap: "12px"
+                gap: "12px",
+                userSelect: "none",
+                pointerEvents: props.disable ? "none" : "auto",
+                cursor : props.disable ? "not-allowed" : "default",
             }}
         >
 
@@ -106,9 +112,10 @@ export default function Slider(props: SliderProps) {
                     className="material-symbols-rounded"
                     style={{
                         transform: "translateY(-10px)",
-                        color: "#CCB6FF",
+                        color: props.disable ? "rgb(var(--md-sys-color-on-surface))" : "#CCB6FF",
+                        opacity: props.disable ? 0.38 : 1,
                     }}
-                >
+                    >
                     {props.leadingIcon}
                 </span>
             }
@@ -116,6 +123,7 @@ export default function Slider(props: SliderProps) {
             {/* Label + Slider */}
             <div
                 style={{
+                    width: "100%",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "start"
@@ -127,7 +135,10 @@ export default function Slider(props: SliderProps) {
                     <p
                         style={{
                             fontWeight: "500",
-                            color: "#CCB6FF",
+                            color: props.disable ? "rgb(var(--md-sys-color-on-surface))" : "rgb(var(--md-sys-color-primary))",
+                            opacity: props.disable ? 0.38 : 1,
+                            fontSize: "12px",
+                            letterSpacing: "0.5px"
                         }}
                     >
                         {props.label}
@@ -137,12 +148,12 @@ export default function Slider(props: SliderProps) {
                 {/* Slider */}
                 <div
                     style={{
-                        width: "400px",
+                        width: "100%",
                         height: "fit-content",
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        cursor: isDragging ? "ew-resize" : "default",
+                        cursor: props.disable ? "not-allowed" : isDragging ? "ew-resize" : "default",
                     }}
                     ref={containerRef}
                     onMouseUp={handleMouseUp}
@@ -154,14 +165,15 @@ export default function Slider(props: SliderProps) {
                         style={{
                             width: `${value}%`,
                             height: "16px",
-                            background: "#65558F",
+                            background: props.disable ? "rgb(var(--md-sys-color-on-surface))" : "rgb(var(--md-sys-color-primary))",
+                            opacity: props.disable ? 0.38 : 1,
                             borderTopLeftRadius: "16px",
                             borderTopRightRadius: "4px",
                             borderBottomLeftRadius: "16px",
                             borderBottomRightRadius: "4px",
                             position: "relative",
                             boxShadow: "var(--md-sys-elevation-level0)",
-                            cursor: isDragging ? "ew-resize" : "pointer",
+                            cursor: props.disable ? "not-allowed" : isDragging ? "ew-resize" : "pointer",
                             transition: isDragging ? "none" : "width 0.3s ease-out"
                         }}
                         onClick={handleMouseJump}
@@ -171,7 +183,7 @@ export default function Slider(props: SliderProps) {
                             style={{
                                 width: "4px",
                                 height: "4px",
-                                background: "#65558F",
+                                background:  props.disable ? "rgb(var(--md-sys-color-on-surface))" :  "#65558F",
                                 position: "absolute",
                                 borderRadius: "100%",
                                 left: 4,
@@ -189,12 +201,14 @@ export default function Slider(props: SliderProps) {
                         style={{
                             width: isDragging || isFocused ? "2px" : "4px",
                             height: "44px",
-                            background: "rgb(var(--md-sys-color-primary))",
+                            background: props.disable ? "rgb(var(--md-sys-color-on-surface))"  : "rgb(var(--md-sys-color-primary))",
+                            opacity: props.disable ? 0.38 : 1,
+                            outline: "rgb(var(--md-sys-color-on-primary))",
                             borderRadius: "2px",
-                            cursor: "ew-resize",
+                            cursor: props.disable ? "not-allowed" : "ew-resize",
                             position: "relative",
                             boxShadow: "var(--md-sys-elevation-level0)",
-                            zIndex: 10,
+                            zIndex: 5,
                             margin: "0px 6px",
                             transition: isDragging ? "none" : "width 0.3s ease-out"
                         }}
@@ -224,7 +238,6 @@ export default function Slider(props: SliderProps) {
                                 color: "rgb(var(--md-sys-color-inverse-on-surface))",
                                 textAlign: "center",
                                 zIndex: 10,
-                                userSelect: "none",
                                 opacity: isDragging || isFocused ? 1 : 0,
                                 transition: "opacity 0.2s ease-in-out, transform 0.2s ease-in-out",
                             }}
@@ -238,14 +251,15 @@ export default function Slider(props: SliderProps) {
                         style={{
                             flex: 1,
                             height: "16px",
-                            background: "rgb(var(--md-sys-color-secondary-container))",
+                            background: props.disable ? "rgb(var(--md-sys-color-on-surface))" : "rgb(var(--md-sys-color-secondary-container))",
+                            opacity: props.disable ? 0.12 : 1,
                             borderTopRightRadius: "16px",
                             borderTopLeftRadius: "4px",
                             borderBottomRightRadius: "16px",
                             borderBottomLeftRadius: "4px",
                             position: "relative",
                             boxShadow: "var(--md-sys-elevation-level0)",
-                            cursor: isDragging ? "ew-resize" : "pointer",
+                            cursor: props.disable ? "not-allowed" : isDragging ? "ew-resize" : "pointer",
                             transition: isDragging ? "none" : "width 0.3s ease-out"
                         }}
                         onClick={handleMouseJump}
@@ -255,13 +269,13 @@ export default function Slider(props: SliderProps) {
                             style={{
                                 width: "4px",
                                 height: "4px",
-                                background: "#65558F",
+                                background: props.disable ? "rgb(var(--md-sys-color-on-surface))" : "rgb(var(--md-sys-color-primary))",
                                 position: "absolute",
                                 borderRadius: "100%",
                                 right: 4,
                                 top: "50%",
                                 transform: "translateY(-50%)",
-                                opacity: value == 100 ? 0 : 1,
+                                opacity: props.disable ? 0.38 : value == 100 ? 0 : 1,
                             }}
                         >
                         </div>
