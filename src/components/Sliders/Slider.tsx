@@ -1,11 +1,14 @@
 // TODO: 
 // labeling ✅
 // leading icon ✅
-// add - + icons buttons on left and right of slider
 // recheck colors when focused | pressed ✅
 // check if colors are properly displaying in light | dark mode ✅
 // declare props for above
 // disable prop ✅
+// add - + icons buttons on left and right of slider
+// Variant : Discrete
+// Variant : Centered ( behind center -ve values exists and after center +ve exists)
+// Variant : Range Selection
 
 import React, { useState, useRef, useEffect } from "react";
 
